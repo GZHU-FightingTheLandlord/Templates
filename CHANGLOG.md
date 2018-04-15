@@ -1,6 +1,6 @@
 ## v0.1.1 / 2018-04-15
 
-* 新增最大流Dinic、isap
+* 新增最大流Dinic
 * 新增二分图最大匹配
 * 新增归并排序
 * 新增最小生成树Kruskal、Prim、Heap+Prim
