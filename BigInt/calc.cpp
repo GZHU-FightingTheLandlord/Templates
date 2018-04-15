@@ -98,6 +98,6 @@ int main()
 }
 
 /*
-    clang++ -std=c++11 test.cpp
+    clang++ -std=c++11 calc.cpp
     ./a.out
 */
