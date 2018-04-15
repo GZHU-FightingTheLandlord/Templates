@@ -6,3 +6,4 @@
 * 新增最小生成树Kruskal、Prim、Heap+Prim
 * 数论相关Beta2.0：新增矩阵定义及乘法重载
 * 最短路Beta2.0：删去某无用变量，调整排版
+* 增加Graph、NumberTheory、Sorting分类
