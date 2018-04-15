@@ -13,6 +13,7 @@ balabaladilili
 * 新增nth_element相关
 * 修改了部分时间复杂度表示
 * 新增快速排序相关
+* 新增BigInt分类，未开发~
 
 ## v0.1.1 / 2018-04-15
 
