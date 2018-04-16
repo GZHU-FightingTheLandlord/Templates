@@ -11,8 +11,8 @@ balabaladilili
 # Change Log
 
 ## v0.0.2.5 / 2018-04-16
-* 增加DivideAndConquer分类, 调整原rujing
-eferences内文件路径
+* 增加DivideAndConquer分类
+* 调整原references内文件路径
 
 ## v0.0.2.4 / 2018-04-16
 * 修正fibnacci公式bug
