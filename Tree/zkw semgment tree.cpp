@@ -15,6 +15,7 @@ public:
 		while(_len>=t)t*=2;
 		len=t;
 		data=new int64 [len*2+5];
+		//if(data==NULL)throw runtime_error("Memory Limit Exceeded or some other error.");
 	}
 	void update(int64 i,int64 x)
 	{
@@ -37,4 +38,5 @@ private:
 #endif // USE_ZKWTREE
 /** This code is not to be used yet.
 	Welcome to hack it. **/
+
 
