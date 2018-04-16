@@ -52,8 +52,7 @@ ll solve(ll n, ll m)
 		return 16 % m;
 	if (n == 3)
 		return 65536 % m;
-    //return fpow(2, solve(n - 1, eu) + eu, m);
-    ll eu = eular(m);
+   	ll eu = eular(m);
 	return fpow(2, solve(n - 1, eu) + eu, m);
 }
 
