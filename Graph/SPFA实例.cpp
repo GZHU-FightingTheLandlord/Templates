@@ -1,6 +1,6 @@
 /*
     Author: SemonChan
-    Time: 2018-04-17 00:06
+    Time: 2018-04-17 00:15
     Problem: HDU-1874
     Solution Source: https://cn.vjudge.net/solution/13521322
 */
