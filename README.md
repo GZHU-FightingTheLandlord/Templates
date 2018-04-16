@@ -10,6 +10,9 @@ balabaladilili
 
 # Change Log
 
+## v0.0.2.9 / 2018-04-16
+* 新增Eular降幂公式应用实例1、2
+
 ## v0.0.2.8 / 2018-04-16
 * 新增accelerateIO分类
 
