@@ -10,6 +10,9 @@ balabaladilili
 
 # Change Log
 
+## v0.0.2.4 / 2018-04-16
+* 修正fibnacci公式bug
+
 ## v0.0.2.3 / 2018-04-16
 * 新增fibnacci矩阵求法
 
