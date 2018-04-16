@@ -13,6 +13,7 @@ balabaladilili
 ## v0.0.2.6 / 2018-04-16
 * 修正矩阵乘法运算符重载bug
 * 修正fibnacci函数bug
+* 新增并查集相关
 
 ## v0.0.2.5 / 2018-04-16
 * 增加DivideAndConquer分类
