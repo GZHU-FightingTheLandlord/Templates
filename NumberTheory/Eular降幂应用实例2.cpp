@@ -45,7 +45,7 @@ ll solve(ll m)
 {
 	if (m == 1)
 		return 0;
-  ll eu = eular(m);
+	ll eu = eular(m);
 	return fpow(2, solve(eu) + eu, m);
 }
 
