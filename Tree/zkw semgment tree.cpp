@@ -13,8 +13,9 @@ public:
 	{
 		int t=1;
 		while(_len>=t)t*=2;
-		len=t;
+		len=t*2;
 		data=new int64 [len*2+5];
+		data[0]=0;
 		//if(data==NULL)throw std::runtime_error("Memory Limit Exceeded or some other error.");
 	}
 	void update(int64 i,int64 x)
