@@ -10,6 +10,10 @@ balabaladilili
 
 # Change Log
 
+## v0.0.2.7 / 2018-04-17
+* 新增DataStructure分类
+* 新增Tire相关
+
 ## v0.0.2.6 / 2018-04-16
 * 修正矩阵乘法运算符重载bug
 * 修正fibnacci函数bug
