@@ -35,6 +35,6 @@ private:
 	int64 *data;
 };
 #endif // USE_ZKWTREE
-/** This code is not used yet.
+/** This code is not to be used yet.
 	Welcome to hack it. **/
 
