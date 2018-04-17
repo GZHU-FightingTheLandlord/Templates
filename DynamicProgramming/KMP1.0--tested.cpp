@@ -7,6 +7,7 @@
  * setvalue() -- 参数：模式串+文本串 返回值: void
  * find_substring() -- 参数: void 返回值: 所有匹配点的首字符下标
  *
+ * P.S. 直接使用cin cout时, 流加速防止tle
  */
 
 class Kmp
