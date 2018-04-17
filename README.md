@@ -10,6 +10,11 @@ balabaladilili
 
 # Change Log
 
+## v0.0.3.3 / 2018-04-17
+* 增加DynamicProgramming分类
+* 新增kmp相关
+* 新增kmp应用实例(已测试)
+
 ## v0.0.3.2 / 2018-04-17
 * Graph、NumberTheory下新增code子分类
 * 新增图论应用实例代码
