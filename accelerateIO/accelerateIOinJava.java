@@ -17,7 +17,6 @@ public class Main {
         	try
         	{
         		
-        		
         	}
         	catch(RuntimeException e)
         	{
@@ -26,13 +25,7 @@ public class Main {
         }
 
     }
-    
-	private static int max(int x,int y)
-    {
-    	if(x>y)return x;
-    	return y;
-    }
-    
+
     static class InputReader {
         public BufferedReader reader;
         public StringTokenizer tokenizer;
