@@ -12,6 +12,7 @@ balabaladilili
 
 ## v0.0.3.5 / 2018-04-18
 * 修改了ClassUnion_Find.cpp的注释
+* 删除了某些accelerateIOinJava.java中不必要的内容
 
 ## v0.0.3.4 / 2018-04-18
 * 新增Graph相关类模板code
