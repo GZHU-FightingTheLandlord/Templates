@@ -10,6 +10,9 @@ balabaladilili
 
 # Change Log
 
+## v0.0.3.7 / 2018-04-18
+* 新增二分查找code实现（待优化），分治法求最小点对距离code
+
 ## v0.0.3.6 / 2018-04-18
 * 更新了accelerateIOinJava.java的内容
 
