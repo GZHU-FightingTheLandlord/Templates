@@ -10,6 +10,9 @@ balabaladilili
 
 # Change Log
 
+## v0.0.3.6 / 2018-04-18
+* 更新了accelerateIOinJava.java的内容
+
 ## v0.0.3.5 / 2018-04-18
 * 修改了ClassUnion_Find.cpp的注释
 * 删除了某些accelerateIOinJava.java中不必要的内容
