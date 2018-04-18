@@ -13,6 +13,7 @@ balabaladilili
 ## v0.0.3.4 / 2018-04-18
 * 新增Graph相关类模板code
 * 新增Tire类模板code
+* 新增费马小定理求逆元公式
 
 ## v0.0.3.3 / 2018-04-17
 * 增加DynamicProgramming分类
