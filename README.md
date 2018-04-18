@@ -11,7 +11,7 @@ balabaladilili
 # Change Log
 
 ## v0.0.3.8 / 2018-04-18
-* 新增Miller-Rabin素数判定算法实例(待对拍测试)
+* 新增Miller-Rabin素数判定算法实例(待对拍数据)
 
 ## v0.0.3.7 / 2018-04-18
 * 新增二分查找code实现（待优化），分治法求最小点对距离code
