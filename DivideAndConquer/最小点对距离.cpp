@@ -56,12 +56,20 @@ double solve(int a, int b)
     return d;
 }
 
+bool cmp(const node a, const node b)
+{
+    return a.x < b.x;
+}
+
 int main()
 {
     int n;
     scanf("%d", &n);
     for (int i = 1; i <= n; i++)
         scanf("%lf%lf", &v[i].x, &v[i].y);
+    
+    /* 按横坐标从小到大排序   */
+    sort(v + 1, v + 1 + n, cmp);
     printf("%.2f\n", solve(1, n));
     return 0;
 }
