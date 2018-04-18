@@ -31,9 +31,10 @@ private:
 	int len;
 };
 
-/** 建一个长度为len的并查集： union(len);
+/** 建一个长度为len的并查集： union_find(len);
  *  搜索n在哪个集合内： object.find(n);
  *  合并n和m所在的集合： object.find(n,m);
+ *  opn存储了合并了多少个集合（并非运行了多少次merge(int,int)函数）
  * */
 
 
