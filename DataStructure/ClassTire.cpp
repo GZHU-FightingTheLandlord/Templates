@@ -5,7 +5,7 @@ using namespace std;
 
 class Tire{
 public:
-	void init(int k_ = 0) // 初始化， k_为预估需求空间
+	void init(int k_ = 1) // 初始化， k_为预估需求空间
 	{
 		cnt = 0;
 		v.resize(k_);
