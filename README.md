@@ -11,6 +11,10 @@ balabaladilili
 # Change Log
 
 ## v0.0.4.5 / 2018-04-19
+* merge lightyears大佬的pull request
+* 添加升级版kmp(特别鸣谢lightyears大佬)
+
+## v0.0.4.5 / 2018-04-19
 * 新增NumberTheory的实现代码（待补充）
 
 ## v0.0.4.4 / 2018-04-19
