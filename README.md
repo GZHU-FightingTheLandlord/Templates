@@ -10,6 +10,9 @@ balabaladilili
 
 # Change Log
 
+## v0.0.4.6 / 2018-04-19
+* 拓扑排序简析已上线
+
 ## v0.0.4.5 / 2018-04-19
 * merge lightyears大佬的pull request
 * 添加升级版kmp(特别鸣谢lightyears大佬)
