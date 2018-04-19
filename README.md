@@ -10,6 +10,9 @@ balabaladilili
 
 # Change Log
 
+## v0.0.4.1 / 2018-04-19
+* 新增母函数GeneratingFunction封装(待更新实例)
+
 ## v0.0.3.8 / 2018-04-18
 * 新增Miller_Rabbin素数判定算法实例1(待对拍数据)
 * 新增Miller_Rabbin素数判定算法实例2(已对拍32位无符号整数)
