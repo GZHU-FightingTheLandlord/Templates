@@ -10,6 +10,9 @@ balabaladilili
 
 # Change Log
 
+## v0.0.4.2 / 2018-04-19
+* 进行母函数类测试, 更新实例和模板
+
 ## v0.0.4.1 / 2018-04-19
 * 新增母函数GeneratingFunction封装(待更新实例)
 
