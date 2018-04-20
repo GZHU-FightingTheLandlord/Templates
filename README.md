@@ -64,7 +64,7 @@ balabaladilili
 
 ## v0.0.3.2 / 2018-04-17
 * Graph、NumberTheory下新增code子分类
-* 新增图论应用实例代码
+* 新增[图论应用实例代码](https://github.com/GZHU-FightingTheLandlord/Templates/tree/master/Graph/code)
 * 调整Eular降幂应用实例位置
 
 ## v0.0.3.1 / 2018-04-16
@@ -103,21 +103,21 @@ balabaladilili
 * 增加[References分类](https://github.com/GZHU-FightingTheLandlord/Templates/tree/master/References)
 
 ## v0.0.2.1 / 2018-04-16
-* 新增无符号大整数加法源码 calc.cpp 
+* 新增无符号大整数加法源码[calc.cpp](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/BigInt/calc.cpp) 
 
 ## v0.0.1.2 / 2018-04-15
 
-* 新增nth_element相关
+* 新增[nth_element相关](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/Sorting/nth_element.docx)
 * 修改了部分时间复杂度表示
-* 新增快速排序相关
-* 新增BigInt分类，未开发~
+* 新增[快速排序相关](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/Sorting/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F.docx)
+* 新增[BigInt分类](https://github.com/GZHU-FightingTheLandlord/Templates/tree/master/BigInt)，未开发~
 
 ## v0.0.1.1 / 2018-04-15
 
-* 新增最大流Dinic
-* 新增二分图最大匹配
-* 新增归并排序
-* 新增最小生成树相关
-* 数论相关Beta2.0：新增矩阵定义及乘法重载
-* 最短路Beta2.0：删去某无用变量，调整排版
+* 新增[最大流Dinic](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/Graph/%E6%9C%80%E5%A4%A7%E6%B5%81Dinic_Beta1.0.docx)
+* 新增[二分图最大匹配](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/Graph/%E4%BA%8C%E5%88%86%E5%9B%BEBeta1.0.docx)
+* 新增[归并排序](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/Sorting/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F.docx)
+* 新增[最小生成树相关](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/Graph/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91Beta1.0.docx)
+* [数论相关Beta2.0](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/NumberTheory/%E6%95%B0%E8%AE%BA%E7%9B%B8%E5%85%B3Beta3.5.docx)：新增矩阵定义及乘法重载
+* [最短路Beta2.0](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/Graph/%E6%9C%80%E7%9F%AD%E8%B7%AFbeta2.0.docx)：删去某无用变量，调整排版
 * 增加[Graph](https://github.com/GZHU-FightingTheLandlord/Templates/tree/master/Graph)、[NumberTheory](https://github.com/GZHU-FightingTheLandlord/Templates/tree/master/NumberTheory)、[Sorting](https://github.com/GZHU-FightingTheLandlord/Templates/tree/master/Sorting)分类
