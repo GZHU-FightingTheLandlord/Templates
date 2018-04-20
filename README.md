@@ -10,21 +10,22 @@ balabaladilili
 
 # Change Log
 ## v0.0.5.1 / 2018-04-20
-* 更新数论常用定理
-* 更新NumberTheory.cpp代码, 增加快速乘
+* 更新[数论常用定理](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/NumberTheory/%E6%95%B0%E8%AE%BA%E5%B8%B8%E7%94%A8%E5%AE%9A%E7%90%86(ing).md)
+* 更新[NumberTheory.cpp](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/NumberTheory/NumberTheory.cpp)代码, 增加快速乘
+* 增加超链接
 
 ## v0.0.4.6 / 2018-04-19
 * 拓扑排序简析已上线
 
 ## v0.0.4.5 / 2018-04-19
 * merge lightyears大佬的pull request
-* 添加升级版kmp(特别鸣谢lightyears大佬)
+* 添加[升级版kmp](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/DynamicProgramming/KMP2.0.cpp)(特别鸣谢lightyears大佬)
 
 ## v0.0.4.5 / 2018-04-19
-* 新增NumberTheory的实现代码（待补充）
+* 新增[NumberTheory的实现代码](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/NumberTheory/NumberTheory.cpp)（待补充）
 
 ## v0.0.4.4 / 2018-04-19
-* 新增数论常用定理, 具体待补充
+* 新增[数论常用定理](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/NumberTheory/%E6%95%B0%E8%AE%BA%E5%B8%B8%E7%94%A8%E5%AE%9A%E7%90%86(ing).md), 具体待补充
 
 ## v0.0.4.3 / 2018-04-19
 * 新增拓扑排序样例code
@@ -33,11 +34,11 @@ balabaladilili
 * 进行母函数模板数据测试, 更新实例和模板
 
 ## v0.0.4.1 / 2018-04-19
-* 新增母函数GeneratingFunction封装(待更新实例)
+* 新增[母函数GeneratingFunction封装](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/NumberTheory/code/%E6%AF%8D%E5%87%BD%E6%95%B0%E7%B1%BB%E5%B0%81%E8%A3%85(%E5%B7%B2%E6%B5%8B%E8%AF%95).cpp)(待更新实例)
 
 ## v0.0.3.8 / 2018-04-18
-* 新增Miller_Rabbin素数判定算法实例1(待对拍数据)
-* 新增Miller_Rabbin素数判定算法实例2(已对拍32位无符号整数)
+* 新增[Miller_Rabbin素数判定算法实例1](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/NumberTheory/code/Miller_Rabbin%E7%B4%A0%E6%95%B0%E5%88%A4%E5%AE%9A%E6%B5%8B%E8%AF%95%E5%AE%9E%E4%BE%8B1(%E5%BE%85%E6%AF%94%E5%AF%B9).cpp)(待对拍数据)
+* 新增[Miller_Rabbin素数判定算法实例2](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/NumberTheory/code/Miller_Rabbin%E7%B4%A0%E6%95%B0%E5%88%A4%E5%AE%9A%E6%B5%8B%E8%AF%95%E5%AE%9E%E4%BE%8B2(%E5%B7%B2%E6%AF%94%E5%AF%B932%E4%BD%8D%E6%97%A0%E7%AC%A6%E5%8F%B7%E6%95%B4%E6%95%B0))(已对拍32位无符号整数)
 
 ## v0.0.3.7 / 2018-04-18
 * 新增二分查找code实现（待优化），分治法求最小点对距离code
