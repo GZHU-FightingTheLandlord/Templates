@@ -11,7 +11,7 @@ balabaladilili
 # Change Log
 ## v0.0.5.1 / 2018-04-20
 * 更新[数论常用定理](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/NumberTheory/%E6%95%B0%E8%AE%BA%E5%B8%B8%E7%94%A8%E5%AE%9A%E7%90%86(ing).md)
-* 更新[NumberTheory.cpp](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/NumberTheory/NumberTheory.cpp)代码, 增加快速乘
+* 更新[NumberTheory.cpp](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/NumberTheory/code/NumberTheory.cpp)代码, 增加快速乘
 * 增加超链接
 * 增加[ComputionalGeomatry分类](https://github.com/GZHU-FightingTheLandlord/Templates/tree/master/ComputationalGeomatry)
 * 调整[计算几何.doc](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/ComputationalGeomatry/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95.doc)路径
