@@ -9,6 +9,9 @@ balabaladilili
 
 
 # Change Log
+## v0.0.5.1 / 2018-04-20
+* 更新数论常用定理
+* 更新NumberTheory.cpp代码, 增加快速乘
 
 ## v0.0.4.6 / 2018-04-19
 * 拓扑排序简析已上线
