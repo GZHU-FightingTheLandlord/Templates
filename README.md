@@ -120,4 +120,4 @@ balabaladilili
 * 新增最小生成树相关
 * 数论相关Beta2.0：新增矩阵定义及乘法重载
 * 最短路Beta2.0：删去某无用变量，调整排版
-* 增加[Graph](https://github.com/GZHU-FightingTheLandlord/Templates/tree/master/Graph)、[NumberTheory](https://github.com/GZHU-FightingTheLandlord/Templates/tree/master/NumberTheory)、[Sorting]（https://github.com/GZHU-FightingTheLandlord/Templates/tree/master/Sorting）分类
+* 增加[Graph](https://github.com/GZHU-FightingTheLandlord/Templates/tree/master/Graph)、[NumberTheory](https://github.com/GZHU-FightingTheLandlord/Templates/tree/master/NumberTheory)、[Sorting](https://github.com/GZHU-FightingTheLandlord/Templates/tree/master/Sorting)分类
