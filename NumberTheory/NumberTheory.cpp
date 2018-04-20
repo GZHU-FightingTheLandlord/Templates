@@ -81,6 +81,21 @@ namespace NumberTheory
 		a[0]=a[1]=false;
 		for(int i=2;i<len;i++)if(!a[i])for(int j=i+i;j<len;j+=i)a[j]=true;
 	}
+	
+	const LL MOD = 1e9 + 7;
+	LL fun(LL a, LL b)
+	{
+		LL sum = 0;
+		LL k = 1;
+		while(b)
+		{
+			if(b&1)
+				sum = (sum + a * k) % MOD;
+			k = (k * 2) % MOD;
+			b >>= 1;
+		}
+		return sum;
+	}
 
 	//it will be updated
 }
