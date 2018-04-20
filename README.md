@@ -17,7 +17,7 @@ balabaladilili
 * 调整[计算几何.doc](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/ComputationalGeomatry/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95.doc)路径
 
 ## v0.0.4.6 / 2018-04-19
-* 拓扑排序简析已上线
+* [拓扑排序简析](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/Graph/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F.docx)已上线
 
 ## v0.0.4.5 / 2018-04-19
 * merge lightyears大佬的pull request
@@ -30,7 +30,7 @@ balabaladilili
 * 新增[数论常用定理](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/NumberTheory/%E6%95%B0%E8%AE%BA%E5%B8%B8%E7%94%A8%E5%AE%9A%E7%90%86(ing).md), 具体待补充
 
 ## v0.0.4.3 / 2018-04-19
-* 新增拓扑排序样例code
+* 新增[拓扑排序样例code](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/Graph/code/TopologicalSort.cpp)
 
 ## v0.0.4.2 / 2018-04-19
 * 进行母函数模板数据测试, 更新实例和模板
@@ -43,18 +43,18 @@ balabaladilili
 * 新增[Miller_Rabbin素数判定算法实例2](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/NumberTheory/code/Miller_Rabbin%E7%B4%A0%E6%95%B0%E5%88%A4%E5%AE%9A%E6%B5%8B%E8%AF%95%E5%AE%9E%E4%BE%8B2(%E5%B7%B2%E6%AF%94%E5%AF%B932%E4%BD%8D%E6%97%A0%E7%AC%A6%E5%8F%B7%E6%95%B4%E6%95%B0))(已对拍32位无符号整数)
 
 ## v0.0.3.7 / 2018-04-18
-* 新增二分查找code实现（待优化），分治法求最小点对距离code
+* 新增[二分查找code实现](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/DivideAndConquer/BinarySearchBeta1.0.cpp)（待优化），分治法求[最小点对距离code](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/DivideAndConquer/%E6%9C%80%E5%B0%8F%E7%82%B9%E5%AF%B9%E8%B7%9D%E7%A6%BB.cpp)
 
 ## v0.0.3.6 / 2018-04-18
-* 更新了accelerateIOinJava.java的内容
+* 更新了[accelerateIOinJava.java](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/accelerateIO/accelerateIOinJava.java)的内容
 
 ## v0.0.3.5 / 2018-04-18
-* 修改了ClassUnion_Find.cpp的注释
-* 删除了某些accelerateIOinJava.java中不必要的内容
+* 修改了[ClassUnion_Find.cpp](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/Graph/code/ClassUnion_Find.cpp)的注释
+* 删除了某些[accelerateIOinJava.java](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/accelerateIO/accelerateIOinJava.java)中不必要的内容
 
 ## v0.0.3.4 / 2018-04-18
-* 新增Graph相关类模板code
-* 新增Tire类模板code
+* 新增[Graph相关类模板code](https://github.com/GZHU-FightingTheLandlord/Templates/tree/master/Graph/code)
+* 新增[Tire类模板code]
 * 新增费马小定理求逆元公式
 
 ## v0.0.3.3 / 2018-04-17
@@ -68,26 +68,26 @@ balabaladilili
 * 调整Eular降幂应用实例位置
 
 ## v0.0.3.1 / 2018-04-16
-* 新增zkw线段树类
+* 新增[zkw线段树类](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/DataStructure/zkw%20semgment%20tree.cpp)
 * 将并查集封装成类
 
 ## v0.0.2.9 / 2018-04-16
-* 新增Eular降幂公式应用实例1、2
+* 新增[Eular降幂公式应用实例1](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/NumberTheory/code/Eular%E9%99%8D%E5%B9%82%E5%BA%94%E7%94%A8%E5%AE%9E%E4%BE%8B1.cpp)、[2](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/NumberTheory/code/Eular%E9%99%8D%E5%B9%82%E5%BA%94%E7%94%A8%E5%AE%9E%E4%BE%8B2.cpp)
 
 ## v0.0.2.8 / 2018-04-16
-* 新增accelerateIO分类
+* 新增[accelerateIO分类](https://github.com/GZHU-FightingTheLandlord/Templates/tree/master/accelerateIO)
 
 ## v0.0.2.7 / 2018-04-16
-* 新增DataStructure分类
+* 新增[DataStructure分类](https://github.com/GZHU-FightingTheLandlord/Templates/tree/master/DataStructure)
 * 新增Tire相关
 
 ## v0.0.2.6 / 2018-04-16
 * 修正矩阵乘法运算符重载bug
 * 修正fibnacci函数bug
-* 新增并查集相关
+* 新增[并查集相关](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/Graph/%E5%B9%B6%E6%9F%A5%E9%9B%86Beta1.0.docx)
 
 ## v0.0.2.5 / 2018-04-16
-* 增加DivideAndConquer分类
+* 增加[DivideAndConquer分类](https://github.com/GZHU-FightingTheLandlord/Templates/tree/master/DivideAndConquer)
 * 调整原references内文件路径
 
 ## v0.0.2.4 / 2018-04-16
