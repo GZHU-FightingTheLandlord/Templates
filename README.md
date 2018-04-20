@@ -9,6 +9,9 @@ balabaladilili
 
 
 # Change Log
+## v0.0.5.3 / 2018-04-20
+* [合并欧拉函数线性筛与线性素数筛](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/NumberTheory/code/Eular%E5%87%BD%E6%95%B0%E7%BA%BF%E6%80%A7%E7%AD%9B.cpp)
+
 ## v0.0.5.2 / 2018-04-20
 * 增加[欧拉函数线性筛](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/NumberTheory/code/Eular%E5%87%BD%E6%95%B0%E7%BA%BF%E6%80%A7%E7%AD%9B.cpp)
 
