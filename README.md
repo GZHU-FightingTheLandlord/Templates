@@ -24,7 +24,7 @@ balabaladilili
 * 添加[升级版kmp](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/DynamicProgramming/KMP2.0.cpp)(特别鸣谢lightyears大佬)
 
 ## v0.0.4.5 / 2018-04-19
-* 新增[NumberTheory的实现代码](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/NumberTheory/NumberTheory.cpp)（待补充）
+* 新增[NumberTheory的实现代码](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/NumberTheory/code/NumberTheory.cpp)（待补充）
 
 ## v0.0.4.4 / 2018-04-19
 * 新增[数论常用定理](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/NumberTheory/%E6%95%B0%E8%AE%BA%E5%B8%B8%E7%94%A8%E5%AE%9A%E7%90%86(ing).md), 具体待补充
