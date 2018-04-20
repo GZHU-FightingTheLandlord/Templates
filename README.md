@@ -13,6 +13,8 @@ balabaladilili
 * 更新[数论常用定理](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/NumberTheory/%E6%95%B0%E8%AE%BA%E5%B8%B8%E7%94%A8%E5%AE%9A%E7%90%86(ing).md)
 * 更新[NumberTheory.cpp](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/NumberTheory/NumberTheory.cpp)代码, 增加快速乘
 * 增加超链接
+* 增加[ComputionalGeomatry分类](https://github.com/GZHU-FightingTheLandlord/Templates/tree/master/ComputationalGeomatry)
+* 调整[计算几何.doc](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/ComputationalGeomatry/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95.doc)路径
 
 ## v0.0.4.6 / 2018-04-19
 * 拓扑排序简析已上线
@@ -56,9 +58,9 @@ balabaladilili
 * 新增费马小定理求逆元公式
 
 ## v0.0.3.3 / 2018-04-17
-* 增加DynamicProgramming分类
+* 增加[DynamicProgramming](https://github.com/GZHU-FightingTheLandlord/Templates/tree/master/DynamicProgramming)分类
 * 新增kmp相关
-* 新增kmp应用实例(已测试)
+* 新增[kmp code](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/DynamicProgramming/KMP1.0--tested.cpp)(已测试)
 
 ## v0.0.3.2 / 2018-04-17
 * Graph、NumberTheory下新增code子分类
@@ -95,8 +97,8 @@ balabaladilili
 * 新增fibnacci矩阵求法
 
 ## v0.0.2.2 / 2018-04-16
-* 新增计算几何、FFT模板（未整理）
-* 新增后缀数组、背包九讲相关参考资料
+* 新增[计算几何](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/ComputationalGeomatry/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95.doc)、[FFT模板](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/DivideAndConquer/FFT.docx)
+* 新增[后缀数组](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/References/%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%84.pdf)、背包九讲相关参考资料
 * 新增粒粒吉模板作为参考
 * 增加References分类
 
