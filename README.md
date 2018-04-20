@@ -98,9 +98,9 @@ balabaladilili
 
 ## v0.0.2.2 / 2018-04-16
 * 新增[计算几何](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/ComputationalGeomatry/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95.doc)、[FFT模板](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/DivideAndConquer/FFT.docx)
-* 新增[后缀数组](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/References/%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%84.pdf)、背包九讲相关参考资料
-* 新增粒粒吉模板作为参考
-* 增加References分类
+* 新增[后缀数组](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/References/%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%84.pdf)、[背包九讲](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/References/%E8%83%8C%E5%8C%85%E4%B9%9D%E8%AE%B2V2.pdf)相关参考资料
+* 新增[粒粒吉模板](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/References/%E5%8F%82%E8%80%83%E6%A8%A1%E6%9D%BF%E9%9B%86(FROM%20%E7%B2%92%E7%B2%92%E5%90%89).docx)作为参考
+* 增加[References分类](https://github.com/GZHU-FightingTheLandlord/Templates/tree/master/References)
 
 ## v0.0.2.1 / 2018-04-16
 * 新增无符号大整数加法源码 calc.cpp 
@@ -120,4 +120,4 @@ balabaladilili
 * 新增最小生成树相关
 * 数论相关Beta2.0：新增矩阵定义及乘法重载
 * 最短路Beta2.0：删去某无用变量，调整排版
-* 增加Graph、NumberTheory、Sorting分类
+* 增加[Graph](https://github.com/GZHU-FightingTheLandlord/Templates/tree/master/Graph)、[NumberTheory](https://github.com/GZHU-FightingTheLandlord/Templates/tree/master/NumberTheory)、[Sorting]（https://github.com/GZHU-FightingTheLandlord/Templates/tree/master/Sorting）分类
