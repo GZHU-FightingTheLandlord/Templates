@@ -1,5 +1,3 @@
-#include<bits/stdc++.h>
-using namespace std;
 namespace NumberTheory
 {
 	typedef long long ll;
@@ -25,8 +23,8 @@ namespace NumberTheory
 		ex_gcd_fun(a,b,___inv,___t);
 		return ___inv;
 	}
-	//ex_gcd(a,b) ÇóµÄÊÇaÔÚÄ£bÏÂµÄÄæÔª
-	//×¢Òâ£º ÄæÔªÓĞ¿ÉÄÜÎª¸ºÊı
+	//ex_gcd(a,b) æ±‚çš„æ˜¯aåœ¨æ¨¡bä¸‹çš„é€†å…ƒ
+	//æ³¨æ„ï¼š é€†å…ƒæœ‰å¯èƒ½ä¸ºè´Ÿæ•°
 
 	ll eular(ll x)
 	{
@@ -118,8 +116,4 @@ namespace NumberTheory
 
 	//it will be updated
 }
-int main()
-{
-	using namespace NumberTheory;
 
-}
