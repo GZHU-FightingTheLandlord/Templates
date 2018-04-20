@@ -9,6 +9,9 @@ balabaladilili
 
 
 # Change Log
+## v0.0.5.2 / 2018-04-20
+* 增加[欧拉函数线性筛](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/NumberTheory/code/Eular%E5%87%BD%E6%95%B0%E7%BA%BF%E6%80%A7%E7%AD%9B.cpp)
+
 ## v0.0.5.1 / 2018-04-20
 * 更新[数论常用定理](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/NumberTheory/%E6%95%B0%E8%AE%BA%E5%B8%B8%E7%94%A8%E5%AE%9A%E7%90%86(ing).md)
 * 更新[NumberTheory.cpp](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/NumberTheory/code/NumberTheory.cpp)代码, 增加快速乘
