@@ -9,6 +9,10 @@ balabaladilili
 
 
 # Change Log
+## v0.0.6.1 / 2018-04-21
+* 新增[杨辉三角打印组合数code实例](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/NumberTheory/code/%E6%9D%A8%E8%BE%89%E4%B8%89%E8%A7%92%E6%89%93%E5%8D%B0%E7%BB%84%E5%90%88%E6%95%B0%E5%AE%9E%E4%BE%8B.cpp)
+* 更新[数论常用定理](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/NumberTheory/%E6%95%B0%E8%AE%BA%E5%B8%B8%E7%94%A8%E5%AE%9A%E7%90%86(ing).md)
+
 ## v0.0.5.3 / 2018-04-20
 * [合并欧拉函数线性筛与线性素数筛](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/NumberTheory/code/Eular%E5%87%BD%E6%95%B0%E7%BA%BF%E6%80%A7%E7%AD%9B.cpp)
 
