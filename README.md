@@ -1,3 +1,4 @@
+
 # Templates
 
 balabaladilili
@@ -9,6 +10,9 @@ balabaladilili
 
 
 # Change Log
+
+## v0.0.6.3 / 2018-04-21
+* 费马小定理求逆元 已加入[数论常用定理.md](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/NumberTheory/%E6%95%B0%E8%AE%BA%E5%B8%B8%E7%94%A8%E5%AE%9A%E7%90%86(ing).md)
 
 ## v0.0.6.2 / 2018-04-21
 * [ClassRMQST](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/DataStructure/ClassRMQST.cpp)已上线
