@@ -11,8 +11,9 @@
 
 struct GetEuler
 {
-	int prime[200000+5], euler[200000+5];
-	bool isprime[200000+5];
+	static const int MAX = 2e5 + 5;
+	int prime[MAX], euler[MAX];
+	bool isprime[MAX];
 	int tot;
 
 	void init(void)
