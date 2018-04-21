@@ -90,7 +90,7 @@ balabaladilili
 * 将并查集封装成类
 
 ## v0.0.2.9 / 2018-04-16
-* 新增[Eular降幂公式应用实例1](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/NumberTheory/code/Eular%E9%99%8D%E5%B9%82%E5%BA%94%E7%94%A8%E5%AE%9E%E4%BE%8B1.cpp)、[2](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/NumberTheory/code/Eular%E9%99%8D%E5%B9%82%E5%BA%94%E7%94%A8%E5%AE%9E%E4%BE%8B2.cpp)
+* 新增[Eular降幂公式应用实例1](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/NumberTheory/code/Eular%E9%99%8D%E5%B9%82%E5%BA%94%E7%94%A8%E5%AE%9E%E4%BE%8B1.cpp)、[2](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/NumberTheory/code/Miller_Rabbin%E7%B4%A0%E6%95%B0%E5%88%A4%E5%AE%9A%E6%B5%8B%E8%AF%95%E5%AE%9E%E4%BE%8B2(%E5%B7%B2%E6%AF%94%E5%AF%B932%E4%BD%8D%E6%97%A0%E7%AC%A6%E5%8F%B7%E6%95%B4%E6%95%B0).cpp)
 
 ## v0.0.2.8 / 2018-04-16
 * 新增[accelerateIO分类](https://github.com/GZHU-FightingTheLandlord/Templates/tree/master/accelerateIO)
