@@ -1,26 +1,39 @@
 /*
- * solve(n): 打表1~n内的欧拉函数, 输出到ans[]内
+ * 打表1~n内的欧拉函数和素数, 输出到Object.euler[], Object.prime[]内
  *
+ * 参数: n
+ * 
  * Time Complexity: O(n)
  *
- * P.S. 增加MAX值时可能爆栈, 手动加栈, 如下
- *
- * #pragma comment(linker, "/STACK:1024000000,1024000000")
- *
  */
+
+#include <bits/stdc++.h>
+
+using namespace std;
 
 
 struct GetEuler
 {
-	int prime[200000+5], euler[200000+5];
-	bool isprime[200000+5];
+	int *prime, *euler;
+	bool *isprime;
 	int tot;
+	int len;
+
+	GetEuler(int _len)
+	{
+		const int __len = _len * 2;
+		len = _len * 2;
+		prime = new int [__len];
+		euler = new int [__len];
+		isprime = new bool [__len];
+		solve();
+	}
 
 	void init(void)
 	{
-		memset(isprime, true, sizeof(isprime));
-		memset(prime, 0, sizeof(prime));
-		memset(euler, 0, sizeof(euler));
+		memset(isprime, true, sizeof(bool) * len);
+		memset(prime, 0, sizeof(int) * len);
+		memset(euler, 0, sizeof(int) * len);
 		tot = 0;
 	}
 
@@ -40,9 +53,11 @@ struct GetEuler
 		}
 	}
 
-	void solve(int n)
+	void solve()
 	{
 		init();
+
+		int n = len;
 
 		getprime(2 * n);
 
