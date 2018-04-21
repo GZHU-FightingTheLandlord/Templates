@@ -1,5 +1,5 @@
 /*
- * solve(n): 打表1~n内的欧拉函数和素数, 输出到euler[]和prime[]内
+ * solve(n): 打表1~n内的欧拉函数, 输出到ans[]内
  *
  * Time Complexity: O(n)
  *
@@ -9,11 +9,11 @@
  *
  */
 
+
 struct GetEuler
 {
-	static const int MAX = 2e5 + 5;
-	int prime[MAX], euler[MAX];
-	bool isprime[MAX];
+	int prime[200000+5], euler[200000+5];
+	bool isprime[200000+5];
 	int tot;
 
 	void init(void)
@@ -22,29 +22,47 @@ struct GetEuler
 		memset(prime, 0, sizeof(prime));
 		memset(euler, 0, sizeof(euler));
 		tot = 0;
+	}
+
+	void getprime(int n)
+	{
 		isprime[0] = isprime[1] = false;
-		euler[1] = 1;
+		for(int i = 2; i <= n; i++)
+		{
+			if(isprime[i])
+				prime[++tot] = i;
+			for(int j = 1; j <= tot && i * prime[j] <= n; j++)
+			{
+				isprime[i * prime[j]] = false;
+				if(i % prime[j] == 0)
+					break;
+			}
+		}
 	}
 
 	void solve(int n)
 	{
 		init();
 
+		getprime(2 * n);
+
+		euler[1] = 1;
 		for(int i = 2; i <= n; ++i)
 		{
 			if(isprime[i])
-				prime[++tot] = i, euler[i] = i - 1;
-			for(int j = 1; j <= tot && i * prime[j] <= n; j++)
 			{
-				int tmp = i * prime[j];
-				isprime[tmp] = false;
-				if(i % prime[j] == 0)
-				{
-					euler[tmp] = euler[i] * prime[j];
-					break;
-				}
+				euler[i] = i - 1;
+				continue;
+			}
+			for(int j = 1; j <= tot; ++j)
+			{
+				if(i % prime[j])
+					continue;
+				if(i / prime[j] % prime[j])
+					euler[i] = euler[i / prime[j]] * (prime[j] - 1);
 				else
-					euler[tmp] = euler[tmp] * (prime[j] - 1);
+					euler[i] = euler[i / prime[j]] * prime[j];
+				break;
 			}
 		}
 	}
