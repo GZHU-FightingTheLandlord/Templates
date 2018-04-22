@@ -10,6 +10,10 @@ balabaladilili
 
 
 # Change Log
+
+## v0.0.7.3 / 2018-04-22
+* [最小费用最大流code](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/Graph/code/MinimalCostMaximumFlow.cpp)已上线，未经足够测试，慎用
+
 ## v0.0.7.2 / 2018-04-22
 * 费马大定理和费马方程已加入[数论常用定理.md](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/NumberTheory/%E6%95%B0%E8%AE%BA%E5%B8%B8%E7%94%A8%E5%AE%9A%E7%90%86(ing).md)
 
