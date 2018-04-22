@@ -10,6 +10,9 @@ balabaladilili
 
 
 # Change Log
+## v0.0.7.2 / 2018-04-22
+* 费马大定理和费马方程已加入[数论常用定理.md](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/NumberTheory/%E6%95%B0%E8%AE%BA%E5%B8%B8%E7%94%A8%E5%AE%9A%E7%90%86(ing).md)
+
 ## v0.0.7.1 / 2018-04-22
 * 更新[欧拉函数线性筛+素数筛](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/NumberTheory/code/Eular%E5%87%BD%E6%95%B0%E7%BA%BF%E6%80%A7%E7%AD%9B.cpp), 优化细节
 
