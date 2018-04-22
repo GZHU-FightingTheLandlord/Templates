@@ -1,4 +1,3 @@
-
 # Templates
 
 balabaladilili
@@ -10,6 +9,9 @@ balabaladilili
 
 
 # Change Log
+
+## v0.0.7.4 / 2018-04-23
+* 封装[Miller_Rabin素数判定方法2](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/NumberTheory/code/Miller_Rabbin素数判定测试实例2(已比对32位无符号整数).cpp), 并修正bug
 
 ## v0.0.7.3 / 2018-04-22
 * [最小费用最大流code](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/Graph/code/MinimalCostMaximumFlow.cpp)已上线，未经足够测试，慎用
