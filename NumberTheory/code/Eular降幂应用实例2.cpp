@@ -3,7 +3,7 @@
   Problem: BZOJ - 3884
   Problem Source: https://cn.vjudge.net/problem/HYSBZ-3884
                   https://www.lydsy.com/JudgeOnline/problem.php?id=3884
-  Solution Source: https://cn.vjudge.net/solution/13519265
+  Solution Source: https://cn.vjudge.net/solution/13601290
 */
 #include <bits/stdc++.h>
 using namespace std;
@@ -30,11 +30,19 @@ ll eular(ll n)
 ll fpow(ll a, ll k, ll m)
 {
 	ll base = 1;
+	if (a >= m)
+		a = a % m + m;
 	while (k)
 	{
 		if (k & 1)
-			base = base * a % m;
-		a = a * a % m;
+		{
+			base = base * a;
+			if (base >= m)
+				base = base % m + m;
+		}
+		a = a * a;
+		if (a >= m)
+			a = a % m + m;
 		k >>= 1;
 	}
 	return base;
@@ -56,7 +64,7 @@ int main()
 	while (n--)
 	{
 		scanf("%lld", &m);
-		printf("%lld\n", solve(m));
+		printf("%lld\n", solve(m) % m);
 	}
 	return 0;
 }
