@@ -3,7 +3,7 @@
 #include <string.h>
 using namespace std;
 
-class Tire{
+class Trie{
 public:
 	void init(int k_ = 1) // 初始化， k_为预估需求空间
 	{
@@ -12,7 +12,7 @@ public:
 		v[0] = node();
 	}
 	
-	void put(char t[], int len) // 把t[]放入Tire， len为t[]长度
+	void put(char t[], int len) // 把t[]放入Trie， len为t[]长度
 	{
 		int now = 0;
 		for (int i = 0; i < len; i++)
@@ -43,7 +43,7 @@ public:
 		return v[now].ex == 1 ? v[now].cnt : -1;
 	}
 
-	Tire(){}
+	Trie(){}
 	
 private:
 	struct node{
