@@ -89,7 +89,7 @@ balabaladilili
 
 ## v0.0.3.4 / 2018-04-18
 * 新增[Graph相关类模板code](https://github.com/GZHU-FightingTheLandlord/Templates/tree/master/Graph/code)
-* 新增[Tire类模板code]
+* 新增[Trie类模板code](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/DataStructure/ClassTrie.cpp)
 * 新增费马小定理求逆元公式
 
 ## v0.0.3.3 / 2018-04-17
@@ -114,7 +114,7 @@ balabaladilili
 
 ## v0.0.2.7 / 2018-04-16
 * 新增[DataStructure分类](https://github.com/GZHU-FightingTheLandlord/Templates/tree/master/DataStructure)
-* 新增Tire相关
+* 新增Trie相关
 
 ## v0.0.2.6 / 2018-04-16
 * 修正矩阵乘法运算符重载bug
