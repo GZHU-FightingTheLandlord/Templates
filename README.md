@@ -10,6 +10,9 @@ balabaladilili
 
 # Change Log
 
+## v0.0.8.3 / 2018-04-23
+* [Meissel-Lehmer板子](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/NumberTheory/code/Meissel-Lehmer.cpp)上线，来源[vjudge](https://cn.vjudge.net/solution/10569978)
+
 ## v0.0.8.2 / 2018-04-23
 * 增加[__Summary__分类](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/__Summary__)， 整理[省赛模板1.1](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/__Summary__/FightingTheLandlord-SCL(2018省赛1.1版).docx)
 
