@@ -10,6 +10,9 @@ balabaladilili
 
 # Change Log
 
+## v0.0.9.1 / 2018-04-24
+* [BinarySearchBeta2.0](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/DivideAndConquer/BinarySearchBeta2.0.cpp) updated
+
 ## v0.0.8.3 / 2018-04-23
 * [Meissel-Lehmer板子](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/NumberTheory/code/Meissel-Lehmer.cpp)上线，来源[vjudge](https://cn.vjudge.net/solution/10569978)
 
