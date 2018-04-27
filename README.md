@@ -10,6 +10,9 @@ balabaladilili
 
 # Change Log
 
+## v0.0.9.3 / 2018-04-28
+* [自适应simpson公式](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/NumberTheory/code/AdaptingSimpson.cpp) uploaded
+
 ## v0.0.9.2 / 2018-04-25
 * [ClassSPFA](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/Graph/code/ClassSPFA.cpp)可以判负环啦~
 
