@@ -10,6 +10,9 @@ balabaladilili
 
 # Change Log
 
+## v0.0.9.4 / 2018-04-28
+* [SegmentTreeCode](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/DataStructure/SegmentTree.cpp)上线， 感谢lightyears~
+
 ## v0.0.9.3 / 2018-04-28
 * [自适应simpson公式](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/NumberTheory/code/AdaptingSimpson.cpp) uploaded
 
