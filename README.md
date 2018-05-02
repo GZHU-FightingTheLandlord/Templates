@@ -10,6 +10,9 @@ balabaladilili
 
 # Change Log
 
+## v0.1.0.1 / 2018-05-02
+* [NumberTheory.cpp](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/NumberTheory/code/NumberTheory.cpp) 增加蔡勒公式
+
 ## v0.0.9.4 / 2018-04-28
 * [SegmentTreeCode](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/DataStructure/SegmentTree.cpp)上线， 感谢lightyears~
 
