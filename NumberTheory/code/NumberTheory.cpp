@@ -113,7 +113,22 @@ namespace NumberTheory
 	{
 		return (a * b - ll(a / (long double)m * b + 1e-3) * m + m) % m;
 	}
-
+	
+	int zeller(int y,int m,int d)
+	{
+		if(m==1||m==2)
+		{
+			m+=12;
+			y--;
+		}
+	    int c=y/100;
+	    y=y%100;
+	    int w=y+y/4+c/4-2*c+(26*(m+1))/10+d-1;
+	    w=((w%7)+7)%7;
+	    return w;
+	}
+	
+	
 	//it will be updated
 }
 
