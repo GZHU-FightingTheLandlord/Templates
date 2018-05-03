@@ -10,6 +10,10 @@ balabaladilili
 
 # Change Log
 
+## v0.1.1.2 / 2018-05-03
+* 新增 [Cap的大数模板](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/BigInt/bint.cpp)
+* Reference中添加一些参考资料
+
 ## v0.1.1.1 / 2018-05-02
 * [NumberTheory.cpp](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/NumberTheory/code/NumberTheory.cpp) 增加蔡勒公式
 * 新增 [Java大数源码参考](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/References/java.math.BigInteger.docx)
