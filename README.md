@@ -10,6 +10,9 @@ balabaladilili
 
 # Change Log
 
+## v0.1.1.3 / 2018-05-05
+* 对[数论code](https://github.com/GZHU-FightingTheLandlord/Templates/tree/master/NumberTheory/code)进行补充
+
 ## v0.1.1.2 / 2018-05-03
 * 新增 [Cap的大数模板](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/BigInt/bint.cpp)
 * Reference中添加一些参考资料
