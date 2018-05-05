@@ -10,6 +10,9 @@ balabaladilili
 
 # Change Log
 
+## v0.1.1.4 / 2018-05-05
+* 增加了一个[模拟退火实例](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/ComputationalGeomatry/%E6%A8%A1%E6%8B%9F%E9%80%80%E7%81%AB%E5%AE%9E%E4%BE%8B%20-%20poj2420%20.cpp)
+
 ## v0.1.1.3 / 2018-05-05
 * 对[数论code](https://github.com/GZHU-FightingTheLandlord/Templates/tree/master/NumberTheory/code)进行补充
 
