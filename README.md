@@ -108,11 +108,11 @@ balabaladilili
 * 新增[二分查找code实现](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/DivideAndConquer/BinarySearchBeta1.0.cpp)（待优化），分治法求[最小点对距离code](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/DivideAndConquer/%E6%9C%80%E5%B0%8F%E7%82%B9%E5%AF%B9%E8%B7%9D%E7%A6%BB.cpp)
 
 ## v0.0.3.6 / 2018-04-18
-* 更新了[accelerateIOinJava.java](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/accelerateIO/accelerateIOinJava.java)的内容
+* 更新了[accelerateIOinJava.java](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/accelerateIO/accelerate%20IO%20in%20Java.java)的内容
 
 ## v0.0.3.5 / 2018-04-18
 * 修改了[ClassUnion_Find.cpp](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/Graph/code/ClassUnion_Find.cpp)的注释
-* 删除了某些[accelerateIOinJava.java](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/accelerateIO/accelerateIOinJava.java)中不必要的内容
+* 删除了某些[accelerateIOinJava.java](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/accelerateIO/accelerate%20IO%20in%20Java.java)中不必要的内容
 
 ## v0.0.3.4 / 2018-04-18
 * 新增[Graph相关类模板code](https://github.com/GZHU-FightingTheLandlord/Templates/tree/master/Graph/code)
