@@ -14,7 +14,6 @@ int main()
 	scanf("%d",&T);
 	while(T--)
 	{
-		memset(a,0x3f,sizeof(a));
 		scanf("%d",&n);
 		int cnt=1;
 		scanf("%lld",&m);
