@@ -1,3 +1,10 @@
+/**
+  * Source : poj-2420
+  * Author : ConanYu
+  * 
+  */
+
+
 #include<cstdlib>
 #include<cmath>
 #include<ctime>
@@ -52,16 +59,16 @@ const double M_TEMPERATRUE=0.93;
 double SA()
 {
 	double mit=cal(p);
-    int tms=0; // times
+	int tms=0; // times
 	for(double t=5000;t>1&&tms<TIMES;t*=M_TEMPERATRUE,tms++)
 	{
 		const point tp=sca(t);
 		const double tmp=cal(tp);
 		if(tmp<mit||rand()*ACCEPT_RATE<t*RAND_MAX)
 		{
-            p=tp;
-            mit=tmp;
-            tms=0;
+			p=tp;
+			mit=tmp;
+			tms=0;
 		}
 	}
 	return mit;
@@ -76,5 +83,5 @@ int main()
 
 	p=e[rand()%n];
 
-    cout<<(long long)(SA()+0.5)<<endl;
+	cout<<(long long)(SA()+0.5)<<endl;
 }
