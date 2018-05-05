@@ -1,10 +1,10 @@
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.PrintWriter;
+import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.StringTokenizer;
 
@@ -59,6 +59,10 @@ public class Main {
         
 		public BigInteger nextBigInteger() {
 			return new BigInteger(next());
+		}
+		
+		public BigDecimal nextBigDecimal() {
+			return new BigDecimal(next());
 		}
 		
 		public double nextDouble() {
