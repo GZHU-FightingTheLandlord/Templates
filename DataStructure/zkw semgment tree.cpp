@@ -18,6 +18,10 @@ public:
 		data[0]=0;
 		//if(data==NULL)throw std::runtime_error("Memory Limit Exceeded or some other error.");
 	}
+	~zkw_tree()
+	{
+		delete[] data;
+	}
 	void update(int64 i,int64 x)
 	{
 		data[i+=len]+=x;
@@ -42,7 +46,7 @@ private:
 	Welcome to hack it. **/
 
 /** create a zkw_tree: zkw_tree treea(1000);
-	ÏÂ±ê´Ó1¿ªÊ¼¡£the subscript is from 1.
-	¸üÐÂÊ÷µÄÏÂ±êÎªlocationÎªvalue: object.zkw_tree::update(location,value);
-	²éÑ¯Çø¼ä[from,to]: object.zkw_tree::query(from,to)
+	ä¸‹æ ‡ä»Ž1å¼€å§‹ã€‚the subscript is from 1.
+	æ›´æ–°æ ‘çš„ä¸‹æ ‡ä¸ºlocationä¸ºvalue: object.zkw_tree::update(location,value);
+	æŸ¥è¯¢åŒºé—´[from,to]: object.zkw_tree::query(from,to)
 **/
