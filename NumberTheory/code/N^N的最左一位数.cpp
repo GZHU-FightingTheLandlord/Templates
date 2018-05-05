@@ -12,7 +12,7 @@ int main()
 {
   double n; scanf("%lf", &n);
   double e = n * log10(n);
-  e = fmod(e , 1.0);
-  printf("%d\n", int(pow(10, e));
+  e = e - floor(e);
+  printf("%d\n", int(pow(10, e)));
   return 0;
 }
