@@ -10,6 +10,10 @@ public:
 		//if(data==NULL)throw std::runtime_error("ERROR!");
 		for(int i=1;i<len;i++)data[i]=i;
 	}
+	~union_find()
+	{
+		delete[] data;
+	}
 	int find(int x)
 	{
 		//if(x>len)throw std::runtime_error("ERROR!");
