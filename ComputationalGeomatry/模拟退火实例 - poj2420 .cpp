@@ -1,7 +1,6 @@
 /**
   * Source : poj-2420
   * Author : ConanYu
-  * 
   */
 
 
