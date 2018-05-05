@@ -10,6 +10,12 @@ balabaladilili
 
 # Change Log
 
+## v0.1.1.5 / 2018-05-05
+* 增加[LIS（最长上升子序列）](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/DynamicProgramming/%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E5%BA%8F%E5%88%97.cpp)实例
+* 增加[最长回文子序列](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/DynamicProgramming/%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E5%BA%8F%E5%88%97.cpp)实例
+* 增加拉格朗日插值法的应用 [链接](https://github.com/GZHU-FightingTheLandlord/Templates/commit/f3d319089c596b9a6ec916e9a2014079e8a710d7)
+* 增加zkw线段树和并查集类的析构函数
+
 ## v0.1.1.4 / 2018-05-05
 * 增加了一个[模拟退火实例](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/ComputationalGeomatry/%E6%A8%A1%E6%8B%9F%E9%80%80%E7%81%AB%E5%AE%9E%E4%BE%8B%20-%20poj2420%20.cpp)
 * 对[Java加速输入输出](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/accelerateIO/accelerate%20IO%20in%20Java.java)进行了一些改进
