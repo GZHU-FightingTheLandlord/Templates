@@ -10,3 +10,5 @@ int main()
   printf("%d\n", ans * ans);
   return 0;
 }
+
+// 参考 : https://img-blog.csdn.net/20151111155104662
