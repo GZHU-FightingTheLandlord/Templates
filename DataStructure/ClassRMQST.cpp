@@ -7,19 +7,23 @@ class RMQST{
 
 public:
 
-    void init(int n_, int v[])
+    void init(int n_, int v[]) // 初始化
     {
         n = n_;
-        memcpy(Min[0], v, sizeof Min[0]);
+        for (int i = 1; i <= n_; i++) {
+            Min[i][0] = Max[i][0] = v[i];
+        }
         solve();
     }
 
-    int query(int l, int r) // O(1) 询问
+    int query(int l, int r, int type) // O(1) 询问, 1表示返回最大值，2表示返回最小值
     {
         int mid = (int)((log(r - l + 1)) / (log(2.0)));
         /* 按需选择返回方式     */
-        return max(Max[l][mid], Max[r - (1 << mid) + 1][mid]);
-        //return min(Min[l][mid], Min[r - (1 << mid) + 1][mid]);    
+        if (type == 1)
+            return max(Max[l][mid], Max[r - (1 << mid) + 1][mid]);
+        else
+            return min(Min[l][mid], Min[r - (1 << mid) + 1][mid]);
     }
 
     RMQST(){ n = 0; memset(Min, 0, sizeof Min); memset(Max, 0, sizeof Max); }
@@ -44,6 +48,4 @@ private:
             }
         }
     }
-
 };
-
