@@ -9,8 +9,10 @@ balabaladilili
 
 
 # Change Log
+
 ## v0.1.1.6 / 2018-05-10
 * 修复[ClassRMQST](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/DataStructure/ClassRMQST.cpp)中某已知Bug
+* 新增[树状数组(FenwickTree)](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/DataStructure/ClassFenwickTree.cpp)类
 
 ## v0.1.1.5 / 2018-05-05
 * 增加[LIS（最长上升子序列）](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/DynamicProgramming/%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E5%BA%8F%E5%88%97.cpp)实例
