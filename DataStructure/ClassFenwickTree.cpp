@@ -13,8 +13,18 @@ public:
         }
     }
 
-    // 询问区间[1, i]的元素总和
-    int query(int i)
+    // 询问区间[l, r]的元素总和
+    int query(int l, int r)
+    {
+        return getres(r) - getres(l - 1);
+    }
+
+    FenwickTree(int _n = 0) : sum_(_n + 1, 0), n(_n) {}
+private:
+    int n;
+    vector<int> sum_;
+
+    int getres(int i)
     {
         int res = 0;
         while (i > 0) {
@@ -23,11 +33,6 @@ public:
         }
         return res;
     }
-
-    FenwickTree(int _n = 0) : sum_(_n + 1, 0), n(_n) {}
-private:
-    int n;
-    vector<int> sum_;
 
     inline int lowbit(int x)
     {
