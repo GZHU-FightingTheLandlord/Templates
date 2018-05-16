@@ -10,6 +10,9 @@ balabaladilili
 
 # Change Log
 
+## v0.1.1.7 / 2018-05-16
+* [逆序数相关](https://github.com/GZHU-FightingTheLandlord/Templates/tree/master/DataStructure)
+
 ## v0.1.1.6 / 2018-05-10
 * 修复[ClassRMQST](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/DataStructure/ClassRMQST.cpp)中某已知Bug
 * 新增[树状数组(FenwickTree)](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/DataStructure/ClassFenwickTree.cpp)类
