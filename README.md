@@ -11,7 +11,7 @@ balabaladilili
 # Change Log
 
 ## v0.1.1.8 / 2018-05-29
-* [StructDinic](https://github.com/GZHU-FightingTheLandlord/Templates/tree/master/Graph/code)
+* [StructDinic](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/Graph/code/StructDinic.cpp)
 
 ## v0.1.1.7 / 2018-05-16
 * [逆序数相关](https://github.com/GZHU-FightingTheLandlord/Templates/tree/master/DataStructure)
