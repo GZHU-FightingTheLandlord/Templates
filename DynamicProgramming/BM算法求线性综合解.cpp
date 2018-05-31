@@ -68,11 +68,11 @@ int main()
 	int n;
 	while(~scanf("%d", &n))
 	{
-        for(int i = 1; i < n + 1; i++)
+		for(int i = 1; i < n + 1; i++)
 		{
 			scanf("%lf", &x[i]);
 		}
-        solver.solve(x, n);
-        solver.print();
+		solver.solve(x, n);
+		solver.print();
 	}
 }
