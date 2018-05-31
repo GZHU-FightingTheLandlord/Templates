@@ -2,12 +2,14 @@
 #pragma comment(linker,"/STACK:102400000,102400000")
 using namespace std;
 const int MAXN=10005;
-struct berlekamp_massey
+class berlekamp_massey
 {
+private:
 	int n;
 	vector<double> ps[MAXN];
 	int pn, fail[MAXN];
 	double delta[MAXN];
+public:
 	void solve(double *x, int n)
 	{
 		pn=0;
@@ -49,7 +51,6 @@ struct berlekamp_massey
 			ps[++pn] = cur;
 		}
 	}
-
 	void print()
 	{
 		for(int g = 0; g < ps[pn].size(); g++)
@@ -67,11 +68,11 @@ int main()
 	int n;
 	while(~scanf("%d", &n))
 	{
-		for(int i = 1; i < n + 1; i++)
+        for(int i = 1; i < n + 1; i++)
 		{
 			scanf("%lf", &x[i]);
 		}
-		solver.solve(x, n);
-		solver.print();
+        solver.solve(x, n);
+        solver.print();
 	}
 }
