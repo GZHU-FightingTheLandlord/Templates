@@ -5,11 +5,9 @@ const int MAXN=10005;
 struct berlekamp_massey
 {
 	int n;
-
 	vector<double> ps[MAXN];
 	int pn, fail[MAXN];
 	double delta[MAXN];
-
 	void solve(double *x, int n)
 	{
 		pn=0;
@@ -69,11 +67,11 @@ int main()
 	int n;
 	while(~scanf("%d", &n))
 	{
-        for(int i = 1; i < n + 1; i++)
+		for(int i = 1; i < n + 1; i++)
 		{
 			scanf("%lf", &x[i]);
 		}
-        solver.solve(x, n);
-        solver.print();
+		solver.solve(x, n);
+		solver.print();
 	}
 }
