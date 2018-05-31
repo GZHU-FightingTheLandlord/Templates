@@ -6,7 +6,7 @@ class berlekamp_massey
 {
 private:
 	int n;
-	vector<double> ps[MAXN];
+	vector<double>ps[MAXN];
 	int pn, fail[MAXN];
 	double delta[MAXN];
 public:
@@ -31,7 +31,7 @@ public:
 				ps[++pn].resize(1);
 				continue;
 			}
-			vector<double> & ls = ps[pn - 1];
+			vector<double>& ls = ps[pn - 1];
 			double k = -(dt / delta[fail[pn - 1]]);
 			vector<double> cur;
 			cur.resize(i - fail[pn - 1] - 1);
@@ -55,7 +55,7 @@ public:
 	{
 		for(int g = 0; g < ps[pn].size(); g++)
 		{
-			printf("%lf ",ps[pn][g]);
+			printf("%lf ", ps[pn][g]);
 		}
 		printf("\n");
 	}
@@ -70,7 +70,7 @@ int main()
 	{
 		for(int i = 1; i < n + 1; i++)
 		{
-			scanf("%lf", &x[i]);
+			scanf("%lf", x + i);
 		}
 		solver.solve(x, n);
 		solver.print();
