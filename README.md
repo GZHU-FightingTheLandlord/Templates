@@ -10,6 +10,9 @@ balabaladilili
 
 # Change Log
 
+## v0.1.2.1 / 2018-05-31
+* 增加[BM算法求线性综合解](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/DynamicProgramming/BM%E7%AE%97%E6%B3%95%E6%B1%82%E7%BA%BF%E6%80%A7%E7%BB%BC%E5%90%88%E8%A7%A3.cpp)
+
 ## v0.1.1.8 / 2018-05-29
 * [StructDinic](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/Graph/code/StructDinic.cpp)
 
