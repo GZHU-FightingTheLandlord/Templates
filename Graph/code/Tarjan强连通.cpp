@@ -2,6 +2,7 @@
 #include <string.h>
 #include <vector>
 #include <stack>
+#define szz(a)	(int)a.size()
 using namespace std;
 
 struct Tarjan {
