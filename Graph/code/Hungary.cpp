@@ -1,3 +1,9 @@
+#include <algorithm>
+#include <vector>
+#define szz(a) (int)a.size()
+#define all(a) a.begin(),a.end()
+using namespace std;
+
 struct MaxMatch {
 	int N, Ans;
 	vector<vector<int>> e;
