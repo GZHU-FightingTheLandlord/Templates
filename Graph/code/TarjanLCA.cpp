@@ -40,7 +40,7 @@ struct Dsu {
 	}
 };
 
-struct Tarjan {
+struct TarjanLCA {
 	int N;
 	Dsu D;
 	vector<vector<int>> e;
@@ -56,7 +56,7 @@ struct Tarjan {
 	vector<vector<Node>> Q;
 	vector<Node> Ans;
 
-	Tarjan(int n = 0) : N(n + 5), D(n + 5), \
+	TarjanLCA(int n = 0) : N(n + 5), D(n + 5), \
 		e(n + 5), Color(n + 5), Q(n + 5) { init(); }
 
 	void init(int n = -1) // Initial
