@@ -12,6 +12,7 @@ balabaladilili
 
 ## v0.1.2.4 / 2018-06-05
 * [TarjanStronglyConnectedComponents](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/Graph/code/Tarjan%E5%BC%BA%E8%BF%9E%E9%80%9A.cpp)
+* [Hungary](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/Graph/code/Hungary.cpp)二分图最大匹配
 
 ## v0.1.2.3 / 2018-06-04
 * [UPD:BM](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/DynamicProgramming/BM%E7%AE%97%E6%B3%95%E6%B1%82%E7%BA%BF%E6%80%A7%E7%BB%BC%E5%90%88%E8%A7%A3.cpp)
