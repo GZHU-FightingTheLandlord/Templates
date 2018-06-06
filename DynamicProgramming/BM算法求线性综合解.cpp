@@ -28,6 +28,7 @@
 1.000000 1.000000 -1.000000 0.000000
 该输出表示递推式为f(x)=1*f(x-1)+1*f(x-2)-1*f(x-3)+0*f(x-4)
 */
+#include <math.h>
 #include <stdio.h>
 #include <string.h>
 #include <algorithm>
