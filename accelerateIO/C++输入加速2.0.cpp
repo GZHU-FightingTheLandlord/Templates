@@ -3,7 +3,7 @@
 struct InputStream
 {
 	const static int BUF_SIZE = 100000;
-#define int long long
+#define llong long long
 	inline char nc()
 	{
 		static char buf[BUF_SIZE], *p1 = buf + BUF_SIZE, *pend = buf + BUF_SIZE;
@@ -14,12 +14,12 @@ struct InputStream
 		}
 		return (*p1++);
 	}
-	inline int in()
+	inline llong in()
 	{
 		char c = nc();
 		while(!isdigit(c))
 			c = nc();
-		int x = 0;
+		llong x = 0;
 		while(isdigit(c))
 		{
 			x = x * 10 + c - '0';
@@ -32,11 +32,11 @@ struct InputStream
 	{
 		x = in();
 	}
-	inline int g()
+	inline llong g()
 	{
 		return in();
 	}
-#undef int
+#undef llong
 } in;
 #define rd in.g()
 
