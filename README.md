@@ -9,6 +9,8 @@ balabaladilili
 
 
 # Change Log
+## v0.1.2.5 / 2018-06-17
+* 增加更强但写得也更长的[C++输入加速2.0.cpp](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/accelerateIO/C%2B%2B%E8%BE%93%E5%85%A5%E5%8A%A0%E9%80%9F2.0.cpp)
 
 ## v0.1.2.4 / 2018-06-05
 * [TarjanStronglyConnectedComponents](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/Graph/code/Tarjan%E5%BC%BA%E8%BF%9E%E9%80%9A.cpp)
