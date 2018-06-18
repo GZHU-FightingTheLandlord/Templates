@@ -10,7 +10,15 @@ balabaladilili
 
 ## v0.1.2.6 / 2018-06-18
 
-* Update log: [FFT.cpp](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/DivideAndConquer/FFT.cpp), [StructDijkstra.cpp](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/Graph/code/StructDijkstra.cpp), [UnionFind(Dsu).cpp](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/DataStructure/UnionFind(Dsu).cpp), [StructTrie.cpp](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/DataStructure/StructTrie.cpp)
+* [FFT.cpp](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/DivideAndConquer/FFT.cpp)
+
+* [StructDijkstra.cpp](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/Graph/code/StructDijkstra.cpp)
+
+* [UnionFind(Dsu).cpp](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/DataStructure/UnionFind(Dsu).cpp)
+
+* [StructTrie.cpp](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/DataStructure/StructTrie.cpp)
+
+* [IO.cpp](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/accelerateIOIO.cpp)
 
 ## v0.1.2.5 / 2018-06-17
 
@@ -142,11 +150,11 @@ balabaladilili
 * 增加[ComputionalGeomatry分类](https://github.com/GZHU-FightingTheLandlord/Templates/tree/master/ComputationalGeomatry)
 * 调整[计算几何.doc](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/ComputationalGeomatry/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95.doc)路径
 
-## v0.0.4.6 / 2018-04-19
+## v0.0.4.7 / 2018-04-19
 
 * [拓扑排序简析](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/Graph/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F.docx)已上线
 
-## v0.0.4.5 / 2018-04-19
+## v0.0.4.6 / 2018-04-19
 
 * merge lightyears大佬的pull request
 * 添加[升级版kmp](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/DynamicProgramming/KMP2.0.cpp)(特别鸣谢lightyears大佬)
@@ -253,7 +261,7 @@ balabaladilili
 
 ## v0.0.2.1 / 2018-04-16
 
-* 新增无符号大整数加法源码[calc.cpp](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/BigInt/calc.cpp) 
+* 新增无符号大整数加法源码[calc.cpp](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/BigInt/calc.cpp)
 
 ## v0.0.1.2 / 2018-04-15
 
