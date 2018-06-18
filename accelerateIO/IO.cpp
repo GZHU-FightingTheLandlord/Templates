@@ -8,7 +8,7 @@ namespace SpeedUp {
 	char buf[BUFLEN]; // Buffer
 	size_t pos, end;
 
-    // Get char from buffer
+    	// Get char from buffer
 	inline char next()
 	{
 		if (pos == end) {
@@ -19,15 +19,13 @@ namespace SpeedUp {
 		return buf[pos++];
 	}
 
-    // Positive Interger
-    template <typename T> inline void read(T& x)
+    	// Positive Interger
+   	template <typename T> inline void read(T& x)
 	{
 		char c;
 		while ((c = next()) == ' ' || c == '\n' || c == '\r' || c == '\t' || c == '-');
 		x = c - 48;
-		while ((c = next()) > 47 && c < 58) {
-			x = x * 10 + c - 48;
-		}
+		while ((c = next()) > 47 && c < 58) x = x * 10 + c - 48;
 	}
 #undef BUFLEN
 }
