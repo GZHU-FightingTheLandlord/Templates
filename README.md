@@ -10,7 +10,7 @@ balabaladilili
 
 ## v0.1.2.6 / 2018-06-18
 
-* Update log: [FFT.cpp], [StructDijkstra.cpp], [UnionFind(Dsu).cpp], [StructTrie.cpp]
+* Update log: [FFT.cpp](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/DivideAndConquer/FFT.cpp), [StructDijkstra.cpp](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/Graph/code/StructDijkstra.cpp), [UnionFind(Dsu).cpp](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/DataStructure/UnionFind(Dsu).cpp), [StructTrie.cpp](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/DataStructure/StructTrie.cpp)
 
 ## v0.1.2.5 / 2018-06-17
 
