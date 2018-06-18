@@ -18,7 +18,7 @@ balabaladilili
 
 * [StructTrie.cpp](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/DataStructure/StructTrie.cpp)
 
-* [IO.cpp](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/accelerateIOIO.cpp)
+* [IO.cpp](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/accelerateIO/IO.cpp)
 
 ## v0.1.2.5 / 2018-06-17
 
