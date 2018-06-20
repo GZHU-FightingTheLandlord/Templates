@@ -8,6 +8,10 @@ balabaladilili
 
 # Change Log
 
+## v0.1.2.7 / 2018-06-20
+
+* [BigInteger](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/BigInt/BigInteger.cpp)还有较大优化空间，但乘法部分算是能用了XD ，<del> 所以建议是用Java自带BigInteger类 </del>
+
 ## v0.1.2.6 / 2018-06-18
 
 * [FFT.cpp](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/DivideAndConquer/FFT.cpp)
