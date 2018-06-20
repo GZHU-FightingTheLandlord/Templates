@@ -14,17 +14,17 @@ struct BigInteger {
 	// --------------------------------------------------------------------------
 	int n;          // BitNum
 	vector<int> v; // Val
-	// ---------------------------- Add, Sub ------------------------------------
+				   // ---------------------------- Add, Sub ------------------------------------
 	friend BigInteger operator + (const BigInteger& a, const BigInteger& b) {
 		int len = max(a.n, b.n);
 		vector<int> ret(len + 5, 0);
 		for (int i = 0; i < len; i++) {
-            if (i < a.n) ret[i] += a.v[i];
-            if (i < b.n) ret[i] += b.v[i];
+			if (i < a.n) ret[i] += a.v[i];
+			if (i < b.n) ret[i] += b.v[i];
 		}
 		for (int i = 0; i < len; i++) {
-            ret[i + 1] += ret[i] / 10;
-            ret[i] %= 10;
+			ret[i + 1] += ret[i] / 10;
+			ret[i] %= 10;
 		}
 		if (ret[len] > 0) len++;
 		return BigInteger(ret, len);
