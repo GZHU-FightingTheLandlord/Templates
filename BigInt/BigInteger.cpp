@@ -14,7 +14,7 @@ struct BigInteger {
 	// --------------------------------------------------------------------------
 	int n;          // BitNum
 	vector<int> v; // Val
-				   // ---------------------------- Add, Sub ------------------------------------
+	// ---------------------------- Add, Sub ------------------------------------
 	friend BigInteger operator + (const BigInteger& a, const BigInteger& b) {
 		int len = max(a.n, b.n);
 		vector<int> ret(len + 5, 0);
