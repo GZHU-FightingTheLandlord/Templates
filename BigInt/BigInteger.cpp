@@ -1,37 +1,39 @@
 #include <algorithm>
 #include <cstdlib>
 #include <cstring>
-#include <cctype>
 #include <vector>
 using namespace std;
-
-#define pb      push_back
-#define mp      make_pair
-#define endl    '\n'
-#define szz(a)  (int)a.size()
-#define all(a)  a.begin(),a.end()
-
-typedef long long ll;
 
 struct BigInteger {
 	// --------------------------- Constructor ----------------------------------
 	BigInteger() {}
-	BigInteger(char *s, int len) : n(len), Vu(len + 5) {
-		for (int i = 0; i < len; i++) Vu[i] = s[len - i - 1] - '0';
+	BigInteger(const vector<int>& a, const int len) : n(len), v(a) {}
+	BigInteger(char *s, const int& len) : n(len), v(len + 5) {
+		for (int i = 0; i < len; i++) v[i] = s[len - i - 1] - '0';
 	}
 	// --------------------------------------------------------------------------
 	int n;          // BitNum
-	vector<int> Vu; // Val
+	vector<int> v; // Val
 	// ---------------------------- Add, Sub ------------------------------------
 	friend BigInteger operator + (const BigInteger& a, const BigInteger& b) {
-		// 
+		int len = max(a.n, b.n);
+		vector<int> ret(len + 5, 0);
+		for (int i = 0; i < len; i++) {
+            if (i < a.n) ret[i] += a.v[i];
+            if (i < b.n) ret[i] += b.v[i];
+		}
+		for (int i = 0; i < len; i++) {
+            ret[i + 1] += ret[i] / 10;
+            ret[i] %= 10;
+		}
+		if (ret[len] > 0) len++;
+		return BigInteger(ret, len);
 	}
 	friend BigInteger& operator += (BigInteger& a, const BigInteger& b) {
 		return a = a + b;
 	}
-
-	// friend BigInterger operator - (const BigInterger& a, const BigInterger& b);
-	// friend BigInterger& operator -= (BigInterger& a, const BigInterger& b);
+	friend BigInteger operator - (const BigInteger& a, const BigInteger& b);
+	friend BigInteger& operator -= (BigInteger& a, const BigInteger& b);
 	// --------------------------------------------------------------------------
 	// ------------------------------ FFT ---------------------------------------
 #define PI 3.141592653589
@@ -53,11 +55,16 @@ struct BigInteger {
 			return a = a * b;
 		}
 	};
+	// swap function
+	static void Swap(Complex& a, Complex& b)
+	{
+		Complex t = a; a = b; b = t;
+	}
 	// bit reverse
 	static void rev(vector<Complex>& a, int n)
 	{
 		for (int i = 1, j = n >> 1, k; i < n - 1; i++) {
-			if (i < j) swap(a[i], a[j]);
+			if (i < j) Swap(a[i], a[j]);
 			for (k = n >> 1; j >= k; j -= k, k >>= 1);
 			j += k;
 		}
@@ -96,22 +103,22 @@ struct BigInteger {
 		int len = trans(a.n + b.n - 1);
 
 		vector<Complex> c1(len + 3), c2(len + 3);
-		for (int i = 0; i < a.n; i++) c1[i] = Complex(a.Vu[i], 0);
+		for (int i = 0; i < a.n; i++) c1[i] = Complex(a.v[i], 0);
 		for (int i = a.n; i < len; i++) c1[i] = Complex();
-		for (int i = 0; i < b.n; i++) c2[i] = Complex(b.Vu[i], 0);
+		for (int i = 0; i < b.n; i++) c2[i] = Complex(b.v[i], 0);
 		for (int i = b.n; i < len; i++) c2[i] = Complex();
 
 		DFT(c1, len, 1); DFT(c2, len, 1);
 		for (int i = 0; i < len; i++) c1[i] *= c2[i];
 		DFT(c1, len, -1);
 
-		BigInteger ret; ret.n = len; ret.Vu = vector<int>(len + 2, 0);
-		for (int i = 0; i < len; i++) ret.Vu[i] = (int)(c1[i].r + 0.5); ret.Vu[len] = 0;
+		BigInteger ret; ret.n = len; ret.v = vector<int>(len + 2, 0);
+		for (int i = 0; i < len; i++) ret.v[i] = (int)(c1[i].r + 0.5); ret.v[len] = 0;
 		for (int i = 0; i < len; i++) {
-			ret.Vu[i + 1] += ret.Vu[i] / 10;
-			ret.Vu[i] %= 10;
+			ret.v[i + 1] += ret.v[i] / 10;
+			ret.v[i] %= 10;
 		}
-		while (ret.Vu[ret.n] == 0 && ret.n > 0) {
+		while (ret.v[ret.n] == 0 && ret.n > 0) {
 			ret.n--;
 		}
 		ret.n++;
