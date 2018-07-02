@@ -11,11 +11,17 @@ template <typename T> struct Fenwick {
 
 	Fenwick(int n_ = 0) : n(n_), sum_(n + 5, 0) {}
 
+	void init(int n_ = -1)
+	{
+		if (n_ != -1) n = n_;
+		for (int i = 0; i <= n; i++) sum_[i] = 0;
+	}
+
 	void upd(int i, T delta)
 	{
 		for (; i <= n; i += lowbit(i)) sum_[i] += delta;
 	}
-	
+
 	T getsum(int i)
 	{
 		T res = 0;
