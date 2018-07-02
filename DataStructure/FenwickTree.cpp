@@ -15,6 +15,7 @@ template <typename T> struct Fenwick {
 	{
 		for (; i <= n; i += lowbit(i)) sum_[i] += delta;
 	}
+	
 	T getsum(int i)
 	{
 		T res = 0;
