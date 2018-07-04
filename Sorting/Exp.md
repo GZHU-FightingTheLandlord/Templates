@@ -10,10 +10,10 @@
 
 * 函数原型:
 
-    template \<class Iter>
+        template \<class Iter>
 
-    void nth_eleent(Iter first, Iter nth,
-    Iter last);
+        void nth_eleent(Iter first, Iter nth,
+        Iter last);
 
 * 将序列中第n大元素移至nth指向位置， 且first到nth间元素均不大于\*nth， nth到last间元素均不小于\*nth
 
