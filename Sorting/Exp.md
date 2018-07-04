@@ -4,6 +4,8 @@
 
     #include <algorithm>
 
+    using std::nth_element;
+
 ### 基本模式/重载小于号
 
 * 函数原型:
