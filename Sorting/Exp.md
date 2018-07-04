@@ -2,23 +2,28 @@
 
 ## nth_element
 
+```cpp
     #include <algorithm>
 
     using std::nth_element;
+```
 
 ### 基本模式/重载小于号
 
 * 函数原型:
 
+``` cpp
         template <class Iter>
 
         void nth_eleent(Iter first, Iter nth,
         Iter last);
+```
 
 * 将序列中第n大元素移至nth指向位置， 且first到nth间元素均不大于\*nth， nth到last间元素均不小于\*nth
 
 * 调用样例:
 
+```cpp
         int n = 5, k = 3;
 
         int v[5];
@@ -26,22 +31,27 @@
         nth_element(v, v + k - 1, v + n);
 
         printf("%d\n", v[2]); // 此时v数组中第3大元素移至v[2]中
+```
 
 ### cmp函数重载
 
 * 函数原型:
 
+```cpp
         template <class Iter, class Compare>
 
         void nth_element(Iter first, Iter nth, Iter last, Compare Comp);
+```
 
 * cmp函数定义:
 
+```cpp
         // 返回true表示a应在b前面, false反之
 
         template <typename T>
 
         bool cmp(const T& a, const T& b);
+```
 
 ## MergeSort
 
