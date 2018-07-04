@@ -31,7 +31,7 @@
 
 * 函数原型:
 
-        template /<class Iter, class Compare>
+        template <class Iter, class Compare>
 
         void nth_element(Iter first, Iter nth, Iter last, Compare Comp);
 
