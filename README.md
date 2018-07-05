@@ -8,6 +8,10 @@ balabaladilili
 
 ## Change Log
 
+### v0.2.1.1 / 2018-07-05
+
+* <b>DivideAndConquer、Sorting分类rebuild, 最长上升子序列样例移至DP分类</b>
+
 ### v0.1.2.8 / 2018-07-02
 
 * 修改了并不友好的旧版[FenwickTree](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/DataStructure/FenwickTree.cpp)
