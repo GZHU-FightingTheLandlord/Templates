@@ -2,7 +2,7 @@
 
 ## 最短路(Dijkstra)
 
-* [StructDijkstra.cpp](none)
+* [StructDijkstra.cpp](StructDijkstra.cpp)
 
 ## 最短路(SPFA)
 
