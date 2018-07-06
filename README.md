@@ -8,6 +8,10 @@ balabaladilili
 
 ## Change Log
 
+### v0.2.1.2 / 2018-07-06
+
+* <b>Graph分类rebuild(待续)</b>
+
 ### v0.2.1.1 / 2018-07-05
 
 * <b>DivideAndConquer、Sorting分类rebuild, 最长上升子序列样例移至DP分类</b>
