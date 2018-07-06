@@ -12,7 +12,7 @@
 
 * [StructKruskal](StructKruskal.cpp)
 
-## 二分图最大匹(Hungary)
+## 二分图最大匹配(Hungary)
 
 * [StructHungary](StructHungary.cpp)
 
