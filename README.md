@@ -59,10 +59,7 @@ balabaladilili
 
 * [StructDinic](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/Graph/code/StructDinic.cpp)
 
----
-
-<p style="text-align: center"><strong>以下链接可能已失效</strong></p>
-
+以下链接可能已失效
 ---
 
 ### v0.1.1.7 / 2018-05-16
