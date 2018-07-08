@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <algorithm>
 #include <vector>
-using std::vector;
+using namespace std;
 
 template <typename T> struct Fenwick {
 	int n;

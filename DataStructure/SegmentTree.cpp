@@ -1,131 +1,113 @@
-#include <bits/stdc++.h>
+#include <algorithm>
+#include <vector>
 using namespace std;
-typedef long long ll;
 
-const int MAXN = 1e5 + 5;
+template <typename T> struct SegmentTree {
+	struct Node	{
+		int l, r;
+		T val, change, cover;
+		Node() {}
+	};
 
-#define lson(x) ((x) << 1)
-#define rson(x) ((x) << 1 | 1)
+	int N;
+	vector<Node> v;
+	vector<bool> covered;
 
-struct SegNode{
-	int l, r;
-	ll val;
-	ll lazy;	// 延迟标记， 表示区域内每个单独节点的增量
-	ll force;	// 覆盖标记， 表示区域内每个单独节点被修改后的值
-}node[MAXN << 2]; // root为1， 四倍空间初始
-bool covered[MAXN << 2]; // 节点区域是否被覆盖
+	SegmentTree(int n) : N(n), v(n << 2), covered(n << 2) {}
 
-// build(1, 1, n, arr)
-// arr为初值， 以1为root， 建立区间为[1, n]的线段树
-void build(int idx, int l, int r, ll *arr)
-{
-	node[idx].l = l, node[idx].r = r;
-	node[idx].lazy = node[idx].force = 0;
-	if (l == r)
+	void build(int index, int l, int r, const T arr[])
 	{
-		node[idx].val = arr[l];
+		v[index].l = l, v[index].r = r, v[index].change = 0, v[index].cover = 0;
+		if (l == r) {
+			v[index].val = arr[l];
+			return;
+		}
+		int mid = (l + r) >> 1;
+		build(index << 1, l, mid, arr);
+		build(index << 1 | 1, mid + 1, r, arr);
+		v[index].val = min(v[index << 1].val, v[index << 1 | 1].val);
 	}
-	else
+
+	void pushdown(const int &index)
 	{
-		int mid = (l + r) / 2;
-		build(lson(idx), l, mid, arr);
-		build(rson(idx), mid + 1, r, arr);
-		node[idx].val = node[lson(idx)].val + node[rson(idx)].val;
+		if (covered[index])	{
+			v[index].val = v[index].cover;
+			v[index << 1].cover = v[index << 1 | 1].cover = v[index].cover;
+			covered[index << 1] = covered[index << 1 | 1] = 1;
+			covered[index] = 0;
+		}
+		if (v[index].change) {
+			v[index].val += v[index].change;
+			v[index << 1].change += v[index].change;
+			v[index << 1 | 1].change += v[index].change;
+			v[index].change = 0;
+		}
 	}
-}
 
-// 下传标记
-void pushdown(int idx)
-{
-	if (covered[idx])
+	void update(int index, int l, int r, const T &delta)
 	{
-		node[idx].val = node[idx].force * (node[idx].r - node[idx].l + 1);
-		covered[lson(idx)] = covered[rson(idx)] = true;
+		if (l <= v[index].l && v[index].r <= r) {
+			v[index].change += delta;
+			return;
+		}
+		pushdown(index);
 
-		node[lson(idx)].lazy = node[rson(idx)].lazy = 0;
-		node[lson(idx)].force = node[rson(idx)].force = node[idx].force;
-		covered[idx] = false;
+		int mid = (v[index].l + v[index].r) >> 1;
+		if (r <= mid) {
+			update(index << 1, l, r, delta);
+		}
+		else if (mid > l) { 
+			update(index << 1 | 1, l, r, delta);
+		}
+		else {
+			update(index << 1, l, r, delta);
+			update(index << 1 | 1, l, r, delta);
+			v[index].val = min(query(index << 1, v[index].l, mid), query(index << 1 | 1, mid + 1, v[index].r));
+		}
 	}
-	if (node[idx].lazy)
+
+	void modify(int index, int l, int r, const T &delta)
 	{
-		node[idx].val += node[idx].lazy * (node[idx].r - node[idx].l + 1);
+		if (l <= v[index].l && v[index].r <= r) {
+			v[index].change = 0;
+			v[index].cover = delta;
+			covered[index] = 1;
+			return;
+		}
+		pushdown(index);
 
-		node[lson(idx)].lazy += node[idx].lazy;
-		node[rson(idx)].lazy += node[idx].lazy;
-		node[idx].lazy = 0;
+		int mid = (v[index].l + v[index].r) >> 1;
+		if (r <= mid) {
+			modify(index << 1, l, r, delta);
+		}
+		else if (mid > l) {
+			modify(index << 1 | 1, l, r, delta);
+		}
+		else {
+			modify(index << 1, l, r, delta);
+			modify(index << 1 | 1, l, r, delta);
+			v[index].val = min(query(index << 1, v[index].l, mid), query(index << 1 | 1, mid + 1, v[index].r));
+		}
 	}
-}
 
-
-// query(1, l, r)
-// 查询区间[l, r]的sum
-ll query(int idx, int l, int r)
-{
-	if (node[idx].l == l && node[idx].r == r)
+	T query(int index, int l, int r)
 	{
-		if (covered[idx])
-			return (node[idx].force + node[idx].lazy) * (node[idx].r - node[idx].l + 1);
-		return node[idx].val + node[idx].lazy * (node[idx].r - node[idx].l + 1);
+		if (v[index].l == l && v[index].r == r) {
+			if (covered[index])	{
+				return v[index].cover;
+			}
+			return v[index].val + v[index].change;
+		}
+		pushdown(index);
+		int mid = (v[index].l + v[index].r) >> 1;
+		if (r <= mid) {
+			return query(index << 1, l, r);
+		}
+		else if (mid < l) {
+			return query(index << 1 | 1, l, r);
+		}
+		else {
+			return min(query(index << 1, l, mid), query(index << 1 | 1, mid + 1, r));
+		}
 	}
-	pushdown(idx);
-
-	int mid = (node[idx].l + node[idx].r) / 2;
-	if (r <= mid)
-		return query(lson(idx), l, r);
-	if (mid < l)
-		return query(rson(idx), l, r);
-	return query(lson(idx), l, mid) + query(rson(idx), mid + 1, r);
-}
-
-
-// update(1, l, r, diff)
-// 将[l, r]区间内元素增加diff
-void update(int idx, int l, int r, int diff)
-{
-	if (l <= node[idx].l && node[idx].r <= r)
-	{
-		node[idx].lazy += diff;
-		return ;
-	}
-	pushdown(idx);
-
-	int mid = (node[idx].l + node[idx].r) / 2;
-	if (r <= mid)
-		update(lson(idx), l, r, diff);
-	else if (mid < l)
-		update(rson(idx), l, r, diff);
-	else
-	{
-		update(lson(idx), l, r, diff);
-		update(rson(idx), l, r, diff);
-	}
-	node[idx].val = query(lson(idx), node[idx].l, mid) + query(rson(idx), mid + 1, node[idx].r); 
-}
-
-// modify(1, l, r, val);
-// 将[l, r]内的元素修改为val
-void modify(int idx, int l, int r, int val)
-{
-	if (l <= node[idx].l && node[idx].r <= r)
-	{
-		node[idx].lazy = 0;
-		node[idx].force = val;
-		covered[idx] = true;
-		return ;
-	}
-	pushdown(idx);
-
-	int mid = (node[idx].l + node[idx].r) / 2;
-	if (r <= mid)
-		modify(lson(idx), l, r, val);
-	else if (mid < l)
-		modify(rson(idx), l, r, val);
-	else
-	{
-		modify(lson(idx), l, r, val);
-		modify(rson(idx), l, r, val);
-	}
-	node[idx].val = query(lson(idx), node[idx].l, mid) + query(rson(idx), mid + 1, node[idx].r);
-}
-
-
+};

@@ -1,8 +1,3 @@
-#include <algorithm>
-#include <string.h>
-#include <vector>
-using std::vector;
-
 /*
 usage:
 
@@ -15,50 +10,53 @@ usage:
     Check: T.check(Str, StrLen);
 */
 
+#include <algorithm>
+#include <string.h>
+#include <vector>
+using namespace std;
+
 struct Trie {
 
     struct Node {
-        bool is_end;
+        bool ed;
         int next[30];
-        Node() { is_end = 0; memset(next, 0, sizeof next); }
+        Node() { ed = false; memset(next, 0, sizeof next); }
     };
 
     int cnt;
-    vector<Node> Vn;
+    vector<Node> v;
 
     // Max Size!!!!!
-    Trie(int Size = 0) : Vn(Size + 5) {
-        cnt = 0;
-    }
+    Trie(int Size = 0) : v(Size + 5) { cnt = 0; }
 
     void init()
     {
         cnt = 0;
-        Vn[0] = Node();
+        v[0] = Node();
     }
 
     void push(const char *arr, const int& len)
     {
         int now = 0;
         for (int i = 0; i < len; i++) {
-            if (Vn[now].next[arr[i] - 'a'] == 0) {
-                Vn[++cnt] = Node();
-                Vn[now].next[arr[i] - 'a'] = cnt;
+            if (v[now].next[arr[i] - 'a'] == 0) {
+                v[++cnt] = Node();
+                v[now].next[arr[i] - 'a'] = cnt;
             }
-            now = Vn[now].next[arr[i] - 'a'];
+            now = v[now].next[arr[i] - 'a'];
         }
-        Vn[now].is_end = true;
+        v[now].ed = true;
     }
 
     bool check(const char *arr, const int& len)
     {
         int now = 0;
         for (int i = 0; i < len; i++) {
-        if (Vn[now].next[arr[i] - 'a'] == 0) {
+        if (v[now].next[arr[i] - 'a'] == 0) {
                 return false;
             }
-            now = Vn[now].next[arr[i] - 'a'];
+            now = v[now].next[arr[i] - 'a'];
         }
-        return Vn[now].is_end;
+        return v[now].ed;
     }
 };

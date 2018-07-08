@@ -10,6 +10,11 @@
  * P.S. 直接使用cin cout时, 流加速防止tle
  */
 
+#include <algorithm>
+#include <string>
+#include <vector>
+using namespace std;
+
 class Kmp
 {
 private:

@@ -2,19 +2,17 @@
 
 balabaladilili
 
-花式整理， 待合并~
-
 对！就是你！看什么看！就知道肝题写模板！还不快去水群！
 
 ## Change Log
 
 ### v0.2.1.2 / 2018-07-06
 
-* <b>Graph分类rebuild(待续)</b>
+* <b>Graph分类重建</b>
 
 ### v0.2.1.1 / 2018-07-05
 
-* <b>DivideAndConquer、Sorting分类rebuild, 最长上升子序列样例移至DP分类</b>
+* <b>DivideAndConquer、Sorting分类重建, 最长上升子序列样例移至DP分类</b>
 
 ### v0.1.2.8 / 2018-07-02
 
@@ -60,6 +58,12 @@ balabaladilili
 ### v0.1.1.8 / 2018-05-29
 
 * [StructDinic](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/Graph/code/StructDinic.cpp)
+
+---
+
+<p style="text-align: center"><strong>以下链接可能已失效</strong></p>
+
+---
 
 ### v0.1.1.7 / 2018-05-16
 
