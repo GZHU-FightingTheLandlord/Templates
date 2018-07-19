@@ -5,27 +5,26 @@ using namespace std;
 
 namespace SpeedUp {
 #define BUFLEN 100000
-	char buf[BUFLEN]; // Buffer
-	size_t pos, end;
-
-    	// Get char from buffer
-	inline char next()
-	{
-		if (pos == end) {
-			pos = 0;
-			end = fread(buf, 1, BUFLEN, stdin);
-			if (pos == end) throw int(0); // throw EOFError (try catch)
+	inline char ch() {
+		static char buf[BUFLEN], *st = nullptr, *ed = nullptr;
+		if (st == ed) {
+			st = buf;
+			ed = st + fread(buf, 1, BUFLEN, stdin);
+			if (st == ed) {
+				return -1;
+			}
 		}
-		return buf[pos++];
+		return *st++;
 	}
-
-    	// Positive Interger
-   	template <typename T> inline void read(T& x)
-	{
+	inline bool blank(char& x) {
+		return (x == '\n' || x == ' ' || x == '\r' || x == '\t');
+	}
+   	inline bool read(int& x) {
 		char c;
-		while ((c = next()) == ' ' || c == '\n' || c == '\r' || c == '\t' || c == '-');
-		x = c - 48;
-		while ((c = next()) > 47 && c < 58) x = x * 10 + c - 48;
+		while (blank(c = ch()));
+		if (c == -1) return false;
+		for (x = c - '0'; (c = ch()) >= '0' && c <= '9'; x = x * 10 + c - '0');
+		return true;
 	}
 #undef BUFLEN
 }

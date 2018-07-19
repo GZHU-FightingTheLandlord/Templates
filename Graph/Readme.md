@@ -1,6 +1,6 @@
 # Graph
 
-由于整理者太懒，此处只贴wiki(en)链接<del>和未来可能会有的blog</del>
+由于整理者太懒，此处只贴wiki(en)链接
 
 ## 最短路(Dijkstra)
 
