@@ -22,6 +22,7 @@ template <typename T> struct BIT {
 	T query(int l, int r) { T ret = 0; for (; r >= 0; r -= lowbit(r)) ret += base[r]; for (--l; l >= 0; l -= lowbit(l)) ret -= base[l]; return ret; }
 };
 
+// Old
 template <typename T> struct Fenwick {
 	int n;
 	vector<T> sum_;
