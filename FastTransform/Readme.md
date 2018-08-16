@@ -31,6 +31,7 @@
 
 ```cpp
     void solve(int a[], int b[], int n) {
+        n = trans(n);
         fwt(a, n);
         fwt(b, n);
         for (int i = 0; i < n; i++) a[i] = a[i] * b[i] % MOD;
