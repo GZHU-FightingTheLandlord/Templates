@@ -15,7 +15,6 @@ using namespace std;
             a[i] *= b[i]
         
         FFT::DFT(a, Len, -1);
-
 */
 
 namespace FFT {
