@@ -25,7 +25,7 @@
 
 ## FWT
 
-* 求 $$ c[i] = \sum_{j xor k = i}^{ } a[j] * b[k] $$
+* 求 <img src="FastWalshTransform.png">
 
 * usage
 
