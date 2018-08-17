@@ -1,7 +1,5 @@
 # DataStructure
 
-<del> 果然还是贴Wiki方便呐 </del>
-
 ## 并查集(Dsu)
 
 * [UnionFind(Dsu)](UnionFind(Dsu).cpp)
