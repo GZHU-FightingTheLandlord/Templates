@@ -12,22 +12,17 @@ struct Dsu {
 	Dsu(int num = 0) : N(num), Root(num + 5), cnt(num) {
 		for (int i = 0; i < num; i++) Root[i] = i;
 	}
-
-	void init(int n = -1) // Initial
-	{
-		if (n != -1) N = n;
-		cnt = N;
+	// Initial
+	void init(int n = -1) {
+		(n != -1) ? (cnt = N = n) : (cnt = N);
 		for (int i = 0; i <= N; i++) Root[i] = i;
 	}
-
-	int find(int x) // Get Ancestor
-	{
-		if (x == Root[x]) return x;
-		else return Root[x] = find(Root[x]);
+	// Get Ancestor
+	int find(int x) {
+		return (x == Root[x]) ? x : Root[x] = find(Root[x]);
 	}
 
-	bool Union(int a, int b)
-	{
+	bool Union(int a, int b) {
 		if (!same(a, b)) {
 			cnt--; // Trees in forest
 			Root[Root[b]] = Root[a]; // Link b to a
@@ -35,11 +30,8 @@ struct Dsu {
 		}
 		return false;
 	}
-
-	bool same(int a, int b)
-	{
-		a = find(a);
-		b = find(b);
-		return a == b; // Same Ancestor?
+	// Same Ancestor?
+	inline bool same(int a, int b) {
+		return find(a) == find(b);
 	}
 };

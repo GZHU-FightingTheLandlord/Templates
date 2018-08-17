@@ -52,3 +52,39 @@ struct SPFA {
         return ed == -1 || (dis[ed] == 0x3f3f3f3f);
     }
 };
+
+// *************************************************************************
+const int MAX = 1e5 + 5;
+const int INF = 0x3f3f3f3f;
+
+struct edge { int v, w; edge(int vv = 0, int ww = 0) : v(vv), w(ww) {} };
+
+vector<edge> e[MAX];
+int dis[MAX], inq[MAX];
+queue<int> Q;
+
+void init(int n) {
+    for (; !Q.empty(); Q.pop());
+    for (int i = 0; i <= n; i++) {
+        e[i].clear();
+        dis[i] = INF, inq[i] = 0;
+    }
+}
+
+void addedge(int u, int v, int w) {
+    e[u].emplace_back(v, w);
+    e[v].emplace_back(u, w);
+}
+
+void spfa(int st, int ed) {
+    Q.push(st); dis[st] = 0; inq[st] = 1;
+    while (!Q.empty()) {
+        int u = Q.front(); Q.pop(); inq[u] = 0;
+        for (edge v : e[u]) {
+            if (dis[v.v] > dis[u] + v.w) {
+                dis[v.v] = dis[u] + v.w;
+                if (!inq[v.v]) Q.push(v.v), inq[v.v] = 1;
+            }
+        }
+    }
+}

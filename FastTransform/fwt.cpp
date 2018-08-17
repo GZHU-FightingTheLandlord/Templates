@@ -13,11 +13,11 @@ int qpow(int a, int t) {
 
 const int inv2 = qpow(2, MOD - 2); // (x/2) % MOD == x*inv2 % MOD
 
-// get 2^(p-1), p = min{ 2^p > n }
+// get 2^p, p = min{ 2^p >= n }
 inline int trans(int n) {
     int k = 1;
-    for (; k <= n; k <<= 1);
-    return k >> 1;
+    for (; k < n; k <<= 1);
+    return k;
 }
 
 void fwt(int a[], int n) {

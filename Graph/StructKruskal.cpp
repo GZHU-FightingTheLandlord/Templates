@@ -89,3 +89,34 @@ struct Kruskal {
 		}
 	}
 };
+
+// **************************************
+const int MAX = 1e5 + 5;
+
+struct edge {
+	int u, v, w;
+	edge(int uu = 0, int vv = 0, int ww = 0) : u(uu), v(vv), w(ww) {}
+	bool operator< (const edge& b) const { return w < b.w; }
+}e[MAX * 2];
+
+int tot, cnt, ans, fa[MAX];
+
+void init(int n) {
+	ans = tot = cnt = 0;
+	for (int i = 0; i <= n; i++) fa[i] = i;
+}
+
+inline void addedge(int u, int v, int w) { e[tot++] = edge(u, v, w); }
+
+int find(int x) { return x == fa[x] ? x : fa[x] = find(fa[x]); }
+
+void kruskal(int n) {
+	sort(e, e + tot);
+	for (int i = 0; i < tot && cnt < n - 1; i++) {
+		int u = find(e[i].u), v = find(e[i].v);
+		if (u != v) {
+			cnt++, ans += e[i].w;
+			fa[fa[v]] = fa[u];
+		}
+	}
+}

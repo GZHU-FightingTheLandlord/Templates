@@ -68,3 +68,41 @@ template <typename T> struct Dijkstra {
 		return Ans = -1;
 	}
 };
+
+// **********************************************
+const int MAX = 1e5 + 5;
+const int INF = 0x3f3f3f3f;
+
+struct edge { int v, w; edge(int vv = 0, int ww = 0) : v(vv), w(ww) {} };
+
+vector<edge> G[MAX];
+int dis[MAX], vis[MAX];
+
+void init(int n) {
+	for (int i = 0; i <= n; i++) {
+		G[i].clear();
+		dis[i] = INF, vis[i] = 0;
+	}
+}
+
+void addedge(int u, int v, int w) {
+	G[u].emplace_back(v, w);
+	G[v].emplace_back(u, w);
+}
+
+inline bool chkmin(int& x, int y) { return (x > y) ? (x = y, 1) : 0; }
+
+void Dijk(int st, int ed) {
+	priority_queue<pair<int, int>> Q;
+	Q.emplace(0, st); dis[st] = 0;
+	while (!Q.empty()) {
+		int u = Q.top().second; Q.pop();
+		if (u == ed) return;
+		if (vis[u]) continue; else vis[u] = 1;
+		for (edge& e : G[u]) {
+			if (!vis[e.v] && chkmin(dis[e.v], dis[u] + e.w)) {
+				Q.emplace(-dis[e.v], e.v);
+			}
+		}
+	}
+}

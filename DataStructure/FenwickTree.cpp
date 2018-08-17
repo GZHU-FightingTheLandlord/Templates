@@ -19,7 +19,7 @@ template <typename T> struct BIT {
 	void init(int len = 0) { for (; len >= 0; len--) base[len] = 0; }
 	void upd(int i, T dlt) { for (; i <= Size; i += lowbit(i)) base[i] += dlt; }
 	T gsum(int i) { T ret = 0; for (; i >= 0; i -= lowbit(i)) ret += base[i]; return ret; }
-	T query(int l, int r) { T ret = 0; for (; r >= 0; r -= lowbit(r)) ret += base[r]; for (--l; l >= 0; l -= lowbit(l)) ret -= base[l]; return ret; }
+	inline T query(int l, int r) { return gsum(r) - gsum(l - 1); }
 };
 
 // Old
