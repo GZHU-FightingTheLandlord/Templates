@@ -111,3 +111,59 @@ template <typename T> struct SegmentTree {
 		}
 	}
 };
+
+// ********************************************
+
+const int MAX = 1e5 + 5;
+struct node {
+	int l, r, val;
+	int lazy;
+}v[MAX << 2];
+
+inline void pushup(int i) {
+	v[i].val = min(v[i << 1].val, v[i << 1 | 1].val);
+}
+
+inline void pushdown(int i) {
+	if (v[i].lazy) {
+		int lson = i << 1, rson = i << 1 | 1;
+		v[lson].val += v[i].lazy; v[rson].val += v[i].lazy;
+		v[lson].lazy += v[i].lazy; v[rson].lazy += v[i].lazy;
+		v[i].lazy = 0;
+	}
+}
+
+void build(int *arr, int i, int l, int r) {
+	v[i].l = l, v[i].r = r, v[i].lazy = 0;
+	if (l == r) {
+		v[i].val = arr[l];
+		return;
+	}
+	int mid = (l + r) / 2;
+	build(arr, i << 1, l, mid); build(arr, i << 1 | 1, mid + 1, r);
+	pushup(i);
+}
+
+void update(int i, int L, int R, int k) {
+	if (L <= v[i].l && v[i].r <= R) {
+		v[i].val += k, v[i].lazy += k;
+		return;
+	}
+	pushdown(i);
+	int mid = (v[i].l + v[i].r) / 2;
+	if (R <= mid) update(i << 1, L, R, k);
+	else if (L > mid) update(i << 1 | 1, L, R, k);
+	else update(i << 1, L, R, k), update(i << 1 | 1, L, R, k);
+	pushup(i);
+}
+
+int query(int i, int L, int R) {
+	if (L <= v[i].l && v[i].r <= R) {
+		return v[i].val;
+	}
+	pushdown(i);
+	int mid = (v[i].l + v[i].r) / 2;
+	if (R <= mid) return query(i << 1, L, R);
+	else if (L > mid) return query(i << 1 | 1, L, R);
+	else return min(query(i << 1, L, R), query(i << 1 | 1, L, R));
+}

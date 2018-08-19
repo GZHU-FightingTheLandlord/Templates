@@ -63,3 +63,55 @@ struct Tarjan {
 		for (int i = 1; i <= N; i++) if (!def[i]) Dfs(i);
 	}
 };
+
+// *********************************************************
+const int MAX = 1e5 + 5;
+vector<int> e[MAX];
+stack<int> S;
+int index, tot, def[MAX], low[MAX], ins[MAX], scc[MAX];
+
+void init(int n) {
+	for (int i = 0; i <= n; i++) {
+		e[i].clear();
+		scc[i] = -1;
+	}
+}
+
+inline void addedge(int u, int v) {
+	e[u].push_back(v);
+}
+
+void dfs(int u) {
+	def[u] = low[u] = ++index;
+	S.push(u); ins[u] = 1;
+	int v;
+	for (int i = 0; i < (int)e[u].size(); i++) {
+		v = e[u][i];
+		if (!def[v]) {
+			dfs(v);
+			low[u] = min(low[u], low[v]);
+		}
+		else if (ins[v]) {
+			low[u] = min(low[u], def[v]);
+		}
+	}
+	if (def[u] == low[u]) {
+		++tot;
+		do {
+			v = S.top();
+			S.pop(); ins[v] = 0;
+			scc[v] = tot;
+		} while (u != v);
+	}
+}
+
+void solve(int n) {
+	index = tot = 0;
+	for (int i = 0; i <= n; i++) {
+		def[i] = low[i] = 0;
+	}
+	while (!S.empty()) S.pop();
+	for (int i = 1; i <= n; i++) {
+		(!def[i]) && (dfs(i), 1);
+	}
+}

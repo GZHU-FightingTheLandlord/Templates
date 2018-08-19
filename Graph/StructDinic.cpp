@@ -92,3 +92,63 @@ template <typename T> struct Dinic {
 		return Ans;
 	}
 };
+
+// ******************************************************
+const int MAX = 1e5 + 5;
+const int INF = 0x3f3f3f3f;
+struct edge {
+	int v, w, next;
+	edge(int vv = 0, int ww = 0, int nn = 0) : v(vv), w(ww), next(nn) {}
+}e[MAX << 2];
+int n, tot, ans, head[MAX], level[MAX];
+
+void init() {
+	tot = ans = 0;
+	for (int i = 0; i <= n; i++) {
+		head[i] = -1;
+	}
+}
+
+void addedge(int u, int v, int w) {
+	e[tot] = edge(v, w, head[u]); head[u] = tot++;
+	e[tot] = edge(u, 0, head[v]); head[v] = tot++;
+}
+
+queue<int> Q;
+bool bfs(int st, int ed) {
+	for (int i = 0; i <= n; i++) level[i] = 0;
+	while (!Q.empty()) Q.pop();
+	Q.push(st); level[st] = 1;
+	while (!Q.empty()) {
+		int u = Q.front(); Q.pop();
+		for (int i = head[u]; ~i; i = e[i].next) {
+			int v = e[i].v, w = e[i].w;
+			if (level[v] == 0 && w > 0) {
+				level[v] = level[u] + 1;
+				Q.push(v);
+			}
+		}
+	}
+	return level[ed] != 0;
+}
+
+int dfs(int u, int ed, int flow) {
+	if (u == ed) return flow;
+	int ret = 0;
+	for (int i = head[u]; flow > 0 && (~i); i = e[i].next) {
+		int v = e[i].v;
+		if (level[v] == level[u] + 1 && e[i].w > 0) {
+			int tmp = dfs(v, ed, min(flow, e[i].w));
+			if (tmp == 0) continue;
+			e[i].w -= tmp; e[i ^ 1].w += tmp;
+			flow -= tmp; ret += tmp;
+		}
+	}
+	return ret;
+}
+
+void Dinic(int st, int ed) {
+	while (bfs(st, ed)) {
+		ans += dfs(st, ed, INF);
+	}
+}
