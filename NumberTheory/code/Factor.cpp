@@ -1,6 +1,4 @@
-#include <algorithm>
-#include <string.h>
-#include <vector>
+#include <bits/stdc++.h>
 using namespace std;
 
 namespace Factor {
@@ -33,7 +31,7 @@ namespace Factor {
     }
 
     int64_t mul(int64_t a, int64_t b, int64_t p) {
-        if (p <= (int)1e9) return a * b % p;
+        if (p <= 1000000000) return a * b % p;
         else if (p <= 1000000000000ll) {
             return (((a * (b >> 20) % p) << 20) + (a * (b & ((1 << 20) - 1)))) % p;
         }
@@ -48,9 +46,7 @@ namespace Factor {
     int64_t qpow(int64_t a, int t, int64_t p) {
         int64_t b = 1;
         for (; t > 0; t >>= 1, a = mul(a, a, p)) {
-            if (t & 1) {
-                b = mul(b, a, p);
-            }
+            (t & 1) && (b = mul(b, a, p));
         }
         return b;
     }
@@ -69,9 +65,9 @@ namespace Factor {
         if (!ok_init) init();
         if (x < maxn) return phi[x];
         int64_t i, res = x;
-        for (i = 0; i < tot_prime && prime[i] * prime[i] <= x; ++i) {
+        for (i = 0; i < tot_prime && 1ll * prime[i] * prime[i] <= x; ++i) {
             if (x % prime[i] == 0) {
-                res = res / i * (i - 1);
+                res = res / prime[i] * (prime[i] - 1);
                 while (x % prime[i] == 0) x /= prime[i];
             }
         }
