@@ -1,7 +1,7 @@
 import random
 
 
-def fmod(a, x, n):
+def fpow(a, x, n):
 	ans = 1
 	while x > 0:
 		if x & 1:
@@ -12,7 +12,7 @@ def fmod(a, x, n):
 
 
 def check(a, n, x, t):
-	ret = fmod(a, x, n)
+	ret = fpow(a, x, n)
 	last = ret
 	for i in range(0, t):
 		ret = ret * ret % n
@@ -22,6 +22,10 @@ def check(a, n, x, t):
 	if ret != 1:
 		return True
 	return False
+
+
+# there change the times of Rabin-Miller
+TIMES = 50
 
 
 def is_prime(n):
@@ -42,14 +46,16 @@ def is_prime(n):
 		while not x & 1:
 			x >>= 1
 			t += 1
-		for i in range(0, 50):
+		for i in range(0, TIMES):
 			a = random.randint(1, n - 2)
 			if check(a, n, x, t):
 				return False
 		return True
 
 
-'''
-is_prime(n) 返回True即n为素数，返回False即n不为素数
-'''
-print('Yes' if is_prime(int(input())) else 'No')
+"""
+from BigPrime import is_prime
+is_prime(n) return whether n is a prime
+"""
+if __name__ == '__main__':
+	print('Yes' if is_prime(int(input())) else 'No')
