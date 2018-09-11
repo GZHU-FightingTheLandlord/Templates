@@ -12,7 +12,7 @@ ll mod(ll x, ll p)
 }
 
 ll inv, y;
-ll exgcd(long a, long b)
+ll exgcd(ll a, ll b)
 {
     if (b == 0)
     {
@@ -22,8 +22,8 @@ ll exgcd(long a, long b)
     }
     else
     {
-        long ret = exgcd(b, a % b);
-        long tmp = inv;
+        ll ret = exgcd(b, a % b);
+        ll tmp = inv;
         inv = y;
         y = tmp - a / b * y;
         return ret;
