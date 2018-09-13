@@ -95,7 +95,9 @@ def pollard_rho_1(n, c):
 
 def factorization(n):
     # Actually, I don't know how to choose the variable 'c'.
-    return pollard_rho_1(n, random.randint(int(n * log10(n)), int(n * log(n))))
+    ret = pollard_rho_1(n, random.randint(int(n * log10(n)), int(n * log(n))))
+    ret.sort()
+    return ret
 
 
 if __name__ == '__main__':
