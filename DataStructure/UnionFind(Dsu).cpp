@@ -1,37 +1,22 @@
-#include <algorithm>
-#include <vector>
-using std::vector;
-
-// Disjoint-set union
+#include <bits/stdc++.h>
+using namespace std;
 
 struct Dsu {
-	int N, cnt;
-	vector<int> Root;
-
-	// N -> MaxNum
-	Dsu(int num = 0) : N(num), Root(num + 5), cnt(num) {
-		for (int i = 0; i < num; i++) Root[i] = i;
-	}
-	// Initial
-	void init(int n = -1) {
-		(n != -1) ? (cnt = N = n) : (cnt = N);
-		for (int i = 0; i <= N; i++) Root[i] = i;
-	}
-	// Get Ancestor
-	int find(int x) {
-		return (x == Root[x]) ? x : Root[x] = find(Root[x]);
-	}
-
-	bool Union(int a, int b) {
-		if (!same(a, b)) {
-			cnt--; // Trees in forest
-			Root[Root[b]] = Root[a]; // Link b to a
-			return true;
+	static const int maxn = 1e5 + 5;
+	int fa[maxn], sz[maxn];
+	void init(int n) {
+		for (int i = 0; i <= n; i++) {
+			fa[i] = i, sz[i] = 0;
 		}
-		return false;
 	}
-	// Same Ancestor?
-	inline bool same(int a, int b) {
-		return find(a) == find(b);
+	int find(int x) {
+		return x == fa[x] ? x : fa[x] = find(fa[x]);
+	}
+	bool unite(int u, int v) {
+		int a = find(u), b = find(v);
+		if (a == b) return false;
+		if (sz[a] < sz[b]) fa[a] = b;
+		else fa[b] = a, sz[a] += (sz[a] == sz[b]);
+		return true;
 	}
 };
