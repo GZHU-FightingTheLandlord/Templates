@@ -45,9 +45,6 @@
             if (!x) pc('0');
             if (x < 0) pc('-'), x = -x;
             while (x) Stack[++Top] = x % 10 + '0', x /= 10;
-```
-
-```cpp
             while (Top) pc(Stack[Top--]);
         }
         template <class I> inline void println(I x) { print(x), pc('\n'); }
