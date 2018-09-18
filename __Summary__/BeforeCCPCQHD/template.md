@@ -1143,7 +1143,7 @@
 
 ---
 
-### 倍增法LCA $O(\log n)
+### 倍增法LCA $O(\log n)$
 
 ```cpp
     const int maxn = 1e4 + 5;
