@@ -1931,7 +1931,7 @@
 
 ### 扩展欧几里得与中国剩余定理
 
-```
+```cpp
     pll exgcd(const ll x, const ll y)
     {
         if(!y)
