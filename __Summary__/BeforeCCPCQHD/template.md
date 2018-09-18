@@ -9,23 +9,24 @@
 ## C++IO
 
 ```cpp
-
     // 简版
     template <class I> void read(I& x) {
         char c;
         while ((c = getchar()) < '0' && c > '9');
         for (x = c - '0'; (c = getchar()) >= '0' && c <= '9'; x = x * 10 + c - '0');
     }
-
     // io完全体
     namespace io {
         const int BUFLEN = (1 << 21) + 1;
         bool EOFError;
         inline char gc() {
             static char buf[BUFLEN], *st = nullptr, *ed = nullptr;
-            return (st == ed) ? ((ed = (st = buf) + fread(buf, 1, BUFLEN, stdin)), ((st == ed) ? -1 : *st++)) : *st++; 
+            if (st == ed) (ed = (st = buf) + fread(buf, 1, BUFLEN, stdin));
+            return (st == ed) ? -1 : (*st++);
         }
-        inline bool check(char x) { return x == '-' || x == '\n' || x == ' ' || x == '\r' || x == '\t'; }
+        inline bool check(char x) {
+            return x == '-' || x == '\n' || x == ' ' || x == '\r' || x == '\t';
+        }
         template <class I> inline void read(I& x) {
             char c; int f = 1;
             while (check(c = gc())) if (c == '-') f = -1;
@@ -44,6 +45,9 @@
             if (!x) pc('0');
             if (x < 0) pc('-'), x = -x;
             while (x) Stack[++Top] = x % 10 + '0', x /= 10;
+```
+
+```cpp
             while (Top) pc(Stack[Top--]);
         }
         template <class I> inline void println(I x) { print(x), pc('\n'); }
