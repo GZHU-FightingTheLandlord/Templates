@@ -2010,18 +2010,18 @@
 
 ### 蔡勒公式
 ```cpp
-int zeller(int y, int m, int d)
-{
-    //星期日为0
-    if (m == 1 || m == 2)
+    int zeller(int y, int m, int d)
     {
-        m += 12;
-        y--;
+        //星期日为0
+        if (m == 1 || m == 2)
+        {
+            m += 12;
+            y--;
+        }
+        int c = y / 100;
+        y = y % 100;
+        int w = y + y / 4 + c / 4 - 2 * c + (26 * (m + 1)) / 10 + d - 1;
+        w = ((w % 7) + 7) % 7;
+        return w;
     }
-    int c = y / 100;
-    y = y % 100;
-    int w = y + y / 4 + c / 4 - 2 * c + (26 * (m + 1)) / 10 + d - 1;
-    w = ((w % 7) + 7) % 7;
-    return w;
-}
 ```
