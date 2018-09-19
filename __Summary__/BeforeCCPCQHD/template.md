@@ -1941,11 +1941,6 @@
         pll cur = exgcd(y, x % y);
         return make_pair(cur.second, cur.first - (x / y) * cur.second);
     }
-    ll mod(const ll x, const ll p)
-    {
-        return ((x % p) + p) % p;
-    }
-
     pll crt(const vector<pll> & v)
     {
         //v里每个pll中first为被模数，second为模数
