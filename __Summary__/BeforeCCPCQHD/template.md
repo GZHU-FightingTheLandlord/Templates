@@ -2035,9 +2035,7 @@
     int fst[MXLEN];
     char str[MXLEN];
     
-    typedef double myClass;
-    typedef myClass CSS;
-    // 需要给myClass重载各种运算符
+    typedef double CSS;
 
     CSS jud(int begin, int end)
     {
