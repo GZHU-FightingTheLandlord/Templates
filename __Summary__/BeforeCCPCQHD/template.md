@@ -1966,69 +1966,51 @@
 ```
 
 
-### 大数素性测试与分解质因数
+### 大随机数生成与素性测试
 
-```python
-    TIMES = 50
-    def is_prime(n):
-        def check(a, n, x, t):
-            ret = fpow(a, x, n)
-            last = ret
-            for i in range(0, t):
-                ret = ret * ret % n
-                if ret == 1 and last != 1 and last != n - 1:
-                    return True
-                last = ret
-            if ret != 1:
-                return True
-            return False
-
-        if n in {2, 3, 5, 7, 11}:
-            return True
-        for i in {2, 3, 5, 7, 11}:
-            if n % i == 0:
-                return False
-        x = n - 1
-        t = 0
-        while not x & 1:
-            x >>= 1
-            t += 1
-        for i in range(0, TIMES):
-            a = random.randint(1, n - 2)
-            if check(a, n, x, t):
-                return False
-        return True
-
-    def pollard_rho_2(n, c):
-        x = random.randint(0, n)
-        i, k, y = 1, 2, x
-        while True:
-            i += 1
-            x = (x * x) % n + c
-            d = gcd(y - x, n)
-            if d != 1 and d != n:
-                return d
-            if y == x:
-                return n
-            if i == k:
-                y = x
-                k <<= 1
-
-    def pollard_rho_1(n):
-        if n == 1:
-            return None
-        if is_prime(n):
-            return [n]
-        ans = []
-        p = n
-        while p >= n:
-            p = pollard_rho_2(p, random.randint(1, n - 1))
-        ans.extend(pollard_rho_1(p))
-        ans.extend(pollard_rho_1(n // p))
-        return ans
-
-    def factorization(n):
-        return Counter(pollard_rho_1(n))
+```cpp
+    ull randull()
+    {
+        static random_device rd;
+        static mt19937_64 eng(rd());
+        static uniform_int_distribution<ull>distr;
+        return distr(eng);
+    }
+    ull randint(ull const& min = 0, ull const& max = 0)
+    {
+        return double(randull()) / ULLONG_MAX * (max - min + 1) + min;
+    }
+    bool is_prime(ll n)
+    {
+        if (n == 2) return true;
+        if (n < 2 || (~n & 1)) return false;
+        ll m = n - 1, k = 0;
+        while (!(m & 1))
+        {
+            k++;
+            m >>= 1;
+        }
+        for (int i = 1; i <= 30; i++)
+        {
+            ll a = randint((ull)1, (ull)(n - 1));
+            ll x = fpow(a, m, n);
+            ll y;
+            for (int j = 1; j <= k; j++)
+            {
+                y = fmul(x, x, n);
+                if (y == 1 && x != 1 && x != n - 1)
+                {
+                    return false;
+                }
+                x = y;
+            }
+            if (y != 1)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
 ```
 
 ### 蔡勒公式
