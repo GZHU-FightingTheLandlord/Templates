@@ -1963,6 +1963,7 @@
 
 ### 大随机数生成与素性测试
 
+
 ```cpp
     ull randull()
     {
@@ -2009,6 +2010,7 @@
 ```
 
 ### 蔡勒公式
+
 ```cpp
     int zeller(int y, int m, int d)
     {
@@ -2023,5 +2025,91 @@
         int w = y + y / 4 + c / 4 - 2 * c + (26 * (m + 1)) / 10 + d - 1;
         w = ((w % 7) + 7) % 7;
         return w;
+    }
+```
+
+### 后缀表达式
+
+```cpp
+    const int MXLEN = 1000 + 5;
+    int fst[MXLEN];
+    char str[MXLEN];
+    
+    typedef double myClass;
+    typedef myClass CSS;
+    // 需要给myClass重载各种运算符
+
+    CSS jud(int begin, int end)
+    {
+        int i;
+        CSS k;
+        for (i = begin; i <= end; i++)
+        {
+            if (str[i] == '+' && fst[i] == fst[begin])
+            {
+                k = jud(begin, i - 1) + jud(i + 1, end);
+                return k;
+            }
+        }
+        for (i = end; i >= begin; i--)
+        {
+            if (str[i] == '-' && fst[i] == fst[begin])
+            {
+                k = jud(begin, i - 1) - jud(i + 1, end);
+                return k;
+            }
+        }
+        for (i = begin; i <= end; i++)
+        {
+            if (str[i] == '*' && fst[i] == fst[begin])
+            {
+                k = jud(begin, i - 1) * jud(i + 1, end);
+                return k;
+            }
+        }
+        for (i = end; i >= begin; i--)
+        {
+            if (str[i] == '/' && fst[i] == fst[begin])
+            {
+                k = jud(begin, i - 1) / jud(i + 1, end);
+                return k;
+            }
+        }
+        if (str[begin] == '(')
+        {
+            for (i = begin + 1; fst[i] >= fst[begin + 1]; i++);
+
+            k = jud(begin + 1, i - 1);
+        }
+        else
+        {
+            char *p = str;
+            sscanf(p + begin, "%lf", &k);
+        }
+        return k;
+    }
+
+    CSS solve()
+    {
+        const int len = strlen(str);
+        for (int i = 1; i <= len - 1; i++)
+        {
+            if (str[i - 1] == '(')
+            {
+                fst[i] = fst[i - 1] + 1;
+            }
+            else
+            {
+                if (str[i] == ')')
+                {
+                    fst[i] = fst[i - 1] - 1;
+                }
+                else
+                {
+                    fst[i] = fst[i - 1];
+                }
+            }
+        }
+        return jud(0, len);
     }
 ```
