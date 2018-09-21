@@ -2096,3 +2096,27 @@
         return jud(0, len);
     }
 ```
+
+### java大数牛顿迭代法开方
+
+```java
+    public static BigInteger sqrt(BigInteger n) {
+        String a = n.toString();
+        final int len = a.length();
+        if((~len & 1) == 1) {
+            a = a.substring(0, len / 2 + 1);
+        } else {
+            a = a.substring(0, len / 2);
+        }
+        BigInteger x = new BigInteger(a);
+        final BigInteger two = BigInteger.valueOf(2);
+        if(a == "0" || a == "1") {
+            return n;
+        } else {
+            while(n.compareTo(x.multiply(x)) < 0) {
+                x = (x.add(n.divide(x))).divide(two);
+            }
+            return x;
+        }
+    }
+```
