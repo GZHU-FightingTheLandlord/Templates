@@ -2041,6 +2041,7 @@
     {
         int i;
         CSS k;
+        //越往后优先级越高
         for (i = begin; i <= end; i++)
         {
             if (str[i] == '+' && fst[i] == fst[begin])
@@ -2054,22 +2055,6 @@
             if (str[i] == '-' && fst[i] == fst[begin])
             {
                 k = jud(begin, i - 1) - jud(i + 1, end);
-                return k;
-            }
-        }
-        for (i = begin; i <= end; i++)
-        {
-            if (str[i] == '*' && fst[i] == fst[begin])
-            {
-                k = jud(begin, i - 1) * jud(i + 1, end);
-                return k;
-            }
-        }
-        for (i = end; i >= begin; i--)
-        {
-            if (str[i] == '/' && fst[i] == fst[begin])
-            {
-                k = jud(begin, i - 1) / jud(i + 1, end);
                 return k;
             }
         }
