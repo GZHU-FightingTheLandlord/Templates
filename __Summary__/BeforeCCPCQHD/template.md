@@ -58,13 +58,13 @@
 
 * BigInteger
 
-<image src="Biginteger1.png">
+![](D:\Github\Templates\__Summary__\BeforeCCPCQHD\Biginteger1.png)
 
-<image src="Biginteger2.png">
+![](D:\Github\Templates\__Summary__\BeforeCCPCQHD\Biginteger2.png)
 
-<image src="Biginteger3.png">
+![](D:\Github\Templates\__Summary__\BeforeCCPCQHD\Biginteger3.png)
 
-<image src="Biginteger4.png">
+![](D:\Github\Templates\__Summary__\BeforeCCPCQHD\Biginteger4.png)
 
 ---
 
@@ -169,7 +169,7 @@
 
 ### Fenwic_Tree(树状数组)
 
-* 维护&求值均为$O(\log n)$
+* 维护&求值均为O(log(n))
 
 ```cpp
     struct Fenwick {
@@ -211,7 +211,7 @@
 
 ### spare_table_rmq
 
-* build $O(n\log n)$, query $O(1)$
+* build O(n log n), query O(1)
 
 ```cpp
     const int MAX = 1e6 + 5;
@@ -263,7 +263,7 @@
 
 ### Segment_Tree(线段树)
 
-* build  $O(n\log n)$, update&modify  $O(\log n)$, query $O(log n)$
+* build  O(n log n), update&modify  O(log n), query O(log n)
 
 ```cpp
     struct Segment_Tree {
@@ -349,7 +349,7 @@
 
 ### leftist_heap(左偏堆)
 
-* 均摊$O(\log n)$
+* 均摊O(log n)
 
 ```cpp
     struct leftist_heap {
@@ -407,7 +407,7 @@
 
 ---
 
-### Trie(字典树) $O(len)$
+### Trie(字典树) O(len)
 
 ```cpp
     struct Trie {
@@ -540,7 +540,7 @@
 
 ---
 
-## 最长递增子序列($O(n\log n)$)
+## 最长递增子序列O(n log n)
 
 ```cpp
     const int MAX = 500005;
@@ -577,7 +577,7 @@
 
 ---
 
-## 最长回文子序列(记忆化搜索)($O(n^2)$)
+## 最长回文子序列(记忆化搜索)(O(n^2))
 
 ```cpp
     int len;
@@ -614,7 +614,7 @@
 
 ## FastTransform
 
-### FFT $O(n\log n)$
+### FFT O(n log n)
 
 ```cpp
     /*
@@ -691,7 +691,7 @@
 
 ---
 
-### FWT $O(n\log n)$
+### FWT O(n log n)
 
 ```cpp
     const int MOD = 1e9 + 7;
@@ -749,7 +749,7 @@
 
 ## Graph(图相关)
 
-### 匈牙利二分图匹配 $O(n(n+m))$(real?)
+### 匈牙利二分图匹配 O(n(n+m))~~(real?)~~
 
 ```cpp
     const int maxn = 1e5 + 5;
@@ -798,7 +798,7 @@
 
 ---
 
-### KM $O(n^3)$
+### KM O(n^3)
 
 ```cpp
     const int INF = 0x3f3f3f3f;
@@ -874,7 +874,7 @@
 
 ---
 
-### kruskal $O(n\log n)$
+### Kruskal O(n log n)
 
 ```cpp
     const int MAX = 1e5 + 5;
@@ -910,7 +910,7 @@
 
 ---
 
-### Dijkstra $O(n\log n)$
+### Dijkstra O(n log n)
 
 ```cpp
     const int MAX = 1e5 + 5;
@@ -994,7 +994,7 @@
 
 ---
 
-### Dinic $O(V^{2}E)$
+### Dinic O(VVE)
 
 ```cpp
     const int MAX = 1e5 + 5;
@@ -1059,7 +1059,7 @@
 
 ---
 
-### Tarjan Sccno(强连通)$O(n+m)$
+### Tarjan Sccno(强连通) O(n+m)
 
 ```cpp
     const int MAX = 1e5 + 5;
@@ -1116,7 +1116,7 @@
 
 ---
 
-### 倍增法LCA $O(\log n)$
+### 倍增法LCA O(log n)
 
 ```cpp
     const int maxn = 1e4 + 5;
@@ -1170,7 +1170,7 @@
 
 ---
 
-### Tarjan LCA $O(n + q)$(离线)
+### Tarjan LCA O(n + q)(离线)
 
 ```cpp
     const int maxn = 1e5 + 5;
@@ -1231,7 +1231,7 @@
     void solve() { DFS(1, -1); }
 ```
 
-### 拓扑 $O(n + m)$
+### 拓扑排序 O(n + m)
 
 ```cpp
     const int maxn = 1e5 + 5;
@@ -1598,9 +1598,9 @@
 
 * 一个数各位数字之和等于这个数对9取模所得的数
 
-* 每次将指数进行一次$log(N)$级别的变换
-* 矩阵快速幂: 在$O(log(N))$级别的时间求第n个斐波納契数列$f(n)=a\*f(n-1)+b\*f(n-2)$
-* 快速乘: 利用二进制实现$ab(mod p)$, 防止溢出
+* 每次将指数进行一次log(N)级别的变换
+* 矩阵快速幂: 在O(log(N))级别的时间求第n个斐波納契数列f(n)=a*f(n-1)+b*f(n-2)
+* 快速乘: 利用二进制实现ab(mod p), 防止溢出
 
 ### 母函数(组合数学)
 
@@ -1610,7 +1610,7 @@
 
 * 五边形数: 1, 5, 12, 22, ……
 * 第(n-1)个三角数+n^2为第n个五边形数
-* $S[n] = s[n-1]+3n-2$
+* $S_n = S_{n-1}+3n-2$
 
 ### zeckendorf定理
 
@@ -1629,9 +1629,9 @@
 * 欧拉函数: φ(n)是小于等于n的正整数中与n互质的数的数目
 * 若n, a为正整数且n与a互质, 则a^φ(n)≡1(mod n)
 * 费马小定理(Fermat小定理): 对任意a和任意质数p: a^p≡a(mod p), 若a不能被p整除, a^(p-1)≡1(mod p)
-* 欧拉降幂: $$x^y\mod p = x^{y \mod \phi(p) \space + \space \phi(p)}, y \geq \phi(p)$$
+* 欧拉降幂: $$ x^y\mod p = x^{y \mod \phi(p) \space + \space \phi(p)}, y \geq \phi(p) $$
 
-```py
+```python
     # (x ^ y) % p
     def calc(x, y, p):
         if y < p:
@@ -1698,8 +1698,6 @@
 * 考虑第p个物品，p可以单独构成一个非空集合，此时前p-1个物品构成k-1个非空的不可辨别的集合，方法数为$S(p-1,k-1)$
 
 * 也可以前p-1种物品构成k个非空的不可辨别的集合，第p个物品放入任意一个中，这样有$kS(p-1,k)$种方法。
-
-### Formula: $1^{3} + 2^{3} + ... + n^{3} = (n(n + 1) / 2)^{2}$
 
 ### Lucas定理(大组合数取模)
 
@@ -1781,10 +1779,10 @@
     }
 ```
 
-### Meissel-Lehmer(求[1, n]之间的素数个数)($O(n^{2/3})$)
+### Meissel-Lehmer(求[1, n]之间的素数个数)(O(n^{2/3}))
 
 ```cpp
-    namespace pcf{
+namespace pcf{
         typedef long long ll;
         const int N = 5e6 + 2;
         bool np[N];
