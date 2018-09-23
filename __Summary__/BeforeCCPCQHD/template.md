@@ -169,7 +169,7 @@
 
 ### Fenwic_Tree(树状数组)
 
-* 维护&求值均为O(log(n))
+* 维护&求值均为$O(\log{n})$
 
 ```cpp
     struct Fenwick {
@@ -211,7 +211,7 @@
 
 ### spare_table_rmq
 
-* build O(n log n), query O(1)
+* build $O(n\log n)$, query $O(1)$
 
 ```cpp
     const int MAX = 1e6 + 5;
@@ -263,7 +263,7 @@
 
 ### Segment_Tree(线段树)
 
-* build  O(n log n), update&modify  O(log n), query O(log n)
+* build  $O(n\log n)$, update&modify  $O(\log n)$, query $O(\log n)$
 
 ```cpp
     struct Segment_Tree {
@@ -349,7 +349,7 @@
 
 ### leftist_heap(左偏堆)
 
-* 均摊O(log n)
+* 均摊$O(\log n)$
 
 ```cpp
     struct leftist_heap {
@@ -407,7 +407,7 @@
 
 ---
 
-### Trie(字典树) O(len)
+### Trie(字典树) $O(len)$
 
 ```cpp
     struct Trie {
@@ -540,7 +540,7 @@
 
 ---
 
-## 最长递增子序列O(n log n)
+## 最长递增子序列$O(n\log n)$
 
 ```cpp
     const int MAX = 500005;
@@ -577,7 +577,7 @@
 
 ---
 
-## 最长回文子序列(记忆化搜索)(O(n^2))
+## 最长回文子序列(记忆化搜索)$O(n^2)$
 
 ```cpp
     int len;
@@ -614,7 +614,7 @@
 
 ## FastTransform
 
-### FFT O(n log n)
+### FFT $O(n\log n)$
 
 ```cpp
     /*
@@ -691,7 +691,7 @@
 
 ---
 
-### FWT O(n log n)
+### FWT $O(n\log n)$
 
 ```cpp
     const int MOD = 1e9 + 7;
@@ -749,7 +749,7 @@
 
 ## Graph(图相关)
 
-### 匈牙利二分图匹配 O(n(n+m))~~(real?)~~
+### 匈牙利二分图匹配 $O(n(n+m))$~~(real?)~~
 
 ```cpp
     const int maxn = 1e5 + 5;
@@ -796,9 +796,59 @@
     }
 ```
 
+* 最小点覆盖：
+
+    点覆盖集即一个点集，使得所有边至少有一个端点在集合里。或者说是“点” 覆盖了所有“边”。最小点覆盖(minimum vertex covering)就是点最少的点覆盖。
+* 最小边覆盖：
+
+    边覆盖集即一个边集，使得所有点都与集合里的边邻接。或者说是“边” 覆盖了所有“点”。最小边覆盖(minimum edge covering)就是边最少的边覆盖。
+
+* 最大点独立集：
+
+    独立集即一个点集，集合中任两个结点不相邻，则称V为独立集。或者说是导出的子图是零图（没有边）的点集。最大独立集(maximum independent set)就是点最多的独立集。
+
+* 最大边独立集：
+
+    边独立集又称匹配
+
+    边独立集即一个边集，满足边集中的任两边不邻接。最大边独立集(maximum edge independent set)就是边最多的边独立集
+
+* 最大团：
+
+    团即一个点集，集合中任两个结点相邻。最大团(maximum clique)就是点最多的团。
+    最小点支配集：
+
+    支配集即一个点集，使得所有其他点至少有一个相邻点在集合里。最小支配集(minimum dominating set)就是点最少的支配集。
+    最小边支配集：
+
+    边支配集即一个边集，使得所有边至少有一条邻接边在集合里。最小边支配集(minimum edge dominating set)就是边最少的边支配集。
+    最小路径覆盖：
+
+* 最小路径覆盖(path covering)：
+
+    是“路径” 覆盖“点”，即用尽量少的不相交简单路径覆盖有向无环图G的所有顶点，即每个顶点严格属于一条路径。路径的长度可能为0(单个点)。
+
+* 二分图性质
+
+    二分图的 最小点覆盖数 == 最大边匹配数
+
+    【即求最少的点使得每条边都至少和其中的一个点相关联，很显然直接取最大匹配的一段节点即可】
+    二分图的 最小边覆盖数 == 总顶点数 — 最大边匹配数 == 最大点独立集
+
+    二分图的 最大点独立集 == 总顶点数 — 最大边匹配数
+
+    【很显然的把最大匹配两端的点都从顶点集中去掉这个时候剩余的点是独立集，这是|V|-2*|M|，同时必然可以从每条匹配边的两端取一个点加入独立集并且保持其独立集性质】
+    二分图的 最大边独立集 == 最大匹配数
+
+    DAG的最小路径覆盖 == 将每个点拆点后作最大匹配，结果为n-m
+
+    结论
+
+    6个及以上的点集合，一定含有团或者独立集（≥3个点的大小）
+
 ---
 
-### KM O(n^3)
+### KM $O(n^3)$
 
 ```cpp
     const int INF = 0x3f3f3f3f;
@@ -874,7 +924,7 @@
 
 ---
 
-### Kruskal O(n log n)
+### Kruskal $O(n\log n)$
 
 ```cpp
     const int MAX = 1e5 + 5;
@@ -910,7 +960,7 @@
 
 ---
 
-### Dijkstra O(n log n)
+### Dijkstra $O(n\log n)$
 
 ```cpp
     const int MAX = 1e5 + 5;
@@ -994,7 +1044,7 @@
 
 ---
 
-### Dinic O(VVE)
+### Dinic $O(V^{2}E)$
 
 ```cpp
     const int MAX = 1e5 + 5;
@@ -1059,7 +1109,7 @@
 
 ---
 
-### Tarjan Sccno(强连通) O(n+m)
+### Tarjan Sccno(强连通) $O(n+m)$
 
 ```cpp
     const int MAX = 1e5 + 5;
@@ -1116,7 +1166,7 @@
 
 ---
 
-### 倍增法LCA O(log n)
+### 倍增法LCA $O(\log n)$
 
 ```cpp
     const int maxn = 1e4 + 5;
@@ -1124,29 +1174,25 @@
     vector<int> e[maxn];
     int dep[maxn], dp[maxn][15], maxb;
 
-    void init() {
+    void init(int n) {
         for (int i = 0; i < maxn; i++) {
             e[i].clear(), dep[i] = 0;
             memset(dp[i], -1, sizeof dp[i]);
         }
+        for (maxb = 0; (1 << maxb) <= n; ++maxb);
     }
 
     void DFS(int u, int d, int pre) {
         dp[u][0] = pre;
         dep[u] = d;
+        for (int j = 1; j < maxb; j++) {
+            if (~dp[i][j - 1]) {
+                dp[i][j] = dp[dp[i][j - 1]][j - 1];
+            }
+        }
         for (int i = 0; i < (int)e[u].size(); i++) {
             if (e[u][i] != pre) {
                 DFS(e[u][i], d + 1, u);
-            }
-        }
-    }
-
-    void gao(int n) {
-        maxb = 0;
-        while ((1 << maxb) <= n) ++maxb;
-        for (int j = 1; j < maxb; j++) {
-            for (int i = 1; i <= n; i++) {
-                (~dp[i][j - 1]) && (dp[i][j] = dp[dp[i][j - 1]][j - 1]);
             }
         }
     }
@@ -1170,7 +1216,7 @@
 
 ---
 
-### Tarjan LCA O(n + q)(离线)
+### Tarjan LCA $O(n + q)$(离线)
 
 ```cpp
     const int maxn = 1e5 + 5;
@@ -1231,7 +1277,7 @@
     void solve() { DFS(1, -1); }
 ```
 
-### 拓扑排序 O(n + m)
+### 拓扑排序 $O(n + m)$
 
 ```cpp
     const int maxn = 1e5 + 5;
@@ -1464,6 +1510,31 @@
     }
 ```
 
+### Suffix Array
+
+* usage:
+
+```cpp
+    // s原数组, sa, n数组长度, m值域[0, m)
+    SuffixArray::da(s, sa, n, m);
+    // SuffixArray::rank, SuffixArray::height
+    calheight(r, sa, n);
+```
+
+* sa数组: $sa_i$为$Suffix_i$在字符串中第一次出现的位置
+
+* height数组: $height_i = LongestPrefix(suffix(sa_{i-1}), suffix(sa_{i}))$
+
+* $suffix_j$和$suffix_k$的最长公共前缀为$min(height_{rank_j+1}, height_{rank_j+2}, ..., height_{rank_k})$
+
+* 求字符串中某两个后缀的最长公共前缀: 可转化为求height中某区间的最小值， 即RMQ问题
+
+* 可重叠最长重复子串: $ans = \max {height_i}$
+
+* 不可重叠最长重复子串: 二分答案，扫height数组，将连续的满足$height_i \geq k$的后缀分为一组，若同一组中存在$sa_{max} - sa_{min} \geq k$, 说明存在一组不重叠的重复子串
+
+* 可重叠的k次最长重复子串: 二分答案，扫height数组，分组，判断是否存在个数不小于k的组
+
 ---
 
 ### KMP
@@ -1629,7 +1700,7 @@
 * 欧拉函数: φ(n)是小于等于n的正整数中与n互质的数的数目
 * 若n, a为正整数且n与a互质, 则a^φ(n)≡1(mod n)
 * 费马小定理(Fermat小定理): 对任意a和任意质数p: a^p≡a(mod p), 若a不能被p整除, a^(p-1)≡1(mod p)
-* 欧拉降幂: $$ x^y\mod p = x^{y \mod \phi(p) \space + \space \phi(p)}, y \geq \phi(p) $$
+* 欧拉降幂: $ x^y\mod p = x^{y \mod \phi(p) \space + \space \phi(p)}, y \geq \phi(p) $
 
 ```python
     # (x ^ y) % p
@@ -1675,7 +1746,7 @@
 
 * $S(p, k)$表示把p个人分成k组作环排列的方案数
 
-* $ S(p, k) = (p - 1) * S(p - 1, k) + S(p - 1, k - 1), 1 \leq k \leq p - 1$
+* $S(p, k) = (p - 1) * S(p - 1, k) + S(p - 1, k - 1), 1 \leq k \leq p - 1$
 
 * $S(p,0)=0, p\geq1$
 
@@ -1741,8 +1812,8 @@
                 }
             }
         }
-        inline bool chkpri(int x) {return phi[x] == x - 1;}
-        inline int getphi(int x) {return phi[x];}
+        inline bool chkpri(int x) { return phi[x] == x - 1; }
+        inline int getphi(int x) { return phi[x]; }
     };
 ```
 
@@ -1779,7 +1850,7 @@
     }
 ```
 
-### Meissel-Lehmer(求[1, n]之间的素数个数)(O(n^{2/3}))
+### Meissel-Lehmer(求[1, n]之间的素数个数)$O(n^{2/3})$
 
 ```cpp
 namespace pcf{
@@ -1995,7 +2066,7 @@ namespace pcf{
     const int MXLEN = 1000 + 5;
     int fst[MXLEN];
     char str[MXLEN];
-    
+
     typedef double CSS;
 
     CSS jud(int begin, int end)
@@ -2080,4 +2151,61 @@ namespace pcf{
             return x;
         }
     }
+```
+
+## Convex凸包
+
+```cpp
+const int MAX = 10005;
+const double eps = 1e-8;
+
+/*
+    O(nlogn)
+    p->原点集, s->凸包
+    Convex::Graham(n); // 返回值为凸包中点数
+*/
+
+namespace Convex {
+    struct Point {
+        double x, y;
+        Point(double x_ = 0, double y_ = 0) : x(x_), y(y_) {}
+    }p[MAX], s[MAX];
+    template <typename T> inline T sqr(T x) { return x * x; }
+    inline int dcmp(double x) {
+        if (fabs(x) <= eps) return 0;
+        return x < 0 ? -1 : 1;
+    }
+    inline double dist(Point a, Point b) {
+        return sqrt(sqr(a.x - b.x) + sqr(a.y - b.y));
+    }
+    inline double cross(Point a, Point b, Point c) {
+        return (b.x - a.x) * (c.y - a.y) - (c.x - a.x) * (b.y - a.y);
+    }
+    bool cmp(const Point& a, const Point& b) {
+        int c = dcmp(cross(p[0], a, b));
+        if (c < 0) return false;
+        if (c > 0) return true;
+        return dist(p[0], a) < dist(p[0], b);
+    }
+    int Graham(int n) {
+        for (int i = 0; i < n; i++) {
+            if (dcmp(p[i].y - p[0].y) < 0) {
+                swap(p[i], p[0]);
+            }
+            else if (!dcmp(p[i].y - p[0].y) && dcmp(p[i].x - p[0].x) < 0) {
+                swap(p[i], p[0]);
+            }
+        }
+        sort(p + 1, p + n, cmp);
+        s[0] = p[0], s[1] = p[1];
+        int tot = 1;
+        for (int i = 2; i < n; i++) {
+            while (tot > 0 && dcmp(cross(s[tot - 1], s[tot], p[i])) <= 0) {
+                --tot;
+            }
+            s[++tot] = p[i];
+        }
+        return tot + 1;
+    }
+}
 ```
