@@ -1,62 +1,45 @@
-/*
-usage:
-
-    Define: Trie T(MaxSize);
-
-    Initial: T.init();
-
-    Push in: T.push(Str, StrLen);
-
-    Check: T.check(Str, StrLen);
-*/
-
-#include <algorithm>
 #include <string.h>
-#include <vector>
-using namespace std;
 
 struct Trie {
+    static const int maxn = 5e5 + 5;
+    static const int sigma = 26;
+    int tot, ch[maxn][sigma], cnt[maxn];
+    bool isend[maxn];
 
-    struct Node {
-        bool ed;
-        int next[30];
-        Node() { ed = false; memset(next, 0, sizeof next); }
-    };
-
-    int cnt;
-    vector<Node> v;
-
-    // Max Size!!!!!
-    Trie(int Size = 0) : v(Size + 5) { cnt = 0; }
-
-    void init()
-    {
-        cnt = 0;
-        v[0] = Node();
+    inline int newnode() {
+        ++tot;
+        memset(ch[tot], 0, sizeof ch[tot]);
+        cnt[tot] = 0, isend[tot] = false;
+        return tot;
     }
 
-    void push(const char *arr, const int& len)
-    {
+    inline void init() { tot = -1, newnode(); }
+
+    inline int trans(char c) {
+        // edit
+        // Example: return c - 'a';
+    }
+
+    void insert(char *str, int len) {
         int now = 0;
         for (int i = 0; i < len; i++) {
-            if (v[now].next[arr[i] - 'a'] == 0) {
-                v[++cnt] = Node();
-                v[now].next[arr[i] - 'a'] = cnt;
+            int c = trans(str[i]);
+            if (!ch[now][c]) {
+                ch[now][c] = newnode();
             }
-            now = v[now].next[arr[i] - 'a'];
+            cnt[now]++;
+            now = ch[now][c];
         }
-        v[now].ed = true;
+        cnt[now]++;
+        isend[now] = true;
     }
 
-    bool check(const char *arr, const int& len)
-    {
+    bool find(char *str, int len) {
         int now = 0;
         for (int i = 0; i < len; i++) {
-        if (v[now].next[arr[i] - 'a'] == 0) {
-                return false;
-            }
-            now = v[now].next[arr[i] - 'a'];
+            if (!ch[now][c]) return false;
+            now = ch[now][c];
         }
-        return v[now].ed;
+        return isend[now];
     }
-};
+}trie;

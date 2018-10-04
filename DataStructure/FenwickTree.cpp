@@ -1,56 +1,38 @@
-#include <stdio.h>
-#include <algorithm>
-#include <vector>
-using namespace std;
+const int maxn = 1e5 + 5;
 
-/*
-	New FenwickTree Solution!!
-	BIT::Size -> MAXIMUM
-	init -> reset [0, len]
-	upd -> val[i] += dlt
-	gsum -> sum_z [0, i]
-	query -> sum_z [l, r]
-*/
-template <typename T> struct BIT {
-	int Size;
-	vector<T> base;
-	BIT(int n = 0) : Size(n), base(n + 5, 0) {}
-#define lowbit(i) (~i & i + 1)
-	void init(int len = 0) { for (; len >= 0; len--) base[len] = 0; }
-	void upd(int i, T dlt) { for (; i <= Size; i += lowbit(i)) base[i] += dlt; }
-	T gsum(int i) { T ret = 0; for (; i >= 0; i -= lowbit(i)) ret += base[i]; return ret; }
-	inline T query(int l, int r) { return gsum(r) - gsum(l - 1); }
-};
+int a[maxn];
 
-// Old
-template <typename T> struct Fenwick {
-	int n;
-	vector<T> sum_;
+inline void init(int n) {
+	for (; ~n; --n) a[n] = 0;
+}
 
-#define lowbit(x) (x & (-x))
-
-	Fenwick(int n_ = 0) : n(n_), sum_(n + 5, 0) {}
-
-	void init(int n_ = -1)
-	{
-		if (n_ != -1) n = n_;
-		for (int i = 0; i <= n; i++) sum_[i] = 0;
+void upd(int i, int x) {
+	for (; i < maxn; i += (i & (-i))) {
+		a[i] += x;
 	}
+}
 
-	void upd(int i, T delta)
-	{
-		for (; i <= n; i += lowbit(i)) sum_[i] += delta;
+int query(int i) {
+	int res = 0;
+	for (; i > 0; i -= (i & (-i))) {
+		res += a[i];
 	}
+	return res;
+}
 
-	T getsum(int i)
-	{
-		T res = 0;
-		for (; i > 0; i -= lowbit(i)) res += sum_[i];
-		return res;
-	}
+inline int query(int l, int r) {
+	return query(r) - query(l - 1);
+}
 
-	T query(int l, int r)
-	{
-		return getsum(r) - getsum(l - 1);
+int upper_bound(int x) {
+	int res = 0, ptr = 0;
+	while ((1 << ptr + 1) <= n) ++ptr;
+	for (; ~ptr; --ptr) {
+		int p = res + (1 << ptr);
+		if (p <= n && a[p] <= x) {
+			x -= a[p];
+			res += 1 << ptr;
+		}
 	}
-};
+	return res;
+}
