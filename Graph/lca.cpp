@@ -1,48 +1,61 @@
-#include <string.h>
-#include <algorithm>
-#include <vector>
+#include <bits/stdc++.h>
 using namespace std;
 
-const int maxn = 1e4 + 5;
+const int maxn = 1e5 + 5;
 
-vector<int> e[maxn];
-int dep[maxn], dp[maxn][15], maxb;
+vector<int> G[maxn];
+int ver[maxn << 1], tot, First[maxn], dep[maxn << 1];
+int dp[maxn << 1][20];
+bool vis[maxn];
 
-void init() {
-    for (int i = 0; i < maxn; i++) {
-        e[i].clear(), dep[i] = 0;
-        memset(dp[i], -1, sizeof dp[i]);
-    }
+inline void init() {
+    tot = 0;
+    memset(vis, false, sizeof vis);
 }
 
-void DFS(int u, int d, int pre) {
-    dp[u][0] = pre;
-    dep[u] = d;
-    for (int i = 0; i < (int)e[u].size(); i++) {
-        if (e[u][i] != pre) {
-            DFS(e[u][i], d + 1, u);
+inline void addedge(int u, int v) {
+    G[u].push_back(v);
+    G[v].push_back(u);
+}
+
+void DFS(int u, int d) {
+    vis[u] = true, ver[++tot] = u, First[u] = tot, dep[tot] = d;
+    for (const int &v : G[u]) {
+        if (!vis[v]) {
+            DFS(v, d + 1);
+            ver[++tot] = u, dep[tot] = d;
         }
     }
 }
 
-void run(int n) {
-    maxb = 0;
-    while ((1 << maxb) <= n) ++maxb;
-    for (int j = 1; j < maxb; j++) {
-        for (int i = 1; i <= n; i++) {
-            (~dp[i][j - 1]) && (dp[i][j] = dp[dp[i][j - 1]][j - 1]);
+inline void ST() {
+    for (int i = 1; i <= tot; i++) dp[i][0] = i;
+    for (int j = 1; (1 << j) - 1<= tot; j++) {
+        for (int i = 1; i + (1 << j) - 1 <= tot; i++) {
+            int x = dp[i][j - 1], y = dp[i + (1 << (j - 1))][j - 1];
+            dp[i][j] = (dep[x] < dep[y]) ? x : y;
         }
     }
 }
 
-int LCA(int u, int v) {
-    if (dep[u] < dep[v]) swap(u, v);
-    for (int j = maxb - 1; ~j; j--) {
-        (dep[dp[u][j]] >= dep[v]) && (u = dp[u][j]);
-    }
-    if (u == v) return u;
-    for (int j = maxb - 1; ~j; j--) {
-        (dp[u][j] != dp[v][j]) && (u = dp[u][j], v = dp[v][j]);
-    }
-    return dp[u][0];
+inline int rmq(int l, int r) {
+    int k = 0;
+    while ((1 << (k + 1)) <= r - l + 1) ++k;
+    int x = dp[l][k], y = dp[r - (1 << k) + 1][k];
+    return dep[x] < dep[y] ? x : y;
 }
+
+inline int lca(int u, int v) {
+    int x = First[u], y = First[v];
+    if (x > y) swap(x, y);
+    return ver[rmq(x, y)];
+}
+
+// inline int lca(int u, int v) {
+//     int l = First[u], r = First[v];
+//     if (l > r) swap(l, r);
+//     int k = 0;
+//     while ((1 << (k + 1)) <= r - l + 1) ++k;
+//     int x = dp[l][k], y = dp[r - (1 << k) + 1][k];
+//     return ver[(dep[x] < dep[y]) ? x : y];
+// }
