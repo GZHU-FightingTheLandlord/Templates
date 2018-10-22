@@ -349,3 +349,13 @@
         findfac(p), findfac(n / p);
     }
 ```
+
+## 斯特林公式
+
+$n! \approx \sqrt{2\pi n}\, \left(\frac{n}{e}\right)^{n}$
+
+## 莫比乌斯反演
+
+假设对于数论函数f(n)和F(n)，有以下关系式：$F(n)=\sum _{{d|n}}f(d)$  
+
+则将其默比乌斯反转公式定义为：${\displaystyle f(n)=\sum _{d|n}\mu (d)F\left({\frac {n}{d}}\right)}$
