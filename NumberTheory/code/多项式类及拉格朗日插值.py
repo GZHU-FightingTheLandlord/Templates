@@ -1,3 +1,5 @@
+# Author: ConanYu
+
 class poly(object):
 
     def __init__(self, *args, **kw):
