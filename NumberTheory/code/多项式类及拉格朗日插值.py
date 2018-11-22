@@ -9,7 +9,7 @@ class poly(object):
             self.__data.append(float(i))
 
     def __str__(self):
-        return ' + '.join('%.6f x^%d' %(j, self.__n - i) for i, j in enumerate(self.__data[::-1]))
+        return ' + '.join('%gx^%d' %(j, self.__n - i) for i, j in enumerate(self.__data[::-1]))
     
     @staticmethod
     def __add(a, b):
