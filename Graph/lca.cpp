@@ -39,8 +39,8 @@ inline void ST() {
 }
 
 inline int rmq(int l, int r) {
-    int k = 0;
-    while ((1 << (k + 1)) <= r - l + 1) ++k;
+    int k = 31 - __builtin_clz(r - l + 1);
+    // while ((1 << (k + 1)) <= r - l + 1) ++k;
     int x = dp[l][k], y = dp[r - (1 << k) + 1][k];
     return dep[x] < dep[y] ? x : y;
 }

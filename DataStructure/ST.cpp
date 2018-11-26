@@ -1,20 +1,20 @@
-#include <bits/stdc++.h>
-using namespace std;
+const int maxn = 1e5 + 5;
+const int maxm = 20; // larger than log2(maxn)
 
-const int MAX = 1e6 + 5;
+int n;
+int arr[maxn], dp[maxn][maxm];
 
-int dp[MAX][25];
-
-void rmq(int n) {
-    int len = (int)(log(n) / log(2.0));
-    for (int j = 1; j <= len; j++) {
+void ST() {
+    for (int i = 1; i <= n; i++) dp[i][0] = arr[i];
+    for (int j = 1; (1 << j) - 1 <= n; j++) {
         for (int i = 1; i + (1 << j) - 1 <= n; i++) {
-            dp[i][j] = min(dp[i][j - 1], dp[i + (1 << (j - 1))][j - 1]);
+            dp[i][j] = max(dp[i][j - 1], dp[i + (1 << (j - 1))][j - 1]);
         }
     }
 }
 
 int query(int l, int r) {
-    int p = (int)(log(r - l + 1) / log(2.0));
-    return min(dp[l][p], dp[r - (1 << p) + 1][p]);
+    int k = 31 - __builtin_clz(r - l + 1);
+    // while ((1 << (k + 1)) <= r - l + 1) ++k;
+    return max(dp[l][k], dp[r - (1 << k) + 1][k]);
 }
