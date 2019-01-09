@@ -2061,10 +2061,10 @@ namespace pcf{
     }
 ```
 
-### 后缀表达式
+### 后缀表达式 $O(n)$
 
 ```cpp
-    const int MXLEN = 1000 + 5;
+    const int MXLEN = 1000000 + 5;
     int fst[MXLEN];
     char str[MXLEN];
 
