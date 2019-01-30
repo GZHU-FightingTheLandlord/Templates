@@ -20,3 +20,25 @@ struct Dsu {
 		return true;
 	}
 };
+
+// **********************************************************
+// **********************************************************
+// Actually, same as the one above.
+struct Dsu {
+  vector<int> anc, size;
+  Dsu(int n = 0) : anc(n), size(n, 0) {
+    for (int i = 0; i < n; i++) {
+      anc[i] = i;
+    }
+  }
+  int operator[] (int x) {
+    return x == anc[x] ? x : anc[x] = operator[](anc[x]);
+  }
+  bool operator() (int u, int v) {
+    int a = operator[](u), b = operator[](v);
+    if (a == b) return false;
+    if (size[a] < size[b]) anc[a] = b;
+    else anc[b] = a, size[a] += (size[a] == size[b]);
+    return true;
+  }
+};
