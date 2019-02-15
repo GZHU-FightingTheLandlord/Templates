@@ -56,7 +56,7 @@ template <typename T> struct SegmentTree {
 		if (r <= mid) {
 			update(index << 1, l, r, delta);
 		}
-		else if (mid > l) { 
+		else if (mid < l) { 
 			update(index << 1 | 1, l, r, delta);
 		}
 		else {
@@ -80,7 +80,7 @@ template <typename T> struct SegmentTree {
 		if (r <= mid) {
 			modify(index << 1, l, r, delta);
 		}
-		else if (mid > l) {
+		else if (mid < l) {
 			modify(index << 1 | 1, l, r, delta);
 		}
 		else {
