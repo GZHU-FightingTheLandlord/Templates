@@ -1,37 +1,46 @@
-const int maxn = 1e5 + 5;
+// ~i & i + 1
+// i & -i
 
-int a[maxn];
-
-// lowbit(i) = i & -i
-// lowbit(i) = ~i & i + 1
-
-void upd(int i, int x) {
-	for (; i < maxn; i += (i & (-i))) {
-		a[i] += x;
-	}
-}
-
-int query(int i) {
-	int res = 0;
-	for (; i > 0; i -= (i & (-i))) {
-		res += a[i];
-	}
-	return res;
-}
-
-inline int query(int l, int r) {
-	return query(r) - query(l - 1);
-}
-
-// 以x为上界，找最后一个满足\sum_{i = 1}^{k}的点k
-int upper_bound(int x) {
-    int res = 0, ptr = 31 - __builtin_clz(n);
-    for (; ~ptr; --ptr) {
-        int p = res | (1 << ptr);
-        if (p <= n && a[p] <= x) {
-            x -= a[p];
-            res |= 1 << ptr;
-        }
+struct bit {
+  int N, base[maxn];
+  void setN(int n) { N = n; }
+  void init() { memset(base, 0, sizeof base); }
+  void add(int at, int v) {
+    if (!at) return;
+    for (int i = at; i <= N; i += i & -i) {
+      base[i] += v;
     }
-    return res;
-}
+  }
+  int getSum(int at) {
+    int sum = 0;
+    for (int i = at; i; i -= i & -i) {
+      sum += base[i];
+    }
+    return sum;
+  }
+};
+
+struct Interval {
+  int N, base[2][maxn];
+  void setN(int n) { N = n; }
+  void init() { memset(base, 0, sizeof base); }
+  void add(int at, int v) {
+    if (!at) return;
+    for (int i = at; i <= N; i += i & -i) {
+      base[0][i] += v, base[1][i] -= v * at;
+    }
+  }
+  void add(int l, int r, int v) {
+    add(l, v), add(r + 1, -v);
+  }
+  int getSum(int at) {
+    int sum = 0, mul = at + 1;
+    for (int i = at; i; i -= i & -i) {
+      sum += mul * base[0][i] + base[1][i];
+    }
+    return sum;
+  }
+  int query(int l, int r) {
+    return getSum(r) - getSum(l - 1);
+  }
+};
