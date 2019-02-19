@@ -116,3 +116,9 @@
 * $L(x):=\sum _{{j=0}}^{{k}}y_{j}\ell _{j}(x)$
 
 * $\ell _{j}(x):=\prod _{{i=0,\,i\neq j}}^{{k}}{\frac  {x-x_{i}}{x_{j}-x_{i}}}={\frac  {(x-x_{0})}{(x_{j}-x_{0})}}\cdots {\frac  {(x-x_{{j-1}})}{(x_{j}-x_{{j-1}})}}{\frac  {(x-x_{{j+1}})}{(x_{j}-x_{{j+1}})}}\cdots {\frac  {(x-x_{{k}})}{(x_{j}-x_{{k}})}}.$
+
+## 莫比乌斯反演公式
+
+* $F(n)=\sum\limits_{d\mid n}f(d)\Rightarrow f(n)=\sum\limits_{d\mid n}\mu(d)F(\frac{n}{d})$
+
+* $F(n)=\sum\limits_{n\mid d}f(d)\Rightarrow f(n)=\sum\limits_{n\mid d}\mu(\frac{d}{n})F(d)$
