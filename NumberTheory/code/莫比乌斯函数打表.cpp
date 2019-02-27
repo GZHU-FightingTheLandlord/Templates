@@ -4,7 +4,7 @@ using namespace std;
 const int MAXN = 1e7;
 bool isnpri[MAXN];
 vector<int>pri;
-short mu[MAXN];
+int mu[MAXN];
 void mobius() {
     mu[1] = 1;
     for(int i = 2; i < MAXN; i++) {
@@ -33,5 +33,3 @@ int main() {
     mobius();
     cout << ((clock() - start) * 1.0 / CLOCKS_PER_SEC) << endl;
 }
-
-// i7-7700hq maxn=1e7 time=0.182s
