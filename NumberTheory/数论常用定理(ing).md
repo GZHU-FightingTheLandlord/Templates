@@ -122,3 +122,7 @@
 * $F(n)=\sum\limits_{d\mid n}f(d)\Rightarrow f(n)=\sum\limits_{d\mid n}\mu(d)F(\frac{n}{d})$
 
 * $F(n)=\sum\limits_{n\mid d}f(d)\Rightarrow f(n)=\sum\limits_{n\mid d}\mu(\frac{d}{n})F(d)$
+
+## 牛顿法迭代公式
+
+* $x_{{n+1}}=x_{n}-{\frac  {f(x_{n})}{f'(x_{n})}}$
