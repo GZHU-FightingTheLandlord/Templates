@@ -1,20 +1,20 @@
-const int maxn = 1e5 + 5;
-const int maxm = 20; // larger than log2(maxn)
-
-int n;
-int arr[maxn], dp[maxn][maxm];
-
-void ST() {
-    for (int i = 1; i <= n; i++) dp[i][0] = arr[i];
-    for (int j = 1; (1 << j) - 1 <= n; j++) {
-        for (int i = 1; i + (1 << j) - 1 <= n; i++) {
-            dp[i][j] = max(dp[i][j - 1], dp[i + (1 << (j - 1))][j - 1]);
-        }
+struct ST {
+  vector<vector<int>> table;
+  ST(vector<int> a = {}) {
+    int n = a.size();
+    table.resize(n, vector<int>(32 - __builtin_clz(n)));
+    for (int i = 0; i < n; i++) {
+      table[i][0] = a[i];
     }
-}
-
-int query(int l, int r) {
+    for (int j = 1; (1 << j) - 1 < n; j++) {
+      for (int i = 0; i + (1 << j) - 1 < n; i++) {
+        int x = table[i][j - 1], y = table[i + (1 << (j - 1))][j - 1];
+        table[i][j] = min(x, y);
+      }
+    }
+  }
+  inline int getMin(int l, int r) {
     int k = 31 - __builtin_clz(r - l + 1);
-    // while ((1 << (k + 1)) <= r - l + 1) ++k;
-    return max(dp[l][k], dp[r - (1 << k) + 1][k]);
-}
+    return min(table[l][k], table[r - (1 << k) + 1][k]);
+  }
+};
