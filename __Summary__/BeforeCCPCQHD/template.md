@@ -756,7 +756,8 @@
     const int maxn = 1e5 + 5;
 
     vector<int> e[maxn];
-    int link[maxn], vis[maxn];
+    int link[maxn];
+    bool vis[maxn];
 
     void init() {
         for (int i = 0; i < maxn; i++) {
@@ -766,7 +767,7 @@
 
     void addedge(int u, int v) {
         e[u].push_back(v);
-        // e[v].push_back(u);
+        e[v].push_back(u);
     }
 
     bool find(int u) {
@@ -776,7 +777,7 @@
                 vis[v] = 1;
                 if (link[v] == -1 || find(link[v])) {
                     link[v] = u;
-                    // link[u] = v;
+                    link[u] = v;
                     return true;
                 }
             }
