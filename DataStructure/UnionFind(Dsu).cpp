@@ -27,9 +27,7 @@ struct Dsu {
 struct Dsu {
   vector<int> anc, size;
   Dsu(int n = 0) : anc(n), size(n, 0) {
-    for (int i = 0; i < n; i++) {
-      anc[i] = i;
-    }
+		iota(anc.begin(), anc.end(), 0);
   }
   int operator[] (int x) {
     return x == anc[x] ? x : anc[x] = operator[](anc[x]);
