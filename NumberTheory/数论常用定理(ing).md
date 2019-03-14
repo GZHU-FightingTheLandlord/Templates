@@ -35,16 +35,12 @@
 * 欧拉函数: φ(n)是小于等于n的正整数中与n互质的数的数目
 * 若n, a为正整数且n与a互质, 则a^φ(n)≡1(mod n)
 * 费马小定理(Fermat小定理): 对任意a和任意质数p: a^p≡a(mod p), 若a不能被p整除, a^(p-1)≡1(mod p)
-* 欧拉降幂: $$x^y\mod p = x^{y \mod \phi(p) \space + \space \phi(p)}, y \geq \phi(p)$$
+* 欧拉降幂: $$x^y\bmod p = x^{y \bmod \phi(p) \space + \space \phi(p)}\bmod p$$
 
 ```py
     # (x ^ y) % p
     def calc(x, y, p):
-        if y < p:
-            return qpow(x, y, p)
-        else:
-            # (x ^ y) % p = (x ^ (y % φ(p) + φ(p))) % p
-            return qpow(x, y % phi[p] + phi[p], p)
+        return qpow(x, y % phi[p] + phi[p], p)
 ```
 
 ## 费马大定理 && 费马方程
