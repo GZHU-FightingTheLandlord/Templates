@@ -6,7 +6,7 @@
 
 * 每次将指数进行一次$log(N)$级别的变换
 * 矩阵快速幂: 在$O(log(N))$级别的时间求第n个斐波納契数列$f(n)=a*f(n-1)+b*f(n-2)$
-* 快速乘: 利用二进制实现$ab \mod p$, 防止溢出
+* 快速乘: 利用二进制实现$ab \bmod p$, 防止溢出
 
 ## 母函数(组合数学)
 
@@ -57,7 +57,7 @@
 
 ## Lucas定理
 
-* $C(n, m) \mod p = C(n / p, m / p) C(n \mod p, m \mod p) \mod p$, 其中p为质数
+* $C(n, m) \bmod p = C(n / p, m / p) C(n \bmod p, m \bmod p) \bmod p$, 其中p为质数
 
 ## pick定理(实际上属于计算几何)
 
@@ -65,11 +65,11 @@
 
 ## 逆元(费马小定理)
 
-* 当p为素数时， $a / b \mod p = ab_1 \mod p,  b_1 = b ^ {p - 2} \mod p$
+* 当p为素数时， $a / b \bmod p = ab_1 \bmod p,  b_1 = b ^ {p - 2} \bmod p$
 
 ## 威尔逊定理
 
-* 当且仅当p为素数时: $(p-1)!≡-1(\mod p)$
+* 当且仅当p为素数时: $(p-1)!≡-1(\bmod p)$
 
 ## 杨辉三角(应用于排列组合)
 
