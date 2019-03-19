@@ -1,6 +1,6 @@
 | 内容 | 作者 / 引用者 |
 |-|-|
-| [自适应辛普森积分法]() | semon0x29a |
+| [自适应辛普森积分法](/AdaptingSimpson.cpp) | semon0x29a |
 | [BM算法线性综合解]() | Caproner |
 | [欧拉函数线性筛]() | semon0x29a |
 | [拉格朗日插值法求多项式]() | ConanYu |
