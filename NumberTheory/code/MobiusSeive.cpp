@@ -1,6 +1,3 @@
-#include<bits/stdc++.h>
-using namespace std;
-
 const int MAXN = 1e7;
 bool isnpri[MAXN];
 vector<int>pri;
@@ -26,10 +23,4 @@ void mobius() {
             }
         }
     }
-}
-
-int main() {
-    clock_t start = clock();
-    mobius();
-    cout << ((clock() - start) * 1.0 / CLOCKS_PER_SEC) << endl;
 }
