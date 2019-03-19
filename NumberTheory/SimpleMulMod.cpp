@@ -5,6 +5,7 @@ inline ll mul(ll a, ll b, ll mod) {
     return (((a * (b >> 20) % mod) << 20) + (a * (b & ((1 << 20) - 1)))) % mod;
 }
 
+// mod <= 1e18
 inline ll mul(ll a, ll b, ll mod) {
     ll d = (ll)floor(a * (long double)b / mod + 0.5);
     ll ret = (a * b - d * mod) % mod;
