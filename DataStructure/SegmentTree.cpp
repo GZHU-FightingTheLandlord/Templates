@@ -62,8 +62,8 @@ template <typename T> struct SegmentTree {
 		else {
 			update(index << 1, l, r, delta);
 			update(index << 1 | 1, l, r, delta);
-			v[index].val = min(query(index << 1, v[index].l, mid), query(index << 1 | 1, mid + 1, v[index].r));
 		}
+		v[index].val = min(query(index << 1, v[index].l, mid), query(index << 1 | 1, mid + 1, v[index].r));
 	}
 
 	void modify(int index, int l, int r, const T &delta)
