@@ -1,31 +1,36 @@
-## 莫比乌斯函数线性筛
+## 线性筛（素数表、欧拉函数、莫比乌斯函数）
 
 ```cpp
-    const int MAXN = 1e7;
-    bool isnpri[MAXN];
-    vector<int>pri;
-    int mu[MAXN];
-    void mobius() {
-        mu[1] = 1;
-        for(int i = 2; i < MAXN; i++) {
-            if(!isnpri[i]) {
-                pri.push_back(i);
-                mu[i] = -1;
-            }
-            for(int j = 0; j < int(pri.size()); j++) {
-                const int cur = i * pri[j];
-                if(cur >= MAXN) {
-                    break;
+    struct Seive {
+        int maxn;
+        vector<bool> isp;
+        vector<int> p, phi, mu;
+
+        Seive(int n = 0) : maxn(n), isp(n + 5, true), phi(n + 5, 0), mu(n + 5, 0) { solve(); }
+
+        void solve() {
+            isp[0] = isp[1] = false; phi[1] = 1; mu[1] = 1;
+            for (int i = 2; i <= maxn; i++) {
+                if (isp[i]) {
+                    p.push_back(i);
+                    phi[i] = i - 1;
+                    mu[i] = -1;
                 }
-                isnpri[cur] = true;
-                if(i % pri[j] == 0) {
-                    mu[cur] = 0;
-                    break;
-                } else {
-                    mu[cur] = -mu[i];
+                for (int j = 0; j < (int)p.size() && i * p[j] <= maxn; j++) {
+                    const int cur = i * p[j];
+                    isp[cur] = false;
+                    if (i % p[j]) {
+                        phi[cur] = phi[i] * (p[j] - 1);
+                        mu[cur] = -mu[i];
+                    }
+                    else {
+                        phi[cur] = phi[i] * p[j];
+                        mu[cur] = 0;
+                        break;
+                    }
                 }
             }
         }
-    }
+    };
 ```
 
