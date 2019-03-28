@@ -17,3 +17,4 @@
 | [polysum](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/NumberTheory/polysum.cpp) | |
 | [扩展欧几里得](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/NumberTheory/exgcd.cpp) | ConanYu |
 | [中国剩余定理](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/NumberTheory/crt.cpp) | ConanYu |
+| [exLucas](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/NumberTheory/exlucas.cpp) | ConanYu |
