@@ -72,3 +72,11 @@ ll exlucas(ll n, ll m, ll p) {
 }
 
 // https://codeforces.com/gym/100633/problem/J
+
+/* description:
+    typedef long long ll;
+    typedef pair<long long, long long>pll;
+    mod(x, p) return ((x % p) + p) % p
+    fpow(a, b, p) return a^b mod p
+    exgcd(a, b) return x, y that make x * a + y * b = gcd(x, y)
+*/
