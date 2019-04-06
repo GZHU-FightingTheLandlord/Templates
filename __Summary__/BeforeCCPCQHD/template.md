@@ -2131,27 +2131,20 @@ namespace pcf{
     }
 ```
 
-### java大数牛顿迭代法开方
+### java大数牛顿迭代法开m次方
 
 ```java
-    public static BigInteger sqrt(BigInteger n) {
-        String a = n.toString();
-        final int len = a.length();
-        if((~len & 1) == 1) {
-            a = a.substring(0, len / 2 + 1);
-        } else {
-            a = a.substring(0, len / 2);
+    public static BigInteger rootM(BigInteger n, final int m) {
+        final String tmp = n.toString();
+        BigDecimal x = new BigDecimal(tmp.substring(0, tmp.length() / m + (m == 1 ? 0 : 1)));
+        BigDecimal l = BigDecimal.ZERO;
+        final BigDecimal M = BigDecimal.valueOf(m);
+        final BigDecimal N = new BigDecimal(n), eps = BigDecimal.valueOf(1e-6);
+        while(x.subtract(l).abs().compareTo(eps) > 0) {
+            l = x;
+            x = x.subtract(x.pow(m).subtract(N).divide(M.multiply(x.pow(m - 1)), 50, BigDecimal.ROUND_HALF_EVEN));
         }
-        BigInteger x = new BigInteger(a);
-        final BigInteger two = BigInteger.valueOf(2);
-        if(a == "0" || a == "1") {
-            return n;
-        } else {
-            while(n.compareTo(x.multiply(x)) < 0) {
-                x = (x.add(n.divide(x))).divide(two);
-            }
-            return x;
-        }
+        return x.toBigInteger();
     }
 ```
 
