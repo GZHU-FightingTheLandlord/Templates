@@ -927,3 +927,26 @@ int minPresentation(string &s) {
 }
 ```
 
+## 拉格朗日插值公式
+
+* $L(x)=\sum\limits_{j=0}^{k}y_j\ell_j(x)$
+
+* $\ell_j(x)=\prod\limits_{i=0,i\neq j}^{k}\frac{x-x_i}{x_j-x_i} $
+
+## 牛顿法迭代公式
+
+* $x_{{n+1}}=x_{n}-{\frac  {f(x_{n})}{f'(x_{n})}}$
+
+## 组合数性质
+
+* $C_n^m=C_{n-1}^{m-1}+C_{n-1}^{m}$
+
+## 佩尔方程的解
+
+$x^2-n\cdot y^2=1$（$n$为给正整数，x和y均为整数）
+
+* 若$n$为完全平方数，仅有平凡解$(\pm1,\;0)$。
+
+* 其余情况找出最小解$(x_1,y_1)$，那么有：
+$\begin{cases}x_{i+1}=x_1\cdot x_i+n\cdot y_1\cdot y_i\\y_{i+1}=x_1\cdot y_i+y_1\cdot x_i\end{cases}$
+
