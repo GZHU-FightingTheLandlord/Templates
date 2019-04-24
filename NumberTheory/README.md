@@ -2,7 +2,7 @@
 |-|-|
 | [自适应辛普森积分法](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/NumberTheory/AdaptingSimpson.cpp) | semon0x29a |
 | [BM算法线性综合解](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/NumberTheory/BM.cpp) | Caproner |
-| [欧拉函数线性筛](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/NumberTheory/EularSeive.cpp) | semon0x29a |
+| [线性筛](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/NumberTheory/Seive.cpp) | semon0x29a |
 | [拉格朗日插值法求多项式](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/NumberTheory/LagrangePolynomial.cpp) | ConanYu |
 | [Lucas定理求大组合数](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/NumberTheory/Lucas.cpp) | semon0x29a |
 | [Meissel-Lehmer求小于n的素数个数](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/NumberTheory/Meissel-Lehmer.cpp) | semon0x29a |
