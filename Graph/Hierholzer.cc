@@ -39,7 +39,7 @@ public:
   }
 };
 
-// directed, 0-base, never judge.
+// directed, 0-base.
 template <int NV> class HierholzerD {
 public:
   int deg[NV];
@@ -71,7 +71,7 @@ public:
     if (UZ != 0 && (UZ != 2 || U != 1 || D != 1)) return false;
     dfs(UZ ? src : 0);
     reverse(path.begin(), path.end());
-    return path;
+    return (int)path.size() == tot;
   }
 
   vector<int> get(int src) {
