@@ -71,7 +71,7 @@ public:
     if (UZ != 0 && (UZ != 2 || U != 1 || D != 1)) return false;
     dfs(UZ ? src : 0);
     reverse(path.begin(), path.end());
-    return (int)path.size() == tot;
+    return (int)path.size() == tot + 1;
   }
 
   vector<int> get(int src) {
