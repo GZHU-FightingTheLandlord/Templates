@@ -24,7 +24,7 @@ namespace ntt {
     }
     for (int k = 1; k < n; k <<= 1) {
       int e = qpow(root, (mod - 1) / 2 / k, mod);
-      if (rev) e = qpow(e, mod - 2, mod);
+      if (rev) e = qpow(e, mod - 2, mod); // exgcd is better
       for (int i = 0; i < n; i += 2 * k) {
         ll w = 1;
         for (int j = 0; j < k; j++, w = w * e % mod) {
@@ -34,7 +34,7 @@ namespace ntt {
       }
     }
     if (rev) {
-      int inv = qpow(n, mod - 2, mod);
+      int inv = qpow(n, mod - 2, mod); // exgcd is better
       for (int i = 0; i < n; i++) a[i] = 1ll * a[i] * inv % mod;
     }
   }
