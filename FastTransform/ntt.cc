@@ -43,7 +43,7 @@ namespace ntt {
   // (479 << 21, 3) and (483 << 21, 5), last two are > 10^9
   vector<int> conv(const vector<int>& a, const vector<int>& b,\
                   const int mod = (119 << 23) + 1, int root = 3) {
-    int sz = (int)a.size() + (int)b.size() + 1;
+    int sz = (int)a.size() + (int)b.size() - 1;
     int L = sz > 1 ? (32 - __builtin_clz(sz - 1)) : 0, n = 1 << L;
     vector<int> av(n), bv(n);
     copy(a.begin(), a.end(), av.begin());
