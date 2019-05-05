@@ -1,4 +1,5 @@
 // get this code from tourist's submission on Codeforces.
+// https://codeforces.com/contest/986/submission/38733857
 namespace fft {
   const double pi = acos(-1.0);
   struct Complex {
@@ -93,7 +94,7 @@ namespace fft {
   }
   vector<int> multiply_mod(vector<int> &a, vector<int> &b, int m, int eq = 0) {
     int need = a.size() + b.size() - 1;
-    int nbase = 31 - __builtin_clz(need);
+    int nbase = 32 - __builtin_clz(need);
     ensure_base(nbase);
     int sz = 1 << nbase;
     if (sz > (int) fa.size()) {
