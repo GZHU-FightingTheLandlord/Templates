@@ -61,10 +61,11 @@ namespace fft {
       }
     }
   }
+
   vector<Complex> fa, fb;
   vector<int> multiply(const vector<int> &a, const vector<int> &b) {
     int need = a.size() + b.size() - 1;
-    int nbase = 32 - __builtin_clz(need);
+    int nbase = 32 - __builtin_clz(need) - (need - need & (-need) == 0);
     ensure_base(nbase);
     int sz = 1 << nbase;
     if (sz > (int) fa.size()) {
@@ -94,7 +95,7 @@ namespace fft {
   }
   vector<int> multiply_mod(const vector<int> &a, const vector<int> &b, int m, int eq = 0) {
     int need = a.size() + b.size() - 1;
-    int nbase = 32 - __builtin_clz(need);
+    int nbase = 32 - __builtin_clz(need) - (need - need & (-need) == 0);
     ensure_base(nbase);
     int sz = 1 << nbase;
     if (sz > (int) fa.size()) {
