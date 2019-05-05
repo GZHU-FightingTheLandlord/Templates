@@ -269,3 +269,64 @@ int manacher(char *s, int n) {
   return ret - 1;
 }
 ```
+
+### AC Automa
+
+```cpp
+namespace acam {
+  struct Node {
+    int son[26], fail;
+    void init() {
+      fail = 0;
+      memset(son, 0, sizeof son);
+    }
+  } T[N];
+  int tot;
+
+#define Son(i, x) T[i].son[x]
+#define trans(c) (c - 'A')
+
+  void init() {
+    tot = 0, T[0].init();
+  }
+  void insert(char *s, int index) {
+    int cur = 0;
+    for (int i = 0; s[i]; i++) {
+      int c = trans(s[i]);
+      if (!Son(cur, c)) {
+        Son(cur, c) = ++tot;
+        T[tot].init();
+      }
+      cur = Son(cur, c);
+    }
+  }
+  void build() {
+    queue<int> Q;
+    for (int i = 0; i < 26; i++) {
+      if (Son(0, i)) Q.push(Son(0, i));
+    }
+    while (!Q.empty()) {
+      int u = Q.front(); Q.pop();
+      for (int i = 0; i < 26; i++) {
+        if (Son(u, i)) {
+          T[Son(u, i)].fail = T[T[u].fail].son[i];
+          Q.push(Son(u, i));
+        } else {
+          T[u].son[i] = T[T[u].fail].son[i];
+        }
+      }
+    }
+  }
+  int query(char *t) {
+    int ans = 0, cur = 0;
+    for (int i = 0; t[i]; i++) {
+      int c = trans(t[i]);
+      cur = Son(cur, c);
+      for (int j = cur; j; j = T[j].fail) {
+        // upd ans;
+      }
+    }
+    return ans;
+  }
+}
+```
