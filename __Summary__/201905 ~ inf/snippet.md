@@ -113,3 +113,37 @@ struct custom_hash {
 
 unordered_map<long long, int, custom_hash> safe_map;
 ```
+
+### io buffer
+
+```cpp
+namespace io {
+  const int SZ = (1 << 22) + 1;
+  char buf[SZ], *ptr = NULL, *bnd = NULL;
+  #define GC() ((ptr == bnd) ? (ptr = buf, bnd = buf + fread(buf, 1, SZ, stdin), (ptr == bnd) ? EOF : (*(ptr++))) : (*(ptr++)))
+  #define STATE(c) { if (c == '-') sgn = -1; else if (c == EOF) return false; }
+  inline bool skip(const char& c) { return c < '0' || c > '9'; }
+  template <class V>
+  inline bool Read(V &v) {
+    register char c, sgn = 1;
+    while (skip(c = GC())) STATE(c);
+    for (v = c - '0'; !skip(c = GC()); v = v * 10 + c - '0');
+    return (v *= sgn), true;
+  }
+  char oBuf[SZ], *oCur = oBuf, *oBnd = oBuf + SZ, oStk[21], top = 0;
+  inline void flush() { if (oCur - oBuf) fwrite(oBuf, 1, oCur - oBuf, stdout), oCur = oBuf; }
+  inline void pc(char c) { *(oCur++) = c; if (oCur == oBnd) flush(); }
+  template <class V>
+  inline void Print(V v) {
+    if (!v) return pc('0');
+    if (v < 0) v = -v, pc('-');
+    while (v) oStk[top++] = v % 10, v /= 10;
+    while (top) pc(oStk[--top] + '0');
+  }
+  template <class V>
+  inline void Println(const V& v) { Print(v), pc('\n'); }
+  struct flusher { ~flusher() { flush(); } } __flusher__;
+}
+using io::Read;
+using io::Println;
+```
