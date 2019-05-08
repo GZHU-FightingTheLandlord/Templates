@@ -1,5 +1,5 @@
 | 内容 | 作者 / 引用者 |
-|-|-|
+|-|:-:|
 | [自适应辛普森积分法](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/NumberTheory/AdaptingSimpson.cpp) | semon0x29a |
 | [BM算法线性综合解](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/NumberTheory/BM.cpp) | Caproner |
 | [线性筛](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/NumberTheory/Seive.cpp) | semon0x29a |
@@ -19,3 +19,4 @@
 | [中国剩余定理](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/NumberTheory/crt.cpp) | ConanYu |
 | [exLucas](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/NumberTheory/exlucas.cpp) | ConanYu |
 | [大数开m次方](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/NumberTheory/rootM.java) | ConanYu |
+| [线性基](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/NumberTheory/LinearBasis.cpp) | ConanYu |
