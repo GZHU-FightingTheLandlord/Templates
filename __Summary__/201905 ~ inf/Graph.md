@@ -534,52 +534,53 @@ int getlca(int u, int v) {
 ### KM
 
 ```cpp
+const int N = 505;
+const int maxn = 505;
 const int INF = 0x3f3f3f3f;
-const int maxn = 205;
-const int N = 205;
+
 int nx, ny; // point num
-int g[maxn][maxn]; // graph
-int linker[maxn], lx[maxn], ly[maxn];
-int slack[N];
+int G[maxn][maxn]; // graph
+int link[maxn], lx[maxn], ly[maxn], slack[N];
 bool visx[N], visy[N];
+
 bool dfs(int x) {
   visx[x] = 1;
   for (int y = 0; y < ny; y++) {
     if (visy[y]) continue;
-    int tmp = lx[x] + ly[y] - g[x][y];
+    int tmp = lx[x] + ly[y] - G[x][y];
     if (tmp == 0) {
       visy[y] = 1;
-      if (linker[y] == -1 || dfs(linker[y])) {
-        linker[y] = x;
-        return 1;
+      if (link[y] == -1 || dfs(link[y])) {
+        link[y] = x;
+        return true;
       }
+    } else if (slack[y] > tmp) {
+      slack[y] = tmp;
     }
-    else if (slack[y] > tmp) slack[y] = tmp;
   }
   return false;
 }
  
-int solve() {
-  memset(linker, -1, sizeof linker);
+int KM() {
+  memset(link, -1, sizeof link);
   memset(ly, 0, sizeof ly);
   for (int i = 0; i < nx; i++) {
     lx[i] = -INF;
     for (int j = 0; j < ny; j++) {
-      if (g[i][j] > lx[i]) lx[i] = g[i][j];
+      if (G[i][j] > lx[i]) lx[i] = G[i][j];
     }
   }
   for (int x = 0; x < nx; x++) {
     memset(slack, 0x3f, sizeof slack);
-    while (true) {
+    while (1) {
       memset(visx, 0, sizeof visx);
       memset(visy, 0, sizeof visy);
       if (dfs(x)) break;
       int d = INF;
       for (int i = 0; i < ny; i++) {
-        if (!visy[i] && d > slack[i]) {
-          d = slack[i];
-        }
+        if (!visy[i] && d > slack[i]) d = slack[i];
       }
+      if (d == INF) return -1;
       for (int i = 0; i < nx; i++) {
         if (visx[i]) lx[i] -= d;
       }
@@ -591,7 +592,7 @@ int solve() {
   }
   int res = 0;
   for (int i = 0; i < ny; i++) {
-    if (~linker[i]) res += g[linker[i]][i];
+    if (~link[i]) res += G[link[i]][i];
   }
   return res;
 }
