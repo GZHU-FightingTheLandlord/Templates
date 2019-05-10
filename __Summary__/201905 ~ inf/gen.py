@@ -13,14 +13,14 @@ def getFiles():
 def main():
     os.chdir(getPath()) # change path to path of this python source
     files = sorted(getFiles()) # sort files by alphabetical order
-    newFile = ''
+    newFile = r"# GZHU I_WANT_TO_EAT_MCDONALD'S" + '\n\n\n'
     for file in files:
         with open(file, 'r', encoding='utf-8') as f:
             newFile += f.read()
         newFile += '\n\n'
     if not os.path.exists('generate'):
         os.makedirs('generate')
-    with open('generate/summary.md', 'w', encoding='utf-8') as f:
+    with open('generate/template.md', 'w', encoding='utf-8') as f:
         f.write(newFile)
 
 if __name__ == '__main__':
