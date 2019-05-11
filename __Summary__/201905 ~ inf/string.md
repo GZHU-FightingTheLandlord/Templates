@@ -14,6 +14,17 @@ VI getfail(const T<t>& s) {
   return fail;
 }
 
+// candidate
+VI getfail(const string& s) {
+  int n = sz(s);
+  VI fail(n + 1);
+  for (int i = 0, j = fail[0] = -1; i < n; i++, j++) {
+    while (~j && s[i] != s[j]) j = fail[j];
+    fail[i + 1] = (s[i + 1] == s[j + 1]) ? fail[j + 1] : (j + 1);
+  }
+  return fail;
+}
+
 template <template<class...> class T, class t>
 int match(const T<t> &s, const T<t> &par, const VI &fail) {
   int n = sz(s), m = sz(par);
