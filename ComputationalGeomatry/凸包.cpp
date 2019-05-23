@@ -8,15 +8,16 @@ struct node
     int x,y;
 } a[105],p[105];
 int top,n;
-double cross(node p0,node p1,node p2)//¼ÆËã²æ³Ë£¬×¢Òâp0,p1,p2µÄÎ»ÖÃ£¬Õâ¸ö¾ö¶¨ÁË·½Ïò
+double cross(node p0,node p1,node p2)//è®¡ç®—å‰ä¹˜ï¼Œæ³¨æ„p0,p1,p2çš„ä½ç½®ï¼Œè¿™ä¸ªå†³å®šäº†æ–¹å‘
 {
     return (p1.x-p0.x)*(p2.y-p0.y)-(p1.y-p0.y)*(p2.x-p0.x);
 }
-double dis(node a,node b)//¼ÆËã¾àÀë£¬Õâ¸öÓÃÔÚÁËµ±Á½¸öµãÔÚÒ»ÌõÖ±ÏßÉÏ
+double dis(node a,node b)//è®¡ç®—è·ç¦»ï¼Œè¿™ä¸ªç”¨åœ¨äº†å½“ä¸¤ä¸ªç‚¹åœ¨ä¸€æ¡ç›´çº¿ä¸Š
 {
     return sqrt((a.x-b.x)*(a.x-b.x)+(a.y-b.y)*(a.y-b.y));
 }
-bool cmp(node p1,node p2)//¼«½ÇÅÅÐò
+//z=0ä»£è¡¨ä¸‰ç‚¹åœ¨ä¸€æ¡ç›´çº¿ä¸Š,a[0]ä»£è¡¨æ—‹è½¬ä¸­å¿ƒç‚¹
+bool cmp(node p1,node p2)//æžè§’æŽ’åº
 {
     double z=cross(a[0],p1,p2);
     if(z>0||(z==0&&dis(a[0],p1)<dis(a[0],p2)))
@@ -29,12 +30,12 @@ void Graham()
     for(int i=0; i<n; i++)
         if(a[i].y<a[k].y||(a[i].y==a[k].y&&a[i].x<a[k].x))
             k=i;
-        swap(a[0],a[k]);//ÕÒp[0]
+        swap(a[0],a[k]);//æ‰¾p[0]
         sort(a+1,a+n,cmp);
         top=1;
         p[0]=a[0];
         p[1]=a[1];
-        for(int i=2; i<n; i++)//¿ØÖÆ½øÕ»³öÕ»
+        for(int i=2; i<n; i++)//æŽ§åˆ¶è¿›æ ˆå‡ºæ ˆ
         {
             while(cross(p[top-1],p[top],a[i])<0&&top)
                 top--;
@@ -51,12 +52,12 @@ int main()
         scanf("%d",&n);
             for(int i=0; i<n; i++)
             {
-                scanf("%d%d",&a[i].x,&a[i].y);//ÊäÈëËùÓÐµã
+                scanf("%d%d",&a[i].x,&a[i].y);//è¾“å…¥æ‰€æœ‰ç‚¹
             }
             Graham();
             for(int i=0; i<=top; i++)
             {
-                printf("%d %d\n",p[i].x,p[i].y);//Êä³öÍ¹°üµã
+                printf("%d %d\n",p[i].x,p[i].y);//è¾“å‡ºå‡¸åŒ…ç‚¹
             }
     }
     return 0;
