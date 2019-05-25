@@ -4,7 +4,7 @@ struct Seive {
   vector<int> p, phi, mu, sig, num;
   Seive(int nn) : n(nn), isp(nn, true), phi(nn, 0), mu(nn, 0), sig(nn, 0), num(nn, 0) { solve(); }
   void solve() {
-    isp[0] = isp[1] = false; phi[1] = 1; mu[1] = 1;
+    isp[0] = isp[1] = false; phi[1] = 1; mu[1] = 1; sig[1] = 1;
     for (int i = 2; i < n; i++) {
       if (isp[i]) {
         p.push_back(i);
