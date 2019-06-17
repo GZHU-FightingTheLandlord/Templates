@@ -22,8 +22,9 @@ int find(int x) {
 
 void dfs(int u, int f) {
   for (auto& v : G[u]) {
-    if (v != f) dfs(v, u), vis[v] = 1, anc[v] = anc[u];
+    if (v != f) dfs(v, u), anc[v] = anc[u];
   }
+  vis[u] = 1;
   for (auto& q : Q[u]) {
     int v = q.first, i = q.second;
     if (vis[v]) lca[i] = find(v);
