@@ -1,27 +1,27 @@
 # python -u gen.py
 import os
 def getPath():
-    return os.path.dirname(os.path.abspath(__file__))
+  return os.path.dirname(os.path.abspath(__file__))
 
 def checkSuffix(fileName):
-    return os.path.splitext(fileName)[-1][1:] == 'md'
+  return os.path.splitext(fileName)[-1][1:] == 'md'
 
 def getFiles():
-    for root, dirs, files in os.walk(getPath()):
-        return list(filter(checkSuffix, [os.path.join(root, f) for f in files]))
+  for root, dirs, files in os.walk(getPath()):
+    return list(filter(checkSuffix, [os.path.join(root, f) for f in files]))
 
 def main():
-    os.chdir(getPath()) # change path to path of this python source
-    files = sorted(getFiles()) # sort files by alphabetical order
-    newFile = r"# GZHU I_WANT_TO_EAT_MCDONALD'S" + '\n\n\n'
-    for file in files:
-        with open(file, 'r', encoding='utf-8') as f:
-            newFile += f.read()
-        newFile += '\n\n'
-    if not os.path.exists('generate'):
-        os.makedirs('generate')
-    with open('generate/template.md', 'w', encoding='utf-8') as f:
-        f.write(newFile)
+  os.chdir(getPath()) # change path to path of this python source
+  files = sorted(getFiles()) # sort files by alphabetical order
+  newFile = r"# GZHU I_WANT_TO_EAT_MCDONALD'S" + '\n\n\n'
+  for file in files:
+    with open(file, 'r', encoding='utf-8') as f:
+      newFile += f.read()
+    newFile += '\n\n'
+  if not os.path.exists('generate'):
+    os.makedirs('generate')
+  with open('generate/template.md', 'w', encoding='utf-8') as f:
+    f.write(newFile)
 
 if __name__ == '__main__':
-    main()
+  main()
