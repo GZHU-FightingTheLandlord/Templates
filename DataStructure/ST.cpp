@@ -47,6 +47,10 @@ struct ST {
       }
     }
   }
+  ~ST() {
+    free(table);
+    free(lg);
+  }
   int getMin(int l, int r) {
     const int k = lg[r - l + 1];
     return min(table[idx(l, k)], table[idx(r - (1 << k) + 1, k)]);
