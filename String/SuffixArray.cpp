@@ -49,6 +49,7 @@ namespace SuffixArray {
 
 // ****************************************************************************************
 // dc3 O(n)
+// unfinished but usable
 
 namespace SA {
   #define F(x) ((x)/3+((x)%3==1?0:tb))
