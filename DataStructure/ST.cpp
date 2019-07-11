@@ -43,7 +43,7 @@ struct ST {
     }
     for (int j = 1; (1 << j) - 1 < n; j++) {
       for (int i = 0; i + (1 << j) - 1 < n; i++) {
-        int x = table[idx(i, j - 1)], y = table[idx(i + (1 << (j - 1)), j - 1)];
+        T x = table[idx(i, j - 1)], y = table[idx(i + (1 << (j - 1)), j - 1)];
         table[idx(i, j)] = min(x, y);
       }
     }
@@ -52,8 +52,9 @@ struct ST {
     free(table);
     free(lg);
   }
-  int getMin(int l, int r) {
+  T getMin(int l, int r) {
     const int k = lg[r - l + 1];
     return min(table[idx(l, k)], table[idx(r - (1 << k) + 1, k)]);
   }
 };
+
