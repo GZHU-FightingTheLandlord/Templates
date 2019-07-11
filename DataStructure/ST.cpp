@@ -21,17 +21,18 @@ struct ST {
 
 // ********************************************************************************************************
 // Author: ConanYu
-// faster than the above
 
+template<typename T>
 struct ST {
-  int *table, m, *lg;
+  T *table;
+  int m, *lg;
   inline int idx(const int& i, const int& j) {
     return i * m + j;
   }
-  ST(vector<int> a = {}) {
+  ST(vector<T> a = {}) {
     int n = a.size();
     m = 32 - __builtin_clz(n);
-    table = (int*) malloc(sizeof(int) * m * n);
+    table = (T*) malloc(sizeof(T) * m * n);
     lg = (int*) malloc(sizeof(int) * (n + 1));
     lg[0] = lg[1] = 0;
     for(int i = 2; i <= n; i++) {
