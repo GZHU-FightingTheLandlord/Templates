@@ -1,5 +1,3 @@
-// get this code from tourist's submission on Codeforces.
-// https://codeforces.com/contest/986/submission/38733857
 namespace fft {
   const double pi = acos(-1.0);
   struct Complex {
@@ -65,7 +63,7 @@ namespace fft {
   vector<Complex> fa, fb;
   vector<int> multiply(const vector<int> &a, const vector<int> &b) {
     int need = a.size() + b.size() - 1;
-    int nbase = 32 - __builtin_clz(need) - (need - need & (-need) == 0);
+    int nbase = need > 1 ? 32 - __builtin_clz(need - 1) : 0;
     ensure_base(nbase);
     int sz = 1 << nbase;
     if (sz > (int) fa.size()) {
@@ -89,13 +87,13 @@ namespace fft {
     fft(fa, sz);
     vector<int> res(need);
     for (int i = 0; i < need; i++) {
-      res[i] = fa[i].r + 0.5;
+      res[i] = fa[i].r + 0.5; // watch out that fa[i].r < 0
     }
     return res;
   }
   vector<int> multiply_mod(const vector<int> &a, const vector<int> &b, int m, int eq = 0) {
     int need = a.size() + b.size() - 1;
-    int nbase = 32 - __builtin_clz(need) - (need - need & (-need) == 0);
+    int nbase = need > 1 ? 32 - __builtin_clz(need - 1) : 0;
     ensure_base(nbase);
     int sz = 1 << nbase;
     if (sz > (int) fa.size()) {
