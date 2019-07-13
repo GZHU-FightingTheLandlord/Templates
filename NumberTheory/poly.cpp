@@ -1,4 +1,5 @@
 // reference exgcd and fft::multiply_mod
+// make sure your nums are positive
 namespace poly {
   const int MOD = 998244353ll;
   vector<int> inv(const vector<int> &a) {
@@ -19,6 +20,7 @@ namespace poly {
     return c;
   }
   
+  // A = B * C + D
   vector<int> divide(const vector<int> &a, const vector<int> &b) {
     const int n = a.size(), m = b.size();
     vector<int> A(a), B(b);
@@ -29,5 +31,17 @@ namespace poly {
     C.resize(n - m + 1), reverse(C.begin(), C.end());
     return C;
   }
-  // make mod function by yourself
+  
+  vector<int> mod(const vector<int> &a, const vector<int> &b, const vector<int> &c) {
+    const int m = b.size();
+    vector<int> e = fft::multiply_mod(b, c, MOD);
+    e.resize(m - 1);
+    for(int i = 0; i < m - 1; i++) {
+      e[i] = a[i] - e[i];
+      if(e[i] < 0) {
+        e[i] += MOD;
+      }
+    }
+    return e;
+  }
 }
