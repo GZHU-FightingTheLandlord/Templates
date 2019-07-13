@@ -21,4 +21,4 @@
 | [大数开m次方](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/NumberTheory/rootM.java) | ConanYu |
 | [线性基](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/NumberTheory/LinearBasis.cpp) | ConanYu |
 | [cipolla](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/NumberTheory/cipolla.cpp) | ConanYu |
-
+| [多项式全家桶](https://github.com/GZHU-FightingTheLandlord/Templates/blob/master/NumberTheory/poly.cpp) | ConanYu |
