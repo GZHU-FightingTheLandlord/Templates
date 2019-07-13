@@ -20,8 +20,9 @@ namespace poly {
     return c;
   }
   
-  // A = B * C + D
-  // make sure A.size() >= B.size()
+  // A = B * C + D (mod x^n) (n = A.size())
+  // always use with the next function mod
+  // make sure A.size() >= B.size() or else if will return an empty vector
   vector<int> divide(const vector<int> &a, const vector<int> &b) {
     const int n = a.size(), m = b.size();
     if(n < m) {
@@ -50,6 +51,31 @@ namespace poly {
     return e;
   }
 
+  // 求导
+  vector<int> derivate(const vector<int> &vec) {
+    const int n = vec.size();
+    if(n <= 1) {
+      return {0};
+    }
+    vector<int> v(n - 1);
+    for(int i = 1; i < n; i++) {
+      v[i - 1] = 1ll * vec[i] * i % MOD;
+    }
+    return v;
+  }
+
+  // 积分
+  // vector<int> intergral(const vector<int> &vec) {
+
+  // }
+
+  // 开根号
+  // vector<int> sqrt(const vector<int> &vec) {
+    
+  // }
+
+  // 对数函数 指数函数 快速幂
+
   vector<int> buildPoly(const vector<int> &vec, const int left, const int right) {
     if(left == right) {
       vector<int> ret;
@@ -77,10 +103,25 @@ namespace poly {
     }
   }
 
+  // 多点求值
   vector<int> multipointCalc(const vector<int> &poly, const vector<int> &vec) {
     const int n = vec.size();
     vector<int> ret(n);
     multipointCalc(poly, vec, 0, n - 1, ret);
     return ret;
   }
+
+  // 快速插值 <x, y>
+  // vector<int> interpolate(const vector<pair<int, int>> &p) {
+  //   const int n = p.size();
+  //   vector<int> x(n);
+  //   for(int i = 0; i < n; i++) {
+  //     x[i] = p[i].first;
+  //   }
+  //   vector<int> fm = buildPoly(x, 0, n - 1);
+  //   fm = derivate(fm);
+  //   fm = multipointCalc(fm, x);
+  //   // above is for 分母
+  //   // ...
+  // }
 }
