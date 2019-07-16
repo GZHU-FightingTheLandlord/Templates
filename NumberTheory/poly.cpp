@@ -3,7 +3,7 @@
 // MOD < 1073741823 以及 最好是质数
 // 传入的vector为{a_0, a_1, a_2, ..., a_n} 即认定为 y=\sum_{i=0}^{n}a_i\cdot x^i
 namespace poly {
-  const int MOD = 998244353ll;
+  int MOD = 998244353ll;
   vector<int> inv(const vector<int> &a) {
     if(a.size() == 1) {
       const int inv = exgcd(a[0], MOD).first;
@@ -51,6 +51,7 @@ namespace poly {
     return e;
   }
 
+  // 构造一个多项式 \prod_{i=left}^{right} (x-vec_i)
   vector<int> buildPoly(const vector<int> &vec, const int left, const int right) {
     if(left == right) {
       vector<int> ret;
