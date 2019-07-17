@@ -12,7 +12,7 @@ const int MOD = 1e9 + 7;
 const int inv2 = fpow(2, MOD - 2, MOD);
 
 int trans(int n) {
-  return 1 << (32 - __builtin_clz(n) - (n - (n & (-n)) == 0));
+  return 1 << (32 - __builtin_clz(n - 1));
 }
 
 void fwt(vector<int> &a) {
