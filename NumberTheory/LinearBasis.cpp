@@ -12,12 +12,16 @@ struct LinearBasis {
       if (a[j]) {
         t ^= a[j];
       } else {
-        for (int k = 0; k < j; k++) if (t & (1ll << k)) {
+        for (int k = 0; k < j; k++) {
+          if (t & (1ll << k)) {
             t ^= a[k];
           }
-        for (int k = j + 1; k <= MAXL; k++) if (a[k] & (1ll << j)) {
+        }
+        for (int k = j + 1; k <= MAXL; k++) {
+          if (a[k] & (1ll << j)) {
             a[k] ^= t;
           }
+        }
         a[j] = t;
         return;
       }
