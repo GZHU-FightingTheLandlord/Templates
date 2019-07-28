@@ -32,7 +32,7 @@ struct LB {
       }
     }
   }
-  // 交 （不能用 先交个作业？
+  // 交
   friend LB operator&(const LB &A, const LB &B) {
     LB C, D, E;
     for(int i = L - 1; ~i; i--) {
@@ -45,66 +45,35 @@ struct LB {
       if(!B[i]) {
         continue;
       }
+      bool can = true;
       ull v = 0, x = B[i];
       for(int j = L - 1; ~j; j--) {
         if((x >> j) & 1) {
           if(C[j]) {
             x ^= C[j], v ^= D[j];
           } else {
-            C[j] = x, D[j] = v;
+            can = false, C[j] = x, D[j] = v;
             break;
           }
         }
       }
-      if(!x) {
+      if(can) {
+        ll m = 0;
         for(int j = L - 1; ~j; j--) {
-          if(v & 1) {
-            E.insert(C[j]);
+          if((v >> j) & 1) {
+            m ^= A[j];
           }
-          v >>= 1;
         }
+        E.insert(m);
       }
     }
     return E;
   }
+  // 并
+  friend LB operator|(const LB &x, const LB &y) {
+    LB z;
+    for(int i = 0; i < L; i++) if(x[i]) z.insert(x[i]);
+    for(int i = 0; i < L; i++) if(y[i]) z.insert(y[i]);
+    return z;
+  }
 };
-
-// 线性基区间最大值
-
-namespace LBRMQ {
-  const int N = 1e6 + 10, L = 32;
-  int b[N][L], pre[N][L];
-  void init() {
-    memset(b[0], 0, sizeof b[0]);
-    memset(pre[0], 0, sizeof pre[0]);
-  }
-  // index start from 1
-  void add(int x, int r) {
-    int maxl = r;
-    memcpy(b[r], b[r - 1], sizeof(int) * L);
-    memcpy(pre[r], pre[r - 1], sizeof(int) * L);
-    for(int i = L - 1; ~i; i--) {
-      if((x >> i) & 1) {
-        if(!b[r][i]) {
-          b[r][i] = x;
-          pre[r][i] = maxl;
-          return;
-        }
-        if(pre[r][i] < maxl) {
-          swap(pre[r][i], maxl);
-          swap(b[r][i], x);
-        }
-        x ^= b[r][i];
-      }
-    }
-  }
-  int query(int l, int r) {
-    int ans = 0;
-    for(int i = L - 1; ~i; i--) {
-      if(pre[r][i] >= l) {
-        ans = max(ans, ans ^ b[r][i]);
-      }
-    }
-    return ans;
-  }
-}
