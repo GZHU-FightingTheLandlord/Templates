@@ -79,3 +79,46 @@ struct LB {
     return z;
   }
 };
+
+
+// 线性基区间最大值
+// hdu-6579 https://vjudge.net/problem/HDU-6579
+// 还需改进
+
+namespace LBRMQ {
+  const int N = 1e6 + 10, L = 32;
+  int b[N][L], pre[N][L];
+  void init() {	
+    memset(b[0], 0, sizeof b[0]);	
+    memset(pre[0], 0, sizeof pre[0]);	
+  }	
+  // index start from 1	
+  void add(int x, int r) {	
+    int maxl = r;	
+    memcpy(b[r], b[r - 1], sizeof(int) * L);	
+    memcpy(pre[r], pre[r - 1], sizeof(int) * L);	
+    for(int i = L - 1; ~i; i--) {	
+      if((x >> i) & 1) {	
+        if(!b[r][i]) {	
+          b[r][i] = x;	
+          pre[r][i] = maxl;	
+          return;	
+        }	
+        if(pre[r][i] < maxl) {	
+          swap(pre[r][i], maxl);	
+          swap(b[r][i], x);	
+        }	
+        x ^= b[r][i];	
+      }	
+    }	
+  }	
+  int query(int l, int r) {	
+    int ans = 0;	
+    for(int i = L - 1; ~i; i--) {	
+      if(pre[r][i] >= l) {	
+        ans = max(ans, ans ^ b[r][i]);	
+      }	
+    }	
+    return ans;	
+  }
+}
