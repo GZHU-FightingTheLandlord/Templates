@@ -6,6 +6,8 @@ struct LB {
   void init() { memset(a, 0, sizeof a); }
   ull &operator[](const size_t &id) { return a[id]; }
   const ull &operator[](const size_t &id) const { return a[id]; }
+  // 询问x是否在线性基中可以仿造insert函数来写
+  // 即将`a[i] = x;`删去 然后把返回值取反
   bool insert(ull x) {
     for(int i = L - 1; ~i; i--) {
       if((x >> i) & 1) {
