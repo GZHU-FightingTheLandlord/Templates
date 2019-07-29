@@ -7,11 +7,13 @@ struct LB {
   ull &operator[](const size_t &id) { return a[id]; }
   const ull &operator[](const size_t &id) const { return a[id]; }
   // 询问x是否在线性基中可以仿造insert函数来写
-  // 即将`a[i] = x;`删去 然后把返回值取反
+  // 即将`return true;`上面三行删去 然后把返回值取反
   bool insert(ull x) {
     for(int i = L - 1; ~i; i--) {
       if((x >> i) & 1) {
         if(!a[i]) {
+          for(int j = 0; j < i; j++) if((x >> j) & 1) x ^= a[j];
+          for(int j = i + 1; j < L; j++) if((a[j] >> i) & 1) a[j] ^= x;
           a[i] = x;
           return true;
         } else {
@@ -23,16 +25,6 @@ struct LB {
       }
     }
     return true;
-  }
-  // 高斯消元 化为行简化阶梯型
-  void operator()() {
-    for(int i = L - 1; ~i; i--) {
-      if(a[i]) {
-        for(int j = i + 1; j < L; j++) {
-          a[j] = min(a[j], a[j] ^ a[i]);
-        }
-      }
-    }
   }
   // 交
   friend LB operator&(const LB &A, const LB &B) {
@@ -79,7 +71,6 @@ struct LB {
     return z;
   }
 };
-
 
 // 线性基区间最大值
 // hdu-6579 https://vjudge.net/problem/HDU-6579
