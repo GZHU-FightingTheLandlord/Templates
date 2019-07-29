@@ -6,9 +6,11 @@ struct LB {
   void init() { memset(a, 0, sizeof a); }
   ull &operator[](const size_t &id) { return a[id]; }
   const ull &operator[](const size_t &id) const { return a[id]; }
-  // 询问x是否在线性基中可以仿造insert函数来写
+  // 询问x是否在线性基中可以仿造下面的函数来写
   // 即将`return true;`上面三行删去 然后把返回值取反
-  bool insert(ull x) {
+
+  // 插入一个数x ==> obj(x) 一边插入一边高斯消元 O(L)
+  bool operator()(ull x) {
     for(int i = L - 1; ~i; i--) {
       if((x >> i) & 1) {
         if(!a[i]) {
@@ -26,12 +28,12 @@ struct LB {
     }
     return true;
   }
-  // 交
+  // 线性基求交 O(L^2)
   friend LB operator&(const LB &A, const LB &B) {
     LB C, D, E;
     for(int i = L - 1; ~i; i--) {
       if(A[i]) {
-        C.insert(A[i]);
+        C(A[i]);
         D[i] = 1ull << i;
       }
     }
@@ -58,16 +60,16 @@ struct LB {
             m ^= A[j];
           }
         }
-        E.insert(m);
+        E(m);
       }
     }
     return E;
   }
-  // 并
+  // 线性基求并 O(L^2)
   friend LB operator|(const LB &x, const LB &y) {
     LB z;
-    for(int i = 0; i < L; i++) if(x[i]) z.insert(x[i]);
-    for(int i = 0; i < L; i++) if(y[i]) z.insert(y[i]);
+    for(int i = 0; i < L; i++) if(x[i]) z(x[i]);
+    for(int i = 0; i < L; i++) if(y[i]) z(y[i]);
     return z;
   }
 };
