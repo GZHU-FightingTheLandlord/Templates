@@ -84,3 +84,74 @@ struct MCMF {
         }
     }
 };
+
+
+// https://vjudge.net/problem/HDU-6611
+// dijkstra MCMF
+const int INF = 0x3f3f3f3f;
+namespace MCMF {
+  struct edge {
+    int to, cap, cost, rev;
+    edge() {}
+    edge(int tt, int ca, int co, int re) {
+      to = tt, cap = ca, cost = co, rev = re;
+    }
+  };
+  const int N = 5000;
+  int V, H[N + 5], dis[N + 5], prev[N + 5], pree[N + 5];
+  vector<edge> G[N + 5];
+  void init(int n) {
+    V = n;
+    for(int i = 0; i <= V; i++) {
+      G[i].clear();
+    }
+  }
+  void addedge(int from, int to, int cap, int cost) {
+    G[from].push_back(edge(to, cap, cost, G[to].size()));
+    G[to].push_back(edge(from, 0, -cost, G[from].size() - 1));
+  }
+  // what is f and flow = =
+  // int solve(int s, int t, int f, int &flow) { 
+  int solve(int s, int t, int f, int flow) {
+    int res = 0;
+    memset(H, 0, sizeof(*H) * (V + 1));
+    while(f) {
+      priority_queue<pii, vector<pii>, greater<pii>> q;
+      memset(dis, 0x3f, sizeof(*dis) * (V + 1));
+      dis[s] = 0;
+      q.push({0, s});
+      while(!q.empty()) {
+        pii now = q.top();
+        q.pop();
+        int v = now.second;
+        if(dis[v] < now.first) {
+          continue;
+        }
+        for(int i = 0; i < int(G[v].size()); i++) {
+          edge &e = G[v][i];
+          if(e.cap > 0 && dis[e.to] > dis[v] + e.cost + H[v] - H[e.to]) {
+            dis[e.to] = dis[v] + e.cost + H[v] - H[e.to];
+            prev[e.to] = v;
+            pree[e.to] = i;
+            q.push({dis[e.to], e.to});
+          }
+        }
+      }
+      if(dis[t] == INF) break;
+      for(int i = 0; i <= V; i++) {
+        H[i] += dis[i];
+      }
+      int d = f;
+      for(int v = t; v != s; v = prev[v]) {
+        d = min(d, G[prev[v]][pree[v]].cap);
+      }
+      f -= d; flow += d; res += d * H[t];
+      for(int v = t; v != s; v = prev[v]) {
+        edge &e = G[prev[v]][pree[v]];
+        e.cap -= d;
+        G[v][e.rev].cap += d;
+      }
+    }
+    return res;
+  }
+}
