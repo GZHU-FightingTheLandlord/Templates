@@ -24,6 +24,7 @@ namespace cipolla {
   }
   // p >= 3 if return `a`, then `p - a` is the ans too.
   long long solve(long long n, long long pp) {
+    if(n == 0) return 0;
     p = pp, n = ((n % p) + p) % p;
     long long q = qpow(n, (p - 1) >> 1);
     if(q == 0 || q == p - 1) {
