@@ -24,6 +24,8 @@ namespace TH {
         if(i % pri[j] == 0) break;
       }
     }
+    assert(pri.size() > N);
+    random_shuffle(pri.begin(), pri.end());
   }
   void addedge(int u, int v) {
     G[tot] = {v, h[u]}, h[u] = tot++;
