@@ -1,4 +1,4 @@
-// 树哈希 预处理O(nln(n))（处理线性筛） 对每一个图 O(n+m)
+// 树哈希 预处理O(nln(n))（线性筛） 对每一个图 O(n+m)
 // 标号从1开始 先使用init()初始化
 // 然后对于每一个图先clear(n)再addedge(u,v)再solve()得出结果
 namespace TH {
@@ -24,7 +24,6 @@ namespace TH {
         if(i % pri[j] == 0) break;
       }
     }
-    assert(pri.size() > N);
   }
   void addedge(int u, int v) {
     G[tot] = {v, h[u]}, h[u] = tot++;
@@ -67,7 +66,6 @@ namespace TH {
   }
   pair<size_t, size_t> solve() {
     getRoot();
-    assert(root.first != -1);
     pair<size_t, size_t> ret = {Dfs(root.first, -1), -1};
     if(root.second != -1) ret.second = Dfs(root.second, -1);
     if(ret.first > ret.second) swap(ret.first, ret.second);
