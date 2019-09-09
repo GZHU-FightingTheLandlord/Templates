@@ -11,7 +11,7 @@ pll crt(const vector<pll> & v) {
     pll cur = exgcd(a, v[i].first);
     ll gcd = a * cur.first + v[i].first * cur.second;
     if((v[i].second - r) % gcd != 0) {
-      return make_pair(-1, -1);
+      return {-1, -1};
     }
     const ll p = v[i].first / gcd;
     r += mod(cur.first * ((v[i].second - r) / gcd), p) * a;
