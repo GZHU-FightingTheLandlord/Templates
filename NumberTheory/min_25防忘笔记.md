@@ -49,77 +49,89 @@ g(a,\infty)-g(prime_{b-1},\infty)+ \\
 
 ### 防忘代码
 
-题目链接：[P4213 【模板】杜教筛（Sum）](https://www.luogu.org/problem/P4213)
+题目链接：[欧拉函数之和](https://www.51nod.com/Challenge/Problem.html#problemId=1239)
 
 ```cpp
-#include<cstdio>
-#include<math.h>
-
+#pragma GCC optimize("-O3")
+#include <bits/stdc++.h>
 using namespace std;
-#define ll long long
+typedef long long ll;
+void Main();
+#ifdef ConanYu
+#include "local.hpp"
+#else
+#define debug(...) do { } while(0)
+int main() {
+  ios::sync_with_stdio(false), cin.tie(0), cout.tie(0);
+  Main();
+}
+#endif
 
-const int N = 46345;
-ll g[N << 1];
-int T, id, sum[N], h[N << 1];
-unsigned cnt, sn, n, id1[N], id2[N], prime[N], a[N << 1];
-bool p[N];
-inline unsigned Id(unsigned x) {
+const int MOD = 1e9 + 7;
+int fpow(int a, int b) {
+  int ans = 1;
+  for(; b; b >>= 1, a = 1ll * a * a % MOD) {
+    if(b & 1) ans = 1ll * ans * a % MOD;
+  }
+  return ans;
+}
+
+const int N = 1e5 + 10, INV2 = fpow(2, MOD - 2);
+ll n, a[N << 1];
+int sn, cnt, id, prime[N], g[N << 1], h[N << 1];
+int idx(ll x) {
   return x <= sn ? x : id - n / x + 1;
 }
-ll SolvePhi(unsigned a, int b) {
-  if(a < prime[b]) {
-    return 0;
-  }
-  ll ans = g[Id(a)] - (sum[b - 1] - (b - 1));
-  for(unsigned i = b; i <= cnt && prime[i]*prime[i] <= a; ++i) {
-    // 这里是强行展开了一层，可能会快一点，因为条件必然满足，事实上可以和下面的写在一起
-    ans += (SolvePhi(a / prime[i], i + 1) + prime[i]) * (prime[i] - 1);
-    for(unsigned x = prime[i] * prime[i], f = x - prime[i]; (ll)x * prime[i] <= a; x = x * prime[i], f *= prime[i]) {
-      ans += (SolvePhi(a / x, i + 1) + prime[i]) * f;
+
+void sub(int &a, int b) {
+  a -= b;
+  if(a < 0) a += MOD;
+}
+
+int solve(long long a, int b) {
+  if(a < prime[b]) return 0;
+  int ans = g[idx(a)];
+  sub(ans, g[idx(prime[b - 1])]);
+  for(int i = b; i <= cnt && a / prime[i] >= prime[i]; i++) {
+    ll k = prime[i], m = k - 1;
+    while(a / k >= prime[i]) {
+      ans += 1ll * solve(a / k, i + 1) * m % MOD;
+      if(ans >= MOD) ans -= MOD;
+      m = m * prime[i] % MOD;
+      ans += m;
+      if(ans >= MOD) ans -= MOD;
+      k *= prime[i];
     }
   }
   return ans;
 }
-int SolveMu(unsigned a, int b) {
-  if(a < prime[b]) {
-    return 0;
+void Main() {
+  cin >> n;
+  sn = sqrt(n);
+  cnt = id = 0;
+  for(ll i = 1; i <= n; i = a[id] + 1) {
+    a[++id] = n / (n / i);
+    g[id] = a[id] % MOD * ((a[id] + 1) % MOD) % MOD * INV2 % MOD;
+    sub(g[id], 1);
+    h[id] = (a[id] - 1) % MOD;
   }
-  int ans = h[Id(a)] + (b - 1);
-  for(unsigned i = b; i <= cnt && prime[i]*prime[i] <= a; ++i) {
-    ans -= SolveMu(a / prime[i], i + 1);
-  }
-  return ans;
-}
-int main() {
-  scanf("%d", &T);
-  while(T--) {
-    scanf("%u", &n), sn = sqrt(n);
-    if(!n) {
-      puts("0 0");
-      continue;
-    }
-    cnt = id = 0;
-    for(unsigned i = 1; i <= n; i = a[id] + 1) {
-      a[++id] = n / (n / i), g[id] = (ll)a[id] * (a[id] + 1) / 2 - 1, h[id] = a[id] - 1;
-    }
-    for(unsigned i = 2; i <= sn; ++i) {
-      if(h[i] != h[i - 1]) {
-        prime[++cnt] = i, sum[cnt] = sum[cnt - 1] + i;
-        unsigned sq = i * i;
-        for(int j = id; a[j] >= sq; --j) {
-          unsigned t = Id(a[j] / i);
-          g[j] -= i * (g[t] - sum[cnt - 1]);
-          h[j] -= h[t] - (cnt - 1);
-        }
+  for(int i = 2; i <= sn; i++) {
+    if(h[i] != h[i - 1]) {
+      prime[++cnt] = i;
+      for(int j = id; a[j] / i >= i; j--) {
+        const int ta = idx(a[j] / i), tb = idx(prime[cnt - 1]);
+        int A = g[ta], B = h[ta];
+        sub(A, g[tb]), sub(B, h[tb]);
+        sub(g[j], 1ll * i * A % MOD);
+        sub(h[j], B);
       }
     }
-    for(int i = 1; i <= id; ++i) {
-      g[i] -= h[i], h[i] *= -1;
-    }
-    // 上面的计算都是不考虑 1 的函数值的，要加上去
-    printf("%lld %d\n", SolvePhi(n, 1) + 1, SolveMu(n, 1) + 1);
   }
-  return 0;
+  for(int i = 1; i <= id; i++) {
+    g[i] -= h[i];
+    if(g[i] < 0) g[i] += MOD;
+  }
+  cout << ((solve(n, 1) + 1) % MOD) << "\n";
 }
 ```
 
