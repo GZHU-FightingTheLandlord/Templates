@@ -1,12 +1,3 @@
-// 仅作为存储 有超多未知bug
-
-#include<bits/stdc++.h>
-using namespace std;
-
-#ifdef ConanYu
-#include "debug.hpp"
-#endif
-
 typedef long long ll;
 typedef vector<ll> VL;
 typedef pair<ll, ll> pll;
@@ -39,37 +30,6 @@ namespace LinearRecurrence {
   void extand(VL &v, size_t d, ll value = 0) {
     if(d <= v.size()) return;
     v.resize(d, value);
-  }
-  VL BM(const VL& s, const ll &Mod) {
-    function<ll(ll)> inverse = [&](ll a) {
-      return a == 1 ? 1 : (ll)(Mod - Mod / a) * inverse(Mod % a) % Mod;
-    };
-    VL A = {1}, B = {1};
-    ll b = s[0];
-    for(size_t i = 1, m = 1; i < s.size(); i++, m++) {
-      ll d = 0;
-      for(size_t j = 0; j < A.size(); j++) d += A[j] * s[i - j] % Mod;
-      if(!(d %= Mod)) continue;
-      if(2 * (A.size() - 1) <= i) {
-        VL tmp = A;
-        extand(A, B.size() + m);
-        ll coef = d * inverse(b) % Mod;
-        for(size_t j = 0; j < B.size(); j++) {
-          A[j + m] -= coef * B[j] % Mod;
-          if(A[j + m] < 0) A[j + m] += Mod;
-        }
-        B = tmp, b = d, m = 0;
-      } else {
-        extand(A, B.size() + m);
-        ll coef = d * inverse(b) % Mod;
-        for(size_t j = 0; j < B.size(); j++) {
-          A[j + m] -= coef * B[j] % Mod;
-          if(A[j + m] < 0) A[j + m] += Mod;
-        }
-      }
-    }
-    debug(1);
-    return A;
   }
   VL ReedsSloane(const VL &s, ll Mod) {
     function<ll(ll, ll)> inverse = [](ll a, ll m) {
@@ -111,11 +71,11 @@ namespace LinearRecurrence {
         for(int o = 0; o < e; o++) {
           ll d = 0;
           for(size_t i = 0; i < a[o].size() && i <= k; i++) {
-            d = (d + a[o][i] * s[k - 1]) % Mod;
+            d = (d + a[o][i] * s[k - i]) % Mod;
           }
           if(d == 0) t[o] = 1, u[o] = e;
           else {
-            for(u[o] = 0, t[o] = d; t[o] % p == 0; t[0] /= p, u[o]++);
+            for(u[o] = 0, t[o] = d; t[o] % p == 0; t[o] /= p, u[o]++);
             int g = e - 1 - u[o];
             if(L(a[g], b[g]) == 0) {
               extand(bn[o], k + 1);
@@ -124,7 +84,7 @@ namespace LinearRecurrence {
               ll coef = t[o] * inverse(to[g], Mod) % Mod * pw[u[o] - uo[g]] % Mod;
               int m = k - r[g];
               extand(an[o], ao[g].size() + m);
-              extand(bn[o], bn[o].size() + m);
+              extand(bn[o], bo[g].size() + m);
               for(size_t i = 0; i < ao[g].size(); i++) {
                 an[o][i + m] -= coef * ao[g][i] % Mod;
                 if(an[o][i + m] < 0) an[o][i + m] += Mod;
@@ -141,6 +101,7 @@ namespace LinearRecurrence {
       }
       return make_pair(an[0], bn[0]);
     };
+
     vector<tuple<ll, ll, int>> fac;
     for(ll i = 2; i * i <= Mod; i++) {
       if(Mod % i == 0) {
@@ -177,9 +138,9 @@ namespace LinearRecurrence {
   int m;
   VL ini, trans;
   ll Mod;
-  void init(const VL &s, ll mod, bool is_prime=true) {
+  void init(const VL &s, ll mod) {
     Mod = mod;
-    VL A = is_prime ? BM(s, Mod) : ReedsSloane(s, Mod);
+    VL A = ReedsSloane(s, Mod);
     if(A.empty()) A = {0};
     m = A.size() - 1;
     trans.resize(m);
@@ -221,33 +182,4 @@ namespace LinearRecurrence {
     }
     return ret;
   }
-}
-
-const int MOD = 19260817;
-
-int fpow(int a, int b) {
-  int ans = 1;
-  for(; b; b >>= 1, a = 1ll * a * a % MOD) {
-    if(b & 1) ans = 1ll * ans * a % MOD;
-  }
-  return ans;
-}
-
-int main() {
-#ifdef ConanYu
-  freopen("test.txt", "r", stdin);
-#endif
-  int n, m; cin >> n >> m;
-  vector<long long> f = {0, 1};
-  for(int i = 2; i < m * 2 + 5; i++) {
-    f.emplace_back((f[i - 1] + f[i - 2]) % MOD);
-  }
-  for(auto &t: f) {
-    t = fpow(t, m);
-  }
-  for(int i = 1; i < m * 2 + 5; i++) {
-    f[i] = (f[i - 1] + f[i]) % MOD;
-  }
-  LinearRecurrence::init(f, MOD, false);
-  cout << LinearRecurrence::calc(n) << "\n";
 }
