@@ -75,4 +75,4 @@ namespace linear_seq {
         rep(i, 0, SZ(c)) c[i] = (mod - c[i]) % mod;
         return solve(n, c, VI(a.begin(), a.begin() + SZ(c)));
     }
-};
+}
