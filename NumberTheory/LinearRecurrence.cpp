@@ -27,11 +27,11 @@ namespace crt {
 }
 
 namespace LinearRecurrence {
-  void extand(VL &v, size_t d, ll value = 0) {
-    if(d <= v.size()) return;
-    v.resize(d, value);
-  }
-  VL ReedsSloane(const VL &s, ll Mod) {
+  VL ReedsSloane(VL s, ll Mod) {
+    function<void(VL &, size_t)> extand = [](VL &v, size_t d) {
+      if(d <= v.size()) return;
+      v.resize(d, 0);
+    };
     function<ll(ll, ll)> inverse = [](ll a, ll m) {
       pll ret = crt::exgcd(a, m);
       ll g = a * ret.first + m * ret.second;
@@ -135,12 +135,42 @@ namespace LinearRecurrence {
     return a;
   }
 
+  VL BM(const VL &s, ll Mod) {
+    VL C(1, 1), B(1, 1);
+    int L = 0, m = 1, b = 1;
+    for(size_t n = 0; n < s.size(); n++) {
+      ll d = 0;
+      for(int i = 0; i < L + 1; i++) {
+        d += 1ll * C[i] * s[n - i] % Mod;
+        if(d >= Mod) d -= Mod;
+      }
+      if(d == 0) ++m;
+      else if(2 * L <= m) {
+        VL T = C;
+        ll inv = crt::exgcd(b, Mod).first;
+        if(inv < 0) inv += Mod;
+        ll c = Mod - d * crt::exgcd(b, Mod).first % Mod;
+        while(C.size() < B.size() + m) C.push_back(0);
+        for(size_t i = 0; i < B.size(); i++) C[i + m] = (C[i + m] + c * B[i]) % Mod;
+        L = n + 1 - L, B = T, b = d, m = 1;
+      } else {
+        ll inv = crt::exgcd(b, Mod).first;
+        if(inv < 0) inv += Mod;
+        ll c = Mod - d * inv % Mod;
+        while(C.size() < B.size() + m) C.push_back(0);
+        for(size_t i = 0; i < B.size(); i++) C[i + m] = (C[i + m] + c * B[i]) % Mod;
+        ++m;
+      }
+    }
+    return C;
+  }
+
   int m;
   VL ini, trans;
   ll Mod;
-  void init(const VL &s, ll mod) {
-    Mod = mod;
-    VL A = ReedsSloane(s, Mod);
+  void init(const VL &s, ll md) {
+    Mod = md;
+    VL A = ReedsSloane(s, Mod); // change it when Mod is prime
     if(A.empty()) A = {0};
     m = A.size() - 1;
     trans.resize(m);
