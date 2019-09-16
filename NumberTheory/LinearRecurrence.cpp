@@ -215,3 +215,7 @@ namespace LinearRecurrence {
     return ret;
   }
 }
+
+// https://vjudge.net/problem/HDU-6198
+// a = {1, 998244349, 4, 998244352}
+// s = {4, 12, 33, 88, 232, 609, 1596}
