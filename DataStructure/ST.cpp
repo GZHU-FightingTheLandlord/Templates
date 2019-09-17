@@ -1,60 +1,21 @@
-struct ST {
-  vector<vector<int>> table;
-  ST(vector<int> a = {}) {
-    int n = a.size();
-    table.resize(n, vector<int>(32 - __builtin_clz(n)));
-    for (int i = 0; i < n; i++) {
-      table[i][0] = a[i];
-    }
-    for (int j = 1; (1 << j) - 1 < n; j++) {
-      for (int i = 0; i + (1 << j) - 1 < n; i++) {
-        int x = table[i][j - 1], y = table[i + (1 << (j - 1))][j - 1];
-        table[i][j] = min(x, y);
-      }
-    }
-  }
-  inline int getMin(int l, int r) {
-    int k = 31 - __builtin_clz(r - l + 1);
-    return min(table[l][k], table[r - (1 << k) + 1][k]);
-  }
-};
+const int N = 1e5 + 5, M = 18;
 
-// ********************************************************************************************************
-// Author: ConanYu
+int dp[N][M], lg[N];
 
-template<typename T>
-struct ST {
-  T *table;
-  int m, *lg;
-  inline int idx(const int& i, const int& j) {
-    return i * m + j;
+void build(int *arr, int n) {
+  lg[0] = -1;
+  for (int i = 1; i <= n; i++) {
+    dp[i][0] = arr[i], lg[i] = lg[i >> 1] + 1;
   }
-  ST(vector<T> a = {}) {
-    int n = a.size();
-    m = 32 - __builtin_clz(n);
-    table = (T*) malloc(sizeof(T) * m * n);
-    lg = (int*) malloc(sizeof(int) * (n + 1));
-    lg[0] = lg[1] = 0;
-    for(int i = 2; i <= n; i++) {
-      lg[i] = lg[i >> 1] + 1;
-    }
-    for (int i = 0; i < n; i++) {
-      table[idx(i, 0)] = a[i];
-    }
-    for (int j = 1; (1 << j) - 1 < n; j++) {
-      for (int i = 0; i + (1 << j) - 1 < n; i++) {
-        T x = table[idx(i, j - 1)], y = table[idx(i + (1 << (j - 1)), j - 1)];
-        table[idx(i, j)] = min(x, y);
-      }
+  for (int j = 1; (1 << j) <= n; j++) {
+    for (int i = 1; i + (1 << j) - 1 <= n; i++) {
+      int x = dp[i][j - 1], y = dp[i + (1 << (j - 1))][j - 1];
+      dp[i][j] = min(x, y);
     }
   }
-  ~ST() {
-    free(table);
-    free(lg);
-  }
-  T getMin(int l, int r) {
-    const int k = lg[r - l + 1];
-    return min(table[idx(l, k)], table[idx(r - (1 << k) + 1, k)]);
-  }
-};
+}
 
+int getMin(int l, int r) {
+  int k = lg[r - l + 1];
+  return min(dp[l][k], dp[r - (1 << k) + 1][k]);
+}

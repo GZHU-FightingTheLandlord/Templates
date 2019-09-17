@@ -234,3 +234,56 @@ void build(int n, int arr[]) {
   }  
 }
 ```
+
+## AC Automaton
+
+```cpp
+template <int N, int charset> class acam {
+  int tot;
+  int fail[N], endpos[N];
+  int son[N][charset];
+
+  int encode(int c) { return c - 'A'; }
+public:
+
+  int fa[N], length[101010];
+  bool vis[N];
+
+  void initNode(int i) {
+    fail[i] = 0, endpos[i] = -1;
+    memset(son[i], 0, sizeof son[i]);
+  }
+
+  void insert(char *s, int index = 0) {
+    int cur = 0;
+    for (int i = 0; s[i]; i++) {
+      int c = encode(s[i]);
+      if (!son[cur][c]) {
+        son[cur][c] = ++tot;
+        initNode(tot);
+      }
+      fa[son[cur][c]] = cur;
+      cur = son[cur][c];
+      length[index] = i + 1;
+    }
+    endpos[index] = cur;
+  }
+  void build() {
+    queue<int> Q;
+    for (int i = 0; i < charset; i++) {
+      if (son[0][i]) Q.push(son[0][i]);
+    }
+    while (!Q.empty()) {
+      int u = Q.front(); Q.pop();
+      for (int i = 0; i < charset; i++) {
+        if (son[u][i]) {
+          fail[son[u][i]] = son[fail[u]][i];
+          Q.push(son[u][i]);
+        } else {
+          son[u][i] = son[fail[u]][i];
+        }
+      }
+    }
+  }
+};
+```
