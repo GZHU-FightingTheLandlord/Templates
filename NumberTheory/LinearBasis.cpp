@@ -8,7 +8,6 @@ struct LB {
   const ull &operator[](const size_t &id) const { return a[id]; }
   // 询问x是否在线性基中可以仿造下面的函数来写
   // 即将`return true;`上面三行删去 然后把返回值取反
-
   // 插入一个数x ==> obj(x) 一边插入一边高斯消元 O(L)
   bool operator()(ull x) {
     for(int i = L - 1; ~i; i--) {
