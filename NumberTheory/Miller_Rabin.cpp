@@ -38,7 +38,9 @@ bool witness(ll a, ll n) {
   return _x != 1;
 }
 
-bool isprime(ll n, int t=5) {
+// WA -> make `t` higher
+// TLE -> make `t` lower
+bool isprime(ll n, int t=6) {
   if (n < 2) return false;
   if (n < psize) return !isp[n];
   if (~n & 1) return false;
