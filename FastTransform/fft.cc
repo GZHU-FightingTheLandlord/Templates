@@ -61,6 +61,7 @@ namespace fft {
   }
 
   vector<Complex> fa, fb;
+  template<typename T>
   vector<int> multiply(const vector<int> &a, const vector<int> &b) {
     int need = a.size() + b.size() - 1;
     int nbase = need > 1 ? 32 - __builtin_clz(need - 1) : 0;
