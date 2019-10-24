@@ -62,7 +62,7 @@ namespace fft {
 
   vector<Complex> fa, fb;
   template<typename T>
-  vector<int> multiply(const vector<int> &a, const vector<int> &b) {
+  vector<T> multiply(const vector<T> &a, const vector<T> &b) {
     int need = a.size() + b.size() - 1;
     int nbase = need > 1 ? 32 - __builtin_clz(need - 1) : 0;
     ensure_base(nbase);
@@ -86,7 +86,7 @@ namespace fft {
       fa[i] = z;
     }
     fft(fa, sz);
-    vector<int> res(need);
+    vector<T> res(need);
     for (int i = 0; i < need; i++) {
       res[i] = fa[i].r + 0.5; // watch out that fa[i].r < 0
     }
