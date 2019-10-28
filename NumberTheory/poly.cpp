@@ -3,7 +3,9 @@
 // MOD < 1073741823 以及 最好是质数
 // 传入的vector为{a_0, a_1, a_2, ..., a_n} 即认定为 y=\sum_{i=0}^{n}a_i\cdot x^i
 namespace poly {
-  int MOD = 998244353ll;
+  int MOD = 998244353;
+  
+  // 多项式求逆 O(nlog(n))
   vector<int> inv(const vector<int> &a) {
     if(a.size() == 1) {
       const int inv = exgcd(a[0], MOD).first;
@@ -25,6 +27,7 @@ namespace poly {
   // A = B * C + D (mod x^n) (n = A.size())
   // always use with the next function mod
   // make sure A.size() >= B.size() or else it will return an empty vector
+  // O(nlog(n))
   vector<int> divide(const vector<int> &a, const vector<int> &b) {
     const int n = a.size(), m = b.size();
     if(n < m) return {};
@@ -37,6 +40,7 @@ namespace poly {
     return C;
   }
   
+  // O(nlog(n))
   vector<int> mod(const vector<int> &a, const vector<int> &b, const vector<int> &c) {
     const int n = a.size(), m = b.size();
     if(n < m) return a;
@@ -49,6 +53,50 @@ namespace poly {
       }
     }
     return e;
+  }
+
+  // 多项式对数函数 O(nlog(n))
+  vector<int> ln(const vector<int> &a) {
+    const int n = a.size();
+    vector<int> ap(a);
+    for(int i = 0; i < n - 1; i++) {
+      ap[i] = 1ll * ap[i + 1] * (i + 1) % MOD;
+    }
+    ap.resize(n - 1);
+    vector<int> b = fft::multiply_mod(inv(a), ap, MOD);
+    b.resize(n);
+    vector<int> INV(n);
+    INV[1] = 1;
+    for(int i = 2; i < n; i++) {
+      INV[i] = 1ll * INV[MOD % i] * (MOD - MOD / i) % MOD;
+    }
+    for(int i = n - 1; i > 0; i--) {
+      b[i] = 1ll * b[i - 1] * INV[i] % MOD;
+    }
+    b[0] = 0;
+    return b;
+  }
+
+  vector<int> _exp(const vector<int> &a, const int &n) {
+    if(n == 1) return vector<int> (1, 1);
+    int t = (n + 1) >> 1;
+    vector<int> b = _exp(a, t);
+    b.resize(n);
+    vector<int> tmp = ln(b);
+    for(int i = 0; i < n; i++) {
+      tmp[i] = a[i] - tmp[i];
+      if(tmp[i] < 0) tmp[i] += MOD;
+    }
+    tmp[0] = (tmp[0] == MOD - 1 ? 0 : tmp[0] + 1);
+    vector<int> ret = fft::multiply_mod(b, tmp, MOD);
+    ret.resize(n);
+    return ret;
+  }
+
+  // 多项式指数函数 O(nlog^2(n))
+  vector<int> exp(const vector<int> &a) {
+    assert(a.size() != 0);
+    return _exp(a, int(a.size()));
   }
 
   // 构造一个多项式 \prod_{i=left}^{right} (x-vec_i)
@@ -79,7 +127,7 @@ namespace poly {
     }
   }
 
-  // 多点求值
+  // 多点求值 O(nlog^2(n))
   vector<int> multipointCalc(const vector<int> &poly, const vector<int> &vec) {
     const int n = vec.size();
     vector<int> ret(n);
@@ -87,6 +135,7 @@ namespace poly {
     return ret;
   }
 
+  // 多值乘法逆元 O(n)
   vector<int> multiInv(const vector<int> &vec) {
     const int n = vec.size();
     vector<int> a(n + 1), ret(n); a[0] = 1;
@@ -101,7 +150,7 @@ namespace poly {
     return ret;
   }
 
-  // 快速插值 {{x0, y0}, {x1, y1}, {x2, y2}, ...}
+  // 快速插值 {{x0, y0}, {x1, y1}, {x2, y2}, ...} O(nlog^3(n))
   vector<int> interpolate(const vector<pair<int, int>> &p) {
     const int n = p.size(), n0 = (n + 1) >> 1, n1 = n - n0;
     if(n == 1) {
