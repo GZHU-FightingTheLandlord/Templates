@@ -187,10 +187,10 @@ namespace LinearRecurrence {
     if(Mod == 1) return n;
     if(n < m) return ini[n];
     VL v(m), u(m << 1);
-    int msk = !!n;
+    ll msk = !!n;
     for(ll m = n; m > 1; m >>= 1) msk <<= 1;
     v[0] = 1 % Mod;
-    for(int x = 0; msk; msk >>= 1, x <<= 1) {
+    for(ll x = 0; msk; msk >>= 1, x <<= 1) {
       fill_n(u.begin(), m * 2, 0);
       x |= !!(n & msk);
       if(x < m) u[x] = 1 % Mod;
