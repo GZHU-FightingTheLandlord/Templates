@@ -1,9 +1,9 @@
 namespace io {
-  const size_t buflen = (1 << 21) + 1;
+  const size_t buflen = (1 << 16) + 1;
   char buf[buflen], *st = nullptr, *ed = nullptr;
   inline char gc() { return ((st == ed) ? (st = buf, ed = st + fread(buf, 1, buflen, stdin), (st == ed) ? EOF : *st++) : *st++); }
   inline bool blank(char c) { return c == ' ' || c == '-' || c == '\n' || c == '\t' || c == '\r'; }
-  template <typename T> inline bool Re(T& x) {
+  template <typename T> inline bool Re(T &x) {
     register char c; int f = 1;
     while (blank(c = gc())) if (c == '-') f = -1;
     if (c == EOF) return false;
@@ -24,31 +24,59 @@ namespace io {
   struct _IOflusher_ { ~_IOflusher_() { flush(); } } __flusher__;
 }
 
-#define likely(x) __builtin_expect(!!(x), 1)
-#define unlikely(x) __builtin_expect(!!(x), 0)
+#ifdef _WIN32
+typedef long long LL_WITH_WIN32;
+typedef unsigned long long ULL_WITH_WIN32;
+#define __int128 LL_WITH_WIN32
+#define __uint128_t ULL_WITH_WIN32
+#endif
+
+#ifdef __SIZEOF_INT128__
+#define __INT128__
+#endif
+
 struct instream {
-  template<typename T>
-  instream &operator >> (T &__n) {
-    static_assert(is_integral<T>::value);
-    if(unlikely(__is_char<T>::__value)){
-      __n = io::gc();
-    } else {
-      io::Re(__n);
+  instream &operator>>(char &__n) { __n = io::gc(); return *this; }
+  instream &operator>>(unsigned char &__n) { __n = io::gc(); return *this; }
+  instream &operator>>(short &__n) { io::Re(__n); return *this; }
+  instream &operator>>(unsigned short &__n) { io::Re(__n); return *this; }
+  instream &operator>>(int &__n) { io::Re(__n); return *this; }
+  instream &operator>>(unsigned int &__n) { io::Re(__n); return *this; }
+  instream &operator>>(long long &__n) { io::Re(__n); return *this; }
+  instream &operator>>(unsigned long long &__n) { io::Re(__n); return *this; }
+#ifdef __INT128__
+  instream &operator>>(__int128 &__n) { io::Re(__n); }
+  instream &operator>>(__uint128_t &__n) { io::Re(__n); }
+#endif
+  instream &operator>>(string &__n) {
+    __n.clear();
+    char c = io::gc();
+    if(c == EOF) return *this;
+    while(c != EOF && io::blank(c)) c = io::gc();
+    if(c == EOF) return *this;
+    while(c != EOF && !io::blank(c)) {
+      __n.push_back(c);
+      c = io::gc();
     }
+    if(c != EOF) io::st--;
     return *this;
   }
 } in;
 struct outstream {
-  template<typename T>
-  outstream &operator << (const T &__n) {
-    static_assert(is_integral<T>::value);
-    if(__is_char<T>::__value) {
-      io::pc(__n);
-    } else if(is_integral<T>::value) {
-      io::Pr(__n);
-    }
+  outstream &operator<<(const char &__n) { io::pc(__n); return *this; }
+  outstream &operator<<(const unsigned char &__n) { io::pc(__n); return *this; }
+  outstream &operator<<(const short &__n) { io::Pr(__n); return *this; }
+  outstream &operator<<(const unsigned short &__n) { io::Pr(__n); return *this; }
+  outstream &operator<<(const int &__n) { io::Pr(__n); return *this; }
+  outstream &operator<<(const unsigned int &__n) { io::Pr(__n); return *this; }
+  outstream &operator<<(const long long &__n) { io::Pr(__n); return *this; }
+  outstream &operator<<(const unsigned long long &__n) { io::Pr(__n); return *this; }
+#ifdef __INT128__
+  outstream &operator<<(const __int128 &__n) { io::Pr(__n); return *this; }
+  outstream &operator<<(const __uint128_t &__n) { io::Pr(__n); return *this; }
+#endif
+  outstream &operator<<(const string &__n) {
+    for(const char &__c: __n) io::pc(__c);
     return *this;
   }
 } out;
-#undef likely
-#undef unlikely
