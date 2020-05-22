@@ -1,6 +1,6 @@
 // 最小表示法
-int minPresentation(string &s) {
-  int n = s.length();
+int minPresentation(const string &s) {
+  const int n = s.size();
   int i = 0, j = 1, k = 0;
   while (k < n && i < n && j < n) {
     if (s[(i + k) % n] == s[(j + k) % n]) {
