@@ -53,7 +53,7 @@ struct LB {
         }
       }
       if(can) {
-        ll m = 0;
+        ull m = 0;
         for(int j = L - 1; ~j; j--) {
           if((v >> j) & 1) {
             m ^= A[j];
