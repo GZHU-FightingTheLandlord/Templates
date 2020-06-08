@@ -6,9 +6,21 @@ struct LB {
   void init() { memset(a, 0, sizeof a); }
   ull &operator[](const size_t &id) { return a[id]; }
   const ull &operator[](const size_t &id) const { return a[id]; }
-  // 询问x是否在线性基中可以仿造下面的函数来写
-  // 即将`return true;`上面三行删去 然后把返回值取反
-  // 插入一个数x ==> obj(x) 一边插入一边高斯消元 O(L)
+  bool operator[](ull x) {
+    for(int i = L - 1; ~i; i--) {
+      if((x >> i) & 1) {
+        if(!a[i]) {
+          return false;
+        } else {
+          x ^= a[i];
+        }
+      }
+      if(!x) {
+        return true;
+      }
+    }
+    return false;
+  }
   bool operator()(ull x) {
     for(int i = L - 1; ~i; i--) {
       if((x >> i) & 1) {
