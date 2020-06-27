@@ -1,5 +1,5 @@
 namespace io {
-  const size_t buflen = (1 << 16) + 1;
+  const size_t buflen = (1 << 21) + 1;
   char buf[buflen], *st = nullptr, *ed = nullptr;
   inline char gc() { return ((st == ed) ? (st = buf, ed = st + fread(buf, 1, buflen, stdin), (st == ed) ? EOF : *st++) : *st++); }
   inline bool blank(char c) { return c == ' ' || c == '-' || c == '\n' || c == '\t' || c == '\r'; }
