@@ -24,13 +24,6 @@ namespace io {
   struct _IOflusher_ { ~_IOflusher_() { flush(); } } __flusher__;
 }
 
-#ifdef _WIN32
-typedef long long LL_WITH_WIN32;
-typedef unsigned long long ULL_WITH_WIN32;
-#define __int128 LL_WITH_WIN32
-#define __uint128_t ULL_WITH_WIN32
-#endif
-
 #ifdef __SIZEOF_INT128__
 #define __INT128__
 #endif
@@ -45,8 +38,8 @@ struct instream {
   instream &operator>>(long long &__n) { io::Re(__n); return *this; }
   instream &operator>>(unsigned long long &__n) { io::Re(__n); return *this; }
 #ifdef __INT128__
-  instream &operator>>(__int128 &__n) { io::Re(__n); }
-  instream &operator>>(__uint128_t &__n) { io::Re(__n); }
+  instream &operator>>(__int128 &__n) { io::Re(__n); return *this;}
+  instream &operator>>(__uint128_t &__n) { io::Re(__n); return *this; }
 #endif
   instream &operator>>(string &__n) {
     __n.clear();
