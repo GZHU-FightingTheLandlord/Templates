@@ -1,9 +1,18 @@
-// undirected, 0-base
-template <int NV> class Hierholzer {
+// 0-base, undirected
+class hierholzer {
 public:
   vector<int> path;
-  multiset<int> G[NV];
+  vector<multiset<int>> G;
 
+  hierholzer(int n) {
+    init(n);
+  }
+
+  void init(int n) {
+    path.clear();
+    G.assign(n, multiset<int>());
+  }
+  
   void addedge(int u, int v) {
     G[u].insert(v), G[v].insert(u);
   }
@@ -20,7 +29,7 @@ public:
 
   bool get() {
     int src = -1, odd = 0, tot = 0;
-    for (int i = 0; i < NV; i++) {
+    for (int i = 0; i < (int) G.size(); i++) {
       tot += G[i].size();
       if (G[i].size() % 2 == 1) {
         odd++, src = (~src) ? src : i;
@@ -29,7 +38,7 @@ public:
     if (odd != 0 && odd != 2) return false;
     dfs(odd ? src : 0);
     reverse(path.begin(), path.end());
-    return (int)path.size() == tot / 2 + 1;
+    return (int) path.size() == tot / 2 + 1;
   }
 
   vector<int> get(int src) {
