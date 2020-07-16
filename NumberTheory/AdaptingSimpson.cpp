@@ -23,7 +23,7 @@ namespace AdaptingSimpson {
     return asr(a, c, eps / 2, L, functor) + asr(c, b, eps / 2, R, functor);
   }
   template<typename Functor>
-  double integrate(double from, double to, const Functor &functor, double eps=1e-5) {
+  double integrate(const Functor &functor, double from, double to, double eps=1e-5) {
     return asr(from, to, eps, simpson(from, to, functor), functor);
   }
 }
@@ -35,6 +35,6 @@ double f(double x) {
   return sin(x);
 }
 int main() {
-  cout << fixed << setprecision(1) << integrate(0, 1, f) << '\n';
+  cout << fixed << setprecision(1) << integrate(f, 0, 1) << '\n';
 }
 */
