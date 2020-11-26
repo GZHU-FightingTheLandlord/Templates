@@ -55,6 +55,10 @@ namespace data_structure {
 template<typename Type = int>
 class FenwickTree {
  public:
+  explict FenwickTree(const int size) {
+    n_ = size;
+    fenwick_tree_.resize(size + 1);
+  }
   explict FenwickTree(const int size, const Type& init_value) {
     std::vector<Type> vec(size + 1, init_value);
     Init(vec);
