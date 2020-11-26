@@ -1,3 +1,5 @@
+#include <bits/stdc++.h>
+
 // ~i & i + 1
 // i & -i
 
@@ -44,3 +46,51 @@ struct Interval {
     return getSum(r) - getSum(l - 1);
   }
 };
+
+
+#if 0
+
+namespace data_structure {
+
+template<typename Type = int>
+class FenwickTree {
+ public:
+  explict FenwickTree(const int size, const Type& init_value) {
+    std::vector<Type> vec(size + 1, init_value);
+    Init(vec);
+  }
+  explicit FenwickTree(const vector<Type>& vec) {
+    Init(vec);
+  }
+  void Add(int position, const Type& value) {
+    assert(position > 0);
+    for (int i = position; i <= n_; i += i & (-i)) {
+      fenwick_tree_[i] += value;
+    }
+  }
+  Type Query(int index) const {
+    Type ret;
+    for (int i = index; i > 0; i -= i & (-i)) {
+      ret += fenwick_tree_[i];
+    }
+    return ret;
+  }
+  Type Query(int left, int right) const {
+    assert(left > 0 && right >= left);
+    return Query(right) - Query(left - 1);
+  }
+ private:
+  void Init(const std::vector<Type>& vec) {
+    n_ = vec.size() - 1;
+    fenwick_tree_.resize(vec.size());
+    for (int i = 1; i <= n_; i++) {
+      Add(i, vec[i]);
+    }
+  }
+  int n_;
+  std::vector<Type> fenwick_tree_;
+};
+
+}
+
+#endif
